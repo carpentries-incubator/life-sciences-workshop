@@ -1,43 +1,31 @@
 ---
-layout: lesson
-root: .  # Is the only page that doesn't follow the pattern /:path/index.html
-permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
+title: "Life Sciences Workshop"
 ---
 
-Data Carpentry's aim is to teach researchers basic concepts, skills, and tools for working with data so that they can get more done in less time, and with less pain. This workshop uses a tabular ecology dataset and teaches data cleaning, management, analysis and visualization. 
+Data Carpentry provides workshops on fundamental data concepts, with the aim of proving the required skills to get started with modern data analysis.
+
+This workshop uses a collection of results files from a typical lab-based plate-reader, as seen in most life sciences labs. 
+
+The workshop primarily involves spreadsheet software (such as Microsoft Excel) and R, but assumes no prior knowledge of the latter. Basic familiarity with spreadsheets is expected.
+
+### Structure
+
+#### Day 1 - Spreadsheets
+
+Day 1 is aimed at a general audience of anyone who uses spreadsheets for their work. The material does not cover *how* to use a spreadsheet in terms of calculations, loading data, etc, as such 
+knowledge is generally widespread. Instead, the focus is on how to organise and arrange data files and the data within those files, in order to maximise the transparency and reproducibility of your work.
+
+- [Life Sciences Project Organisation](https://github.com/RobHarrand/life-sciences-project-organisation)
+- [Life Sciences Spreadsheet Best Practice](https://github.com/RobHarrand/life-sciences-project-organisation)
 
 
-> ## Getting Started
->
-> Data Carpentry’s teaching is hands-on, so participants are encouraged to use 
-> their own computers to ensure the proper setup of tools for an efficient 
-> workflow. To most effectively use these materials, please make sure to download 
-> the data and install everything before working through this lesson. 
-> 
-> This workshop assumes no prior experience with the tools covered in the workshop.
->
-> To get started, follow the directions in the [Setup](setup.html) [TO DO] tab to
-> get access to the required software and data for this workshop.
-{: .prereq}
+#### Day 2 - Code based Analysis
 
-> ## Data
-> 
-> The data for this workshop are [TO DO]
->
-> [More information on this dataset](data) [TO DO]
-{: .prereq}
+Day 2 is for those who wish to go beyond the use of spreadsheets for their data analysis, with the introduction of R. The basics are covered, leading
+to the fitting of a 4-parameter logistic regression (4PL) curve to typical enzyme-linked immunosorbent assay (ELISA) data.
 
-# Workshop Overview
+- [Life Sciences with R](https://github.com/RobHarrand/life-sciences-with-r)
 
-The workshop can be taught using R ... [TO DO]
 
-| Lesson    | Overview |
-| ------- | ---------- |
-| [Day 1 - Introduction to project organisation]() | TO DO |
-| [Day 1 - Introduction to spreadsheet best practice ]() | TO DO |
-| [Day 1 - Best practice principles]() | TO DO |
-| [Day 1 - Untidy and tidy data (optinal)]() | TO DO |
-| [Day 2 - Introduction to R and RStudio]() | TO DO |
-| [Day 2 - R Basics]() | TO DO |
-| [Day 2 - Data Manipulation and Plotting]() | TO DO |
-| [Day 2 - Beyond Base R]() | TO DO |
+
+To get started, follow the directions in the [Setup](setup.html) [TO DO] tab to get access to the required software and data for this workshop. {: .prereq}
