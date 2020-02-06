@@ -16,7 +16,7 @@ Day 1 is aimed at a general audience of anyone who uses spreadsheets for their w
 knowledge is generally widespread. Instead, the focus is on how to organise and arrange data files and the data within those files, in order to maximise the transparency and reproducibility of your work.
 
 - [Life Sciences Project Organisation](https://github.com/RobHarrand/life-sciences-project-organisation)
-- [Life Sciences Spreadsheet Best Practice](https://github.com/RobHarrand/life-sciences-project-organisation)
+- [Life Sciences Spreadsheet Best Practice](https://github.com/RobHarrand/life-sciences-spreadsheet-best-practice)
 
 
 #### Day 2 - Code based Analysis
