@@ -1,7 +1,6 @@
 ---
+layout: page
 title: Setup
 ---
-FIXME
 
-
-{% include links.md %}
+(Include R and RStudio installation for Windows, Linux and Mac)

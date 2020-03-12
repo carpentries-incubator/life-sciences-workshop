@@ -1,0 +1,29 @@
+---
+title: "Introduction"
+teaching: 15
+exercises: 0
+questions:
+- "Why bother to code?"
+objectives:
+- "Understand the reasons why data analysis by code is extremely useful"
+keypoints:
+- "Coding isn't always the answer, but it's hard to justify not using it for anything large-scale and/or important"
+---
+
+### Why Code?
+
+Coding can be difficult and frustrating. The learning curve is steep. At fist, doing the simplest tasks in a spreadsheet can take several minutes via code. So why on Earth would anyone bother? Without knowing the answer to this question, it can be difficult to stay motivated whilst learning how to perform data analysis via code. In no particular order, here are the main reasons,
+
+1) **Reproducibililty**. When you go from your raw data to final output (whether that's a table of results, a plot, a curve-fit, etc) in a spreadsheet, the mouse-clicks that you perform to get there are immediately lost. There is no-way at some future point to know exactly what you or someone else did. The consequence of this is that you have to try and guess the details of what was done, which is both time consuming and prone to error. With code, the precise chain of events can be followed, line-by-line, with no ambiguity. This not only saves time, but it makes it much easier to spot mistakes. This is all absolutely essential for modern scientific research
+
+2) **Efficiency**. True, I just claimed that the simplest tasks will take you much longer via code, *initially*. But as your skills develop, you will get quicker with your analysis, and you'll find that
+the coding approach may be even quicker in some circumstances. Where the coding approach wins hands-down, however, is with repeat analysis. If you need to analyse 1 file and produce 1 plot, a spreadsheet might be quicker. If you need to analyse 1000 files and produce 1000 plots, using a spreadsheet will take you many painstaking, laborious, non-reproducible hours
+
+3) **Automation**. This is an extension of the point above. Because analysis can be repeated precisely, it can also be automated. Analysis or the production of reports that currently require manual processing can be set to kick-in at, say, 6am each morning, providing you with a complete analysis of the latest data for you as you arrive at work. And yes, R can automatically produce entire reports
+
+4) **Power and flexibility**. Coding environments such as R and Python can read just about any data-type and have countless tools for data manipulation such as merging different datasets. They're also a
+lot better at handling huge amounts of data, and have advanced statistical and data visualisation capabilities. The base functionality can also be extended via thousands of additional community-developed packages
+
+5) **Cost**. R and Python are open-source and free to use
+
+6) **Community**. The R community is huge. Someone, somewhere, has probably already solved whatever coding problem you encounter

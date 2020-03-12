@@ -8,18 +8,12 @@ The workshop primarily involves spreadsheet software (such as Microsoft Excel) a
 
 ### Structure
 
-#### Day 1 - Spreadsheets
+#### Day 1 - Projects and Spreadsheets
 
 Day 1 is aimed at a general audience of anyone who uses spreadsheets for their work. The material does not cover *how* to use a spreadsheet in terms of calculations, loading data, etc, as such 
 knowledge is generally widespread. Instead, the focus is on how to organise and arrange data files and the data within those files, in order to maximise the transparency and reproducibility of your work.
-
-- [Life Sciences Project Organisation](https://github.com/RobHarrand/life-sciences-project-organisation)
-- [Life Sciences Spreadsheet Best Practice](https://github.com/RobHarrand/life-sciences-spreadsheet-best-practice)
-
 
 #### Day 2 - Code based Analysis
 
 Day 2 is for those who wish to go beyond the use of spreadsheets for their data analysis, with the introduction of R. The basics are covered, leading
 to the fitting of a 4-parameter logistic regression (4PL) curve to typical enzyme-linked immunosorbent assay (ELISA) data.
-
-- [Life Sciences with R](https://github.com/RobHarrand/life-sciences-with-r)
