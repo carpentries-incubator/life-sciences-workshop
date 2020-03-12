@@ -12,4 +12,5 @@ _site
 .bundle/
 .vendor/
 .docker-vendor/
+data/files_for_images/
 Gemfile.lock
