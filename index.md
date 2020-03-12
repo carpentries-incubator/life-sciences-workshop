@@ -39,7 +39,7 @@ to the fitting of a 4-parameter logistic regression (4PL) curve to typical enzym
 
 - [Introduction](https://github.com/carpentries-incubator/life-sciences-workshop/blob/gh-pages/_episodes_rmd/08-r-introduction.rmd)
 - [Tidy Data](https://github.com/carpentries-incubator/life-sciences-workshop/blob/gh-pages/_episodes_rmd/09-r-tidy-data.rmd)
-- [R and RStudio](hhttps://github.com/carpentries-incubator/life-sciences-workshop/blob/gh-pages/_episodes_rmd/10-r-and-rstudio.rmd)
+- [R and RStudio](https://github.com/carpentries-incubator/life-sciences-workshop/blob/gh-pages/_episodes_rmd/10-r-and-rstudio.rmd)
 - [R Fundamentals](https://github.com/carpentries-incubator/life-sciences-workshop/blob/gh-pages/_episodes_rmd/11-r-fundamentals.rmd)
 - [Data Manipulation and Plotting](https://github.com/carpentries-incubator/life-sciences-workshop/blob/gh-pages/_episodes_rmd/12-r-data-manipulation-and-plotting.rmd)
 - [Beyond Base R](hhttps://github.com/carpentries-incubator/life-sciences-workshop/blob/gh-pages/_episodes_rmd/13-r-beyond-base-r.rmd)
