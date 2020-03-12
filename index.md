@@ -35,7 +35,7 @@ The lessons and associated episodes for day 1 are as follows,
 Day 2 is for those who wish to go beyond the use of spreadsheets for their data analysis, with the introduction of R. The basics are covered, leading
 to the fitting of a 4-parameter logistic regression (4PL) curve to typical enzyme-linked immunosorbent assay (ELISA) data.
 
-###### Life Sciences with R
+##### Life Sciences with R
 
 - [Introduction](https://github.com/carpentries-incubator/life-sciences-workshop/episodes_rmd/08-r-introduction.rmd)
 - [Tidy Data](https://github.com/carpentries-incubator/life-sciences-workshop/episodes_rmd/09-r-tidy-data.rmd)
