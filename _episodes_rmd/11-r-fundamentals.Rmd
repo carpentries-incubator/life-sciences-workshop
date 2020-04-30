@@ -10,54 +10,6 @@ keypoints:
 - "Base R features and techniques"
 ---
 
-### Getting help
-
-The easiest way to get help is to write the name of the function you're interested in, preceded by a question mark. For example,
-
-```{r}
-#?plot
-```
-
-This brings up the help file for the function (a function is a package of code that performs a particular task). Beyond this, there are many websites with guides and user forums with guidance. Often, just searching on Google for the problem you're trying to solve (e.g. *'How do I plot a histogram in R?'*) or searching for the error message (e.g. *'non-numeric argument to binary operator'*) will lead you to the answer.
-
-There are also a number of websites that may be of use, including,
-
-[The Comprehensive R Archive Network](https://cran.r-project.org/)
-
-[Stack Overflow](https://stackoverflow.com/questions/tagged/r)
-
-[Stat Methods - Quick R](https://www.statmethods.net/)
-
-#### Exercise
-
-1. Type and run,
-
-```{r}
-mean(numbers)
-```
-
-What happens?
-
-2. Type and run,
-
-```{r}
-numbers = c(1,2,3,4,NA)
-```
-
-What happens?
-
-3. Re-run the following line,
-
-```{r}
-mean(numbers)
-```
-
-Now what happens?
-
-4. Type '?mean'. See if you can figure out how to amend the code in step 3 to give you a sensible answer
-
-You may notice RStudio's auto-complete feature when typing the answer.
-
 
 ### Simple arithmetic
 
@@ -107,6 +59,9 @@ sample1 = 6
 sample2 = 4
 sample1 + sample2
 ```
+
+Note that R is case sensitive. For example, 'sample' is not the sample as 'Sample'. Also keep in mind that variables should be named in a sensible and clear way in order to enhance reproducibility. For example, if you return to your code after a long break, and see a variable called 'b', you'll have some work to do to figure out what you meant. Life will be easier if you call it, for example, 'biomarker_CRP_mgml'. You can also add comments to your R code using the hash symbol #. Any text after this symbol will be ignored.
+
 
 We can also assign words to variables,
 
@@ -171,6 +126,7 @@ We've just said 'are the elements of our vector, patients_ages, greater than or 
 
 R comes with a huge number of functions, covering every possible data analysis and statistical requirement.
 
+
 #### Exercise
 
 Create the following vector,
@@ -183,12 +139,62 @@ and investigate the following functions,
 
 - round()
 - sqrt()
-- mean()
 - median()
 - max()
 - sort()
 
-These are useful functions for applying to existing numerical data. There are also functions that are useful for being applied to non-numerical data.
+
+### Getting help
+
+The easiest way to get help is to write the name of the function you're interested in, preceded by a question mark. For example,
+
+```{r}
+#?plot
+```
+
+This brings up the help file for the function (a function is a package of code that performs a particular task). Beyond this, there are many websites with guides and user forums with guidance. Often, just searching on Google for the problem you're trying to solve (e.g. *'How do I plot a histogram in R?'*) or searching for the error message (e.g. *'non-numeric argument to binary operator'*) will lead you to the answer.
+
+There are also a number of websites that may be of use, including,
+
+[The Comprehensive R Archive Network](https://cran.r-project.org/)
+
+[Stack Overflow](https://stackoverflow.com/questions/tagged/r)
+
+[Stat Methods - Quick R](https://www.statmethods.net/)
+
+#### Exercise
+
+1. Type and run,
+
+```{r}
+mean(numbers)
+```
+
+What happens?
+
+2. Type and run,
+
+```{r}
+numbers = c(1,2,3,4,NA)
+```
+
+What happens?
+
+3. Re-run the following line,
+
+```{r}
+mean(numbers)
+```
+
+Now what happens?
+
+4. Type '?mean'. See if you can figure out how to amend the code in step 3 to give you a sensible answer
+
+You may notice RStudio's auto-complete feature when typing the answer.
+
+
+
+The above functions are useful for applying to existing numerical data. There are also functions that are useful for being applied to non-numerical data.
 
 #### Exercise
 

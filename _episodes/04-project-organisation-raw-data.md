@@ -16,9 +16,12 @@ keypoints:
 The term 'raw data' is common and often heard in many different contents. However, when there is no agreed definition of what this actually means, problems can arise.
 
 Raw data means unedited and unprocessed. It is the file that the instrument exports, or the file that you download from a cloud-based sensor, or the base file that you've created by manually entering 
-some figures. It is in a very simple format, such as .CSV or .TXT, and may well be messy and require considerable processing before it becomes useful.
+some figures. The simpler the file format, the more useful the data. For example, raw data in the form of open file formats such as .CSV or .TXT can be opened by a wide range of programs. Raw 
+data may well be messy and require considerable processing before it becomes useful. Other names for raw data are source data or primary data.
 
-Other names for raw data are source data or primary data.
+Sometimes, raw data will not be in a simple, open file format. For example, if the data comes from a piece of lab equipment in a proprietary file format. In cases such as these, the files
+should still be kept exactly as they are and refered to as the raw data. Conversion to an open file format may be possible, and may form the basis of all consequency analysis. However, this is
+then *not* the raw data.
 
 
 ### The importance of raw data

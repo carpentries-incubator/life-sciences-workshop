@@ -26,7 +26,33 @@ This file is particularly important for projects that involve multiple files, an
 
 Think of this README.txt file as an email to your future self. What will you need to know about these files in, say, 18 months?
 
-In all but the most complex of datasets, this file should take <10 minutes to create.
+In all but the most complex of datasets, this file should take <10 minutes to create. It does not have to be formal and detailed, although of course it can be if that is deemded necessary. An
+example of a relatively simple README.txt file,
+
+-------------------
+README.txt file created by Rob Harrand on 2020-04-29
+====================================================
+
+Principle researcher: Joe Bloggs
+Email: joe.bloggs@research.institute.com
+
+Secondary researcher: Jim Smith
+Email: joe.bloggs@research.institute.com
+
+* Files in this folder related to project PROJ_00123
+* See report proj_00123_plan_20190315_JB_v01.docx for general project details
+* All data collected week commencing 2nd Dec 2019 by Jim Smith (lab B, building 631)
+* For protocols and instrument detail see corresponding ELISA details in experimental_protocols_20180319_TR_v03.docx
+
+* Raw data is in Data/Raw/
+* Analysed data is in Data/Analysed/
+* Analysis scripts are in Code/R scripts/
+
+* Both the raw and analysed data are commercially sensitive. See NDA-000113
+* Adjusted biomarker levels in all .xls files are adjusted by subtracking the mean and dividing by the standard deviation
+* Missing data are indicated using NA throughout all analysed files
+
+-------------------
 
 
 ### Data dictionaries

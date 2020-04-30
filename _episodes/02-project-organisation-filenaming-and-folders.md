@@ -11,6 +11,9 @@ keypoints:
 - Get this bit right, and everything that comes next will be easier
 ---
 
+Poor file-naming can make your life and the lives of your collaborators unnecessarily stressful. Data will be lost or at best hard to find. Incorrect files will be used and shared. 
+Important files will be overwritten. For the sake of a few extra seconds when saving your files, all of these issues can be remedied.
+
 ### The Principles of Good File-naming
 
 - Common elements that a filename should include (where relevant) are: Version number, date of creation, name of creator, description of content, name of team/department, publication date and project number
@@ -27,6 +30,12 @@ keypoints:
 
 Thinking about and typing a good filename may take an extra 30 seconds, but it may cost you a lot more time in the future if you don't.
 
+One issue you may encounter when following the above guidelines is a large number of previous versions. For example, you may edit and resave a file everyday for several months. What should you
+do with the old versions? One approach would be to create an 'archive' folder, and put older files in there. These could be compressed by storing them in an archive file in order to save space
+(e.g. a zip or tar.gz file). If your older files are too large simply to store in an archive, even after compression, there are a few options. One would be to only save those files that contain
+major revisions, deleting any that contained minor changes. Another would be to store the files on cloud storage, where tens of gigabytes of space can now be purchased very cheaply.
+
+
 
 ### The Principles of Good Folder Organisation
 
@@ -36,6 +45,7 @@ Thinking about and typing a good filename may take an extra 30 seconds, but it m
 - Be consistent between projects
 - Structure hierarchically. Start broad and drill-down into specific areas or projects
 - Review folder content periodically, and consider moving older files that are no longer needed into an 'archive' folder
+
 
 #### Exercise - How could you improve the following set-up?
 

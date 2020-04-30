@@ -132,9 +132,7 @@ df$Sample[c(5:8)] = 'Sample 2'
 boxplot(df$Col_2 ~ df$Sample)
 ```
 
-Don't worry too much about the first two lines. What they're doing is creating a new (made-up) column called 'Sample' and setting every value to be 'Sample 1'. It then
-sets the 5th through to the 8th values to be equal to 'Sample 2'. The boxplot is then plotting the numerical values in column 2 split by this new variable. This is of course
-easier when your data already has such categories.
+Don't worry too much about the first two lines. What they're doing is creating a new (made-up) column called 'Sample' and setting every value to be 'Sample 1'. It then sets the 5th through to the 8th values to be equal to 'Sample 2'. The boxplot is then plotting the numerical values in column 2 split by this new variable. This is of course easier when your data already has such categories.
 
 How about a histogram?
 
@@ -154,8 +152,7 @@ Notice on the plot panel you have an Export option. This allows you to save your
 
 Something to keep in mind with plots in R is that they tend to be made for 2 different reasons. One is to create slick, professional plots for reports, presentations and publications. These take time to craft and are typically done using libraries beyond base R (the main one of which we'll see later).
 
-The second reason for plotting in R is to *explore* the data. These plots are usually done in base R and produced quickly, in order to get a feel for the data. This
-idea of exploring data visually is an important concept, because it's very difficult to understand your data from glancing at the raw numbers or even summary statistics. 
+The second reason for plotting in R is to *explore* the data. These plots are usually done in base R and produced quickly, in order to get a feel for the data. This idea of exploring data visually is an important concept, because it's very difficult to understand your data from glancing at the raw numbers or even summary statistics. 
 
 As a concrete example, consider the following 4 separate datasets,
 
@@ -189,7 +186,7 @@ abline(lm(anscombe$y4 ~ anscombe$x4), col = 'red')
 
 We see that they're very different. This is a famous example called [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet), and highlights the perils of trying to use summary statistics to understand your data.
 
-One more point to raise. You may have notices that magically created this Anscombe's quartet data from one-where. R actually comes with many datasets pre-installed, to be used for learning how to code. To see the fill list, type,
+One more point to raise. You may have noticed that we magically created this Anscombe's quartet data from no-where. R actually comes with many datasets pre-installed, to be used for learning how to code. To see the fill list, type,
 
 ```{r}
 data()

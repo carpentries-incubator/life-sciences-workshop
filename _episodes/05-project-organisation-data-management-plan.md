@@ -36,6 +36,10 @@ for many funding organisations. This document should briefly answer the followin
 
 The [Data Management Planning Tool](https://dmptool.org/) is a free, online platform that allows data management plans to be created quickly from a range of templates.
 
+Data management plans should be reviewed as a project progressed, and modified accordingly.
+
+As part of a data management plan, it may be useful to create a flow-diagram of the planned data-flow through the expected 'analysis pipeline', i.e. a visual overview starting with the raw
+data, through all analysis steps (and associate files used), to the final output.
 
 ### Example of a good project setup
 
@@ -44,4 +48,5 @@ The [Data Management Planning Tool](https://dmptool.org/) is a free, online plat
 
 #### Exercise
 
-Think of a past project where you encountered some sort of data issue. Which of these ideas (file-naming, folder organisation, meta-data, data dictionaries, data management plans) would been useful and why?
+Think of a past project where you encountered some sort of data issue. Which of these ideas (file-naming, folder organisation, meta-data, data dictionaries, data management plans) would 
+be useful and why?

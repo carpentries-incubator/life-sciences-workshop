@@ -3,13 +3,13 @@ title: "Introduction"
 teaching: 20
 exercises: 5
 questions:
-- How do most people organise their data and associated files?
-- What are some common issues with not having a clear plan for the naming and storage of files?
-- Why is this important? (reproducible research)
+- "How do most people organise their data and associated files?"
+- "What are some common issues with not having a clear plan for the naming and storage of files?"
+- "Why is this important? (reproducible research)
 objectives:
-- Understand that it all starts here
+- "Understand that it all starts here"
 keypoints:
-- Good data organization is the foundation of any research project
+- "Good data organization is the foundation of any research project"
 ---
 
 ### The Horror
