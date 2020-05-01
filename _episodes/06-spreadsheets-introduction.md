@@ -1,13 +1,13 @@
 ---
-title: "Introduction"
+title: "Spreadsheets: Introduction"
 teaching: 10
 exercises: 10
 questions:
-- "When should you use a spreadsheet?"
+- When should you use a spreadsheet?
 objectives:
-- "Start to understand when spreadsheets are and aren't appropriate"
+- Start to understand when spreadsheets are and aren't appropriate
 keypoints:
-- "Spreadsheets can be extremely useful, but they can also cause chaos"
+- Spreadsheets can be extremely useful, but they can also cause chaos
 ---
 
 Professor Daniel Lemire from the University of Quebec, in a popular blog post titled 'You shouldn’t use a spreadsheet for important work (I mean it)', 

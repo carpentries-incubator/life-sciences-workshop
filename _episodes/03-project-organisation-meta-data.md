@@ -1,5 +1,5 @@
 ---
-title: "Meta-data"
+title: "Project Organisation: Meta-data"
 teaching: 20
 exercises: 0
 questions:

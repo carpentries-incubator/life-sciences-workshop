@@ -1,13 +1,13 @@
 ---
-title: "Guiding Principles"
+title: "Spreadsheets: Guiding Principles"
 teaching: 30
 exercises: 30
 questions:
-- "How should spreadsheets be used to maximise efficiency and reproducibility?"
+- How should spreadsheets be used to maximise efficiency and reproducibility?
 objectives:
-- "Understand the dos and don't of spreadsheets"
+- Understand the dos and don't of spreadsheets
 keypoints:
-- "A number of simple concepts can increase the future usability of data"
+- A number of simple concepts can increase the future usability of data
 ---
 
 In this section we'll look at how to use spreadsheets in an efficient, clear and reproducible way.

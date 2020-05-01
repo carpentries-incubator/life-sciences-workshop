@@ -1,5 +1,5 @@
 ---
-title: "Data Management Plan"
+title: "Project Organisation: Data Management Plan"
 teaching: 10
 exercises: 5
 questions:

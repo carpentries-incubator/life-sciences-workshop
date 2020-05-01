@@ -1,5 +1,5 @@
 ---
-title: "File-naming and folder structures"
+title: "Project Organisation: File-naming and folder structures"
 teaching: 10
 exercises: 5
 questions:

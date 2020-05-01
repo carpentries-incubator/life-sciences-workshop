@@ -1,18 +1,18 @@
 ---
-title: "Introduction"
+title: "Project Organisation: Introduction"
 teaching: 20
 exercises: 5
 questions:
-- "How do most people organise their data and associated files?"
-- "What are some common issues with not having a clear plan for the naming and storage of files?"
-- "Why is this important? (reproducible research)
+- How do most people organise their data and associated files?
+- What are some common issues with not having a clear plan for the naming and storage of files?
+- Why is this important? (reproducible research)
 objectives:
-- "Understand that it all starts here"
+- Understand that it all starts here
 keypoints:
-- "Good data organization is the foundation of any research project"
+- Good data organization is the foundation of any research project
 ---
 
-### The Horror
+### Data Chaos
 
 Today, many people organise the files associated with some sort of data project in the same manner as they've always done it. Namely, to save files in a sporadic fashion with generic filenames, often
 differing from project to project. The result is waste. Wasted time, wasted money and wasted effort, plus the obvious risks of mistakes, with files being lost, shared with the wrong people, or incorrect 
