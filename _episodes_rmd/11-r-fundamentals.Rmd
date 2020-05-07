@@ -1,7 +1,7 @@
 ---
 title: "R fundamentals"
-teaching: 
-exercises: 
+teaching:
+exercises:
 questions:
 - "What are the basic features of R?"
 objectives:
@@ -9,6 +9,12 @@ objectives:
 keypoints:
 - "Base R features and techniques"
 ---
+
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("11-")
+```
 
 
 ### Simple arithmetic
@@ -91,7 +97,7 @@ Vector is just a fancy word for a collection of items. For example,
 patients_ages = c(12,5,6,3,7,13)
 patients_names = c('Jim', 'John', 'Brian', 'Susan', 'Keith', 'Geoff')
 ```
-  
+
 Note that we string them together the the letter *c*, which stands for **combine**.
 
 Once we have a vector, we can pick out certain elements. For example,
@@ -260,12 +266,12 @@ Data structures are collections of the above, and we've already seen one of thes
 - matrix
 - data-frame
 
-Lists are like vectors, but they can contain a mixture of data types. Matrices are 2-dimensional structures used in various areas of science and statistics. The data-type that most 
+Lists are like vectors, but they can contain a mixture of data types. Matrices are 2-dimensional structures used in various areas of science and statistics. The data-type that most
 resembles a spreadsheet is the data-frame, which we'll see in the next section on loading data.
 
 ### Sub-setting
 
-Whatever your data type, often you'll want to subset the data in order to use certain parts. For example, you may want the first element of a vector, or the last 3 elements, or the first column from a 
+Whatever your data type, often you'll want to subset the data in order to use certain parts. For example, you may want the first element of a vector, or the last 3 elements, or the first column from a
 matrix. You may even wish to subset a character vector and pick out, say, the first letter.
 
 #### Exercise

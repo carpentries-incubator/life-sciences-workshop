@@ -10,15 +10,22 @@ keypoints:
 - "Tidy data makes future analysis very straightforward, especially in coding environments"
 ---
 
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("09-")
+```
+
+
 When analysing data using code, the ideal scenario is to go from the raw data to the finished outcome, whether that's a plot, a table, an interactive
 app or machine-learning model, completely via code. Depending on the complexity of the data and the analysis, this may be made up of a series of different coding
 scripts, creating a data analysis 'pipeline'.
 
-Very often, the data that you start with is not optimsed for analysis via code. In fact, often the bulk of a data analysis project is data cleaning, 
+Very often, the data that you start with is not optimsed for analysis via code. In fact, often the bulk of a data analysis project is data cleaning,
 with the actual analysis part only occurring at the end.
 
 The optimal format for such analysis is known as 'tidy data', and looks quite different to the sorts of formats you may typically come across when
-using spreadsheets. 
+using spreadsheets.
 
 Often, you will deal with 'wide' data. That is, data with lots of columns and fewer numbers of rows. Specifically, each variable has its own column.
 In R, the preferred format is 'long', where one column contains all of the values with the remaining columns giving those columns context. Below is

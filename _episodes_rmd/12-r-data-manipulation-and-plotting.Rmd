@@ -11,6 +11,12 @@ keypoints:
 ---
 
 
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("12-")
+```
+
+
 ### Loading Data
 
 R can handle a wide variety of data-types. For this lesson we'll keep things simple and load a CSV file. Type the following,
@@ -33,7 +39,7 @@ Type the following and see what happens,
 4. df[,1]
 
 With this last command you may notice that underneath the output, it says 'Levels'. If you expand the 'df' object in your environment panel (by clicking the down-arrow next to it), you'll
-see that the column X1 is a 'factor'. Factors are another important data type in R, and they're used to represent categorical data. These categories can be unordered, such as 'Male and 'Female', 
+see that the column X1 is a 'factor'. Factors are another important data type in R, and they're used to represent categorical data. These categories can be unordered, such as 'Male and 'Female',
 or ordered, such as 'High', 'Medium' and 'Low'. As you can see, the categories (or level) here are A, B, C, D, E, F, G and H.
 
 A code based way of checking the data types within a data-frame is to use the 'str()' command. Try it out.
@@ -64,7 +70,7 @@ Investigate the following functions,
 - colnames()
 - summary()
 
-Note, when an R function gives you multiple values, you can just get individual values by indexing with square brackets. For example, 
+Note, when an R function gives you multiple values, you can just get individual values by indexing with square brackets. For example,
 
 ```{r}
 dim(df)[2]
@@ -108,13 +114,13 @@ plot(df$Col_2)
 ```
 
 We've used a couple of new things here. First, we've used the **plot()** function, and second, we've picked out a column from the data-frame with the **$** symbol. This is
-a shortcut in R, and the auto-fill should help you whenever you type the name of a data-frame, followed by this symbol. 
+a shortcut in R, and the auto-fill should help you whenever you type the name of a data-frame, followed by this symbol.
 
 You should now have a basic plot of the values in column 2. As R is infinitely customisable, we can of course improve this plot. For example,
 
 ```{r}
 plot(df$Col_2,
-     ylab = 'Optical Density', 
+     ylab = 'Optical Density',
      main = 'Plot of Index vs Optical Density',
      type = 'l',
      col = 'red')
@@ -152,7 +158,7 @@ Notice on the plot panel you have an Export option. This allows you to save your
 
 Something to keep in mind with plots in R is that they tend to be made for 2 different reasons. One is to create slick, professional plots for reports, presentations and publications. These take time to craft and are typically done using libraries beyond base R (the main one of which we'll see later).
 
-The second reason for plotting in R is to *explore* the data. These plots are usually done in base R and produced quickly, in order to get a feel for the data. This idea of exploring data visually is an important concept, because it's very difficult to understand your data from glancing at the raw numbers or even summary statistics. 
+The second reason for plotting in R is to *explore* the data. These plots are usually done in base R and produced quickly, in order to get a feel for the data. This idea of exploring data visually is an important concept, because it's very difficult to understand your data from glancing at the raw numbers or even summary statistics.
 
 As a concrete example, consider the following 4 separate datasets,
 
@@ -188,13 +194,10 @@ We see that they're very different. This is a famous example called [Anscombe's 
 
 One more point to raise. You may have noticed that we magically created this Anscombe's quartet data from no-where. R actually comes with many datasets pre-installed, to be used for learning how to code. To see the fill list, type,
 
-```{r}
+```{r, eval=FALSE}
 data()
 ```
 
 #### Exercise
 
 Pick a pre-installed dataset and explore it via any of the functions we've covered so far.
-
-
-

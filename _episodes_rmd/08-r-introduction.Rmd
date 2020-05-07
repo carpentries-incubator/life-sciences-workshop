@@ -10,6 +10,12 @@ keypoints:
 - "Coding isn't always the answer, but it's hard to justify not using it for anything large-scale and/or important"
 ---
 
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("08-")
+```
+
 ### Why Code?
 
 Coding can be difficult and frustrating. The learning curve is steep. At fist, doing the simplest tasks in a spreadsheet can take several minutes via code. So why on Earth would anyone bother? Without knowing the answer to this question, it can be difficult to stay motivated whilst learning how to perform data analysis via code. In no particular order, here are the main reasons,

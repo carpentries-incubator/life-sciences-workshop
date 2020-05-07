@@ -10,6 +10,13 @@ keypoints:
 - "R can be extended in thousands of different ways"
 ---
 
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("13-")
+```
+
+
 ### Loading packages
 
 We've seen how R comes with a variety of built-in functions, and we've used many of them to perform various tasks. R can also be extended using any of thousands of additional libraries, each of which comes with several new functions. For a list of all of these libraries (also known as packages), see the Comprehensive R Archive Network (CRAN) website [here](https://cran.r-project.org/web/packages/available_packages_by_name.html).
@@ -27,7 +34,7 @@ The first package we'll use is called **ggplot2**, where 'gg' stands for 'gramma
 
 First, you'll need to install the package with the following code,
 
-```{r}
+```{r, eval=FALSE}
 install.packages('ggplot2')
 ```
 
@@ -111,7 +118,7 @@ Sample_results$Marker = paste0('Marker ', seq(1,36))
 
 ### The coding punchline
 
-We've seen a lot of features and functions in R, many of which may seem like they take a significant amount of thought and effort to use. Recall at the start of today the benefits of using code were **reproducibililty**, **efficiency** and **automation**. 
+We've seen a lot of features and functions in R, many of which may seem like they take a significant amount of thought and effort to use. Recall at the start of today the benefits of using code were **reproducibililty**, **efficiency** and **automation**.
 
 The code above, although fairly involved, is completely reproducible. If you were to return to your analysis 18 months from now, you'd be able to see precisely what had been done, starting with the raw data all the way through to the final results.
 
@@ -121,10 +128,10 @@ First we need to make our own function, to then use like we've been using other 
 
 ```{r}
 times_ten = function(number_in) {
-  
+
   number_out = number_in * 2
   return(number_out)
-  
+
 }
 ```
 
@@ -147,19 +154,19 @@ Take a couple of minutes to look over the code and read the associated comments,
 
 ```{r}
 bulk_plots = function(keyword) {
-  
-  files = list.files(path = "../data/", 
+
+  files = list.files(path = "../data/",
                      pattern = keyword,
                      full.names = T)
-  
+
   n=1 #for the file number
-  
+
   #iterate over the files in the directory,
   for (f in files) {
-    
+
     #read the data,
     elisa = read.csv(f)
-    
+
     elisa_stds = elisa[c(1:5),c(1:3)] #based upon the plate definitions
     elisa_stds$standards = c(1000, 500, 250, 125, 62.5) #Add a column of standard values
     elisa_stds$log_conc = log10(elisa_stds$standards) #Log the standard values
@@ -169,17 +176,17 @@ bulk_plots = function(keyword) {
     curve_4pl = drm(OD ~ standards,
                 fct=LL.4(),
                 data=elisa_stds)
-    
+
     #save the plot to a png file,
     png(filename = paste0("../data/", 'plot_', n, '_', Sys.Date(), '.png'))
-    
+
       plot(curve_4pl, col = 'red', main = paste('Plot ', n)) #create the plot
-    
+
     dev.off() #close the png file
     n=n+1
-    
+
   }
-  
+
 }
 ```
 
@@ -199,11 +206,3 @@ We've just seen how to load x10 files, perform x10 curve-fits and produce x10 pl
 R can generate not only images, but processed data-files, mathematical models, full reports in Word or PDF formats, slides, websites and even interactive apps. The level of sophistication is unlimited and can make any routine data processes much quicker, transparent and less prone to human copy-and-paste errors. Any process that you have in your department or company that's done on a regular basis could and should be performed by code.
 
 Good luck on your R journey!
-
-
-
-
-
-
-
-

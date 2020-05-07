@@ -10,9 +10,16 @@ keypoints:
 - "RStudio is the software used for coding in R"
 ---
 
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("10-")
+```
+
+
 ### R
 
-R is a programming language designed specifically for statistics and data analysis. It's used worldwide in all industries, including science, finance, 
+R is a programming language designed specifically for statistics and data analysis. It's used worldwide in all industries, including science, finance,
 healthcare and government, by companies such as Facebook, Twitter, Microsoft and Google. Below is an image of what it looks like,
 
 ![alt text](../fig/03-r-screen-shot.png "R screen-shot")
@@ -23,7 +30,7 @@ command prompt (where code is entered) at the bottom. Here, '2+2' has been enter
 ### RStudio
 
 To allow R to be used for real-world data projects, a program called RStudio is used, which effectively sits on top of R. This allows the R functionality
-to be used, but in a modern programming environment. RStudio allows you to not only write lines of code, but to create projects (where all relevant 
+to be used, but in a modern programming environment. RStudio allows you to not only write lines of code, but to create projects (where all relevant
 files and data are bundled together), notebooks (documents with text and code integrated together), presentation slides, websites and interactive apps.
 
 Below us an image of what it looks like,
@@ -46,7 +53,7 @@ numbers = c(1,2,3,4,5)
 ```
 
 Press CTRL-Enter. What happens?
-  
+
 2. On a different line, type,
 
 ```{r}
