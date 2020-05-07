@@ -13,13 +13,19 @@ Note that although the dataset used throughout these lessons is scientific, the 
 
 ### Structure
 
-Day 1 is aimed at a general audience of anyone who uses spreadsheets for their work. The material does not cover *how* to use a spreadsheet in terms of calculations, loading data, etc, as such 
+Day 1 is aimed at a general audience of anyone who uses spreadsheets for their work. The material does not cover *how* to use a spreadsheet in terms of calculations, loading data, etc, as such
 knowledge is generally widespread. Instead, the focus is on how to organise and arrange data files and the data within those files, in order to maximise the transparency and reproducibility of your work.
 
 Day 2 is for those who wish to go beyond the use of spreadsheets for their data analysis, with the introduction of R. The basics are covered, leading
 to the fitting of a 4-parameter logistic regression (4PL) curve to typical enzyme-linked immunosorbent assay (ELISA) data.
 
-To get started, follow the directions in the [Setup](setup.html) [TO DO] tab to get access to the required software and data for this workshop. {: .prereq}
+> ## Prerequisites
+>
+> To get started, follow the directions in the [Setup](setup.html) [TO DO] tab to get access to the
+> required software and data for this workshop.
+{: .prereq}
+
+
 
 
 {% include links.md %}
