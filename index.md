@@ -1,10 +1,11 @@
 ---
+layout: lesson
 title: "Life Sciences Workshop"
 ---
 
 Data Carpentry provides workshops on fundamental data concepts, with the aim of proving the required skills to get started with modern data analysis.
 
-This workshop uses a collection of results files from a typical lab-based plate-reader, as seen in most life sciences labs. 
+This workshop uses a collection of results files from a typical lab-based plate-reader, as seen in most life sciences labs.
 
 The workshop primarily involves spreadsheet software (such as Microsoft Excel) and R, but assumes no prior knowledge of the latter. Basic familiarity with spreadsheets is expected.
 
