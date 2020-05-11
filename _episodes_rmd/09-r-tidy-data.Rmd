@@ -50,13 +50,6 @@ There are also points during analysis where you'll have intermediate datasets, w
 > Take a look at the file 'untidy-to-tidy-eg1.xlm'. Have a look at the 3 tabs and see the different ways that the same data is laid out
 >
 >
-> {: .language-r}
->
-> > ## Solution
-> >
-> >
-> > {: .output}
-> {: .solution}
 {: .exercise}
 
 
