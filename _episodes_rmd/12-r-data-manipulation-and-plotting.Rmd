@@ -1,5 +1,5 @@
 ---
-title: "Data Manipulation and Plotting"
+title: "R introduction: Data Manipulation and Plotting"
 teaching: 45
 exercises: 45
 questions:

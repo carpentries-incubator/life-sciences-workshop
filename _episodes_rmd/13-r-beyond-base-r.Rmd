@@ -1,5 +1,5 @@
 ---
-title: "Beyond Base R"
+title: "R introduction: Beyond Base R"
 teaching: 30
 exercises: 20
 questions:

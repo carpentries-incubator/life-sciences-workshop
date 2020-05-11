@@ -28,9 +28,7 @@ command prompt (where code is entered) at the bottom. Here, '2+2' has been enter
 
 ### RStudio
 
-To allow R to be used for real-world data projects, a program called RStudio is used, which effectively sits on top of R. This allows the R functionality
-to be used, but in a modern programming environment. RStudio allows you to not only write lines of code, but to create projects (where all relevant
-files and data are bundled together), notebooks (documents with text and code integrated together), presentation slides, websites and interactive apps.
+To allow R to be used for real-world data projects, a program called RStudio is used, which effectively sits on top of R. This allows the R functionality to be used, but in a modern programming environment. RStudio allows you to not only write lines of code, but to create projects (where all relevant files and data are bundled together), notebooks (documents with text and code integrated together), presentation slides, websites and interactive apps.
 
 Below us an image of what it looks like,
 
@@ -43,41 +41,88 @@ The 4 main areas (which may be positioned differently on your screen) are,
 3. **Environment**. This is where any variables that are being used can be seen. More on these later
 4. **Everything else**. Here you can see details of files, packages, help information, and any plots that have been created
 
-#### Exercise - RStudio
+To run code, you can either click on a line and press CTRL-ENTER, or click the 'Run' button the top-right corner of the source panel.
 
-1. Load RStudio and in the source section, type the following,
-
-
-~~~
-numbers = c(1,2,3,4,5)
-~~~
-{: .language-r}
-
-Press CTRL-Enter. What happens?
-
-2. On a different line, type,
-
-
-~~~
-total = sum(numbers)
-~~~
-{: .language-r}
-
-What happens?
-
-3. On a different line, type,
+> ## Challenge: Your first R command
+>
+> Load RStudio and in the source section, type and then run the following code. What happens?
+>
+>
+> ~~~
+> (10+10)*2
+> ~~~
+> {: .language-r}
+>
+> > ## Solution
+> >
+> >
+> > ~~~
+> > [1] 40
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
 
 
-~~~
-total * 2
-~~~
-{: .language-r}
+> ## Challenge: Creating variables
+>
+> Type and then run the following code. What happens?
+>
+>
+> ~~~
+> numbers = c(1,2,3,4,5)
+> ~~~
+> {: .language-r}
+>
+> > ## Solution
+> >
+> >
+> > ~~~
+> > A new variable called 'numbers' appears in the 'Environment' tab (containing the numbers 1 to 5)
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
 
 
+> ## Challenge: Working with variables
+>
+> 1. Load RStudio and in the source section, type and then run the following code. What happens?
+>
+>
+> ~~~
+> total = sum(numbers)
+> ~~~
+> {: .language-r}
+>
+> > ## Solution
+> >
+> >
+> > ~~~
+> > A new variable called 'total' appears in the 'Environment' tab (with a value of 15)
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
 
-~~~
-[1] 30
-~~~
-{: .output}
 
-What happens?
+> ## Challenge: Creating variables
+>
+> On a different line, type and run the following,
+>
+>
+> ~~~
+> total * 2
+> ~~~
+> {: .language-r}
+>
+> > ## Solution
+> >
+> >
+> > ~~~
+> > [1] 30
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
+

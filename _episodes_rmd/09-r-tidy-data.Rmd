@@ -1,7 +1,7 @@
 ---
-title: "Introduction"
+title: "R introduction: Introduction"
 teaching: 15
-exercises: 15
+exercises: 20
 questions:
 - "What is tidy data?"
 objectives:
@@ -18,8 +18,7 @@ knitr_fig_path("09-")
 
 
 When analysing data using code, the ideal scenario is to go from the raw data to the finished outcome, whether that's a plot, a table, an interactive
-app or machine-learning model, completely via code. Depending on the complexity of the data and the analysis, this may be made up of a series of different coding
-scripts, creating a data analysis 'pipeline'.
+app or machine-learning model, completely via code. Depending on the complexity of the data and the analysis, this may be made up of a series of different coding scripts, creating a data analysis 'pipeline'.
 
 Very often, the data that you start with is not optimsed for analysis via code. In fact, often the bulk of a data analysis project is data cleaning,
 with the actual analysis part only occurring at the end.
