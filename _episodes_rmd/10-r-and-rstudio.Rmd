@@ -44,7 +44,7 @@ The 4 main areas (which may be positioned differently on your screen) are,
 
 To run code, you can either click on a line and press CTRL-ENTER, or click the 'Run' button the top-right corner of the source panel.
 
-> ## Challenge: Your first R command
+> ## Exercise: Your first R command
 >
 > Load RStudio and in the source section, type and then run the following code. What happens?
 >
@@ -62,10 +62,10 @@ To run code, you can either click on a line and press CTRL-ENTER, or click the '
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .challenge}
+{: .exercise}
 
 
-> ## Challenge: Creating variables
+> ## Exercise: Creating variables
 >
 > Type and then run the following code. What happens?
 >
@@ -83,10 +83,10 @@ To run code, you can either click on a line and press CTRL-ENTER, or click the '
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .challenge}
+{: .exercise}
 
 
-> ## Challenge: Working with variables
+> ## Exercise: Working with variables
 >
 > 1. Load RStudio and in the source section, type and then run the following code. What happens?
 >
@@ -104,10 +104,10 @@ To run code, you can either click on a line and press CTRL-ENTER, or click the '
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .challenge}
+{: .exercise}
 
 
-> ## Challenge: Creating variables
+> ## Exercise: Creating variables
 >
 > On a different line, type and run the following,
 >
@@ -125,5 +125,5 @@ To run code, you can either click on a line and press CTRL-ENTER, or click the '
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .challenge}
+{: .exercise}
 
