@@ -58,11 +58,4 @@ There are also points during analysis where you'll have intermediate datasets, w
 > Take a look at the file 'untidy-to-tidy-eg2.xlm'. Again, see how the untidy data is transformed to the tidy format
 >
 >
-> {: .language-r}
->
-> > ## Solution
-> >
-> >
-> > {: .output}
-> {: .solution}
 {: .exercise}

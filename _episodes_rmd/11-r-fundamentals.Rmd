@@ -512,8 +512,8 @@ matrix_example[c(1:2),]
 Subsetting not only works by specifying index values, but it can also be done based upon logical values. Effectively, picking out rows, columns or cells that are TRUE or FALSE. Earlier we created a vector called na_example. Let's see how you could *impute* the missing values using this subsetting idea,
 
 ```{r}
-imputed = mean(example, na.rm = TRUE) #Determine the imputed value based upon the mean values
-example[is.na(example)] = imputed #Set the missing values to this mean value
+imputed = mean(na_example, na.rm = TRUE) #Determine the imputed value based upon the mean values
+na_example[is.na(na_example)] = imputed #Set the missing values to this mean value
 ```
 
 Finally, note that there are comments in the code, ignored by R thanks to the # character. Always consider using comments in your code to help interpret your code at a later date, or to help others to understand your code.

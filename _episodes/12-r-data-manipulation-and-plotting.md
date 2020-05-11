@@ -395,6 +395,5 @@ data()
 > Pick a pre-installed dataset and explore it via any of the functions we've covered so far.
 >
 >
-> {: .language-r}
 {: .exercise}
 

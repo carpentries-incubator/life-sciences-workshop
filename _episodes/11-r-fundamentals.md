@@ -635,38 +635,9 @@ Subsetting not only works by specifying index values, but it can also be done ba
 
 
 ~~~
-imputed = mean(example, na.rm = TRUE) #Determine the imputed value based upon the mean values
+imputed = mean(na_example, na.rm = TRUE) #Determine the imputed value based upon the mean values
+na_example[is.na(na_example)] = imputed #Set the missing values to this mean value
 ~~~
 {: .language-r}
-
-
-
-~~~
-Warning in mean.default(example, na.rm = TRUE): argument is not numeric or
-logical: returning NA
-~~~
-{: .error}
-
-
-
-~~~
-example[is.na(example)] = imputed #Set the missing values to this mean value
-~~~
-{: .language-r}
-
-
-
-~~~
-Warning in is.na(example): is.na() applied to non-(list or vector) of type
-'closure'
-~~~
-{: .error}
-
-
-
-~~~
-Error in example[is.na(example)] = imputed: object of type 'closure' is not subsettable
-~~~
-{: .error}
 
 Finally, note that there are comments in the code, ignored by R thanks to the # character. Always consider using comments in your code to help interpret your code at a later date, or to help others to understand your code.
