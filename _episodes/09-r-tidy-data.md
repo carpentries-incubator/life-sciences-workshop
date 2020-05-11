@@ -44,7 +44,31 @@ measurements for a given sample. Once you add these definitions to each plate fi
 
 There are also points during analysis where you'll have intermediate datasets, where again, tidy datasets will be beneficial.
 
-### Exercise - Tidy Data examples
+> ## Exercise: Tidy Data example 1
+>
+> Take a look at the file 'untidy-to-tidy-eg1.xlm'. Have a look at the 3 tabs and see the different ways that the same data is laid out
+>
+>
+> {: .language-r}
+>
+> > ## Solution
+> >
+> >
+> > {: .output}
+> {: .solution}
+{: .exercise}
 
-1) Take a look at the file 'untidy-to-tidy-eg1.xlm'. Have a look at the 3 tabs and see the different ways that the same data is laid out.
-2) Take a look at the file 'untidy-to-tidy-eg2.xlm'. Again, see how the untidy data is transforms to the tidy format
+
+> ## Exercise: Tidy Data example 2
+>
+> Take a look at the file 'untidy-to-tidy-eg2.xlm'. Again, see how the untidy data is transformed to the tidy format
+>
+>
+> {: .language-r}
+>
+> > ## Solution
+> >
+> >
+> > {: .output}
+> {: .solution}
+{: .exercise}
