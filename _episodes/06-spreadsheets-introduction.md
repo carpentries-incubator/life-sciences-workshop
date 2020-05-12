@@ -16,6 +16,9 @@ example of Professor Thomas Piketty and his book 'Capital in the 21st Century'. 
 underlying datafiles containing his analysis. Unfortunately, he has used Excel to perform tasks such as merging different datasets and interpolating
 missing data, and errors were soon found. When corrected, the central thesis of the book was undermined.
 
+There is even an online list of [spreadsheet horror stories](http://www.eusprig.org/horror-stories.htm) by the The European Spreadsheet Risks Interest Group (EuSpRIG), 
+along with a growing body of literature around the details of such errors (e.g. [Rajalingham, K., Chadwick, D. R., & Knight, B. (2008). Classification of spreadsheet errors. arXiv preprint arXiv:0805.4224.](https://arxiv.org/abs/0805.4224)).
+
 So, when are spreadsheets the answer? And in those situations, how best should they be used?
 
 Spreadsheets are excellent at giving you a quick visual picture of your data. Further, they give the ability to change figures and then see the 
@@ -29,7 +32,8 @@ be analysed without any consideration of potential spreadsheets dangers. And the
 as a replacement for lab books, with multiple tabs containing data from different experiments gathered on different days, text annotations used for
 ad hoc notes, and entire spreadsheets emailed, opening up all manner of privacy and security issues.
 
-> #### Exercise - Which of the following scenarios are appropriate for spreadsheets?
+
+> ## Exercise - Which of the following scenarios are appropriate for spreadsheets?
 > 
 > 1. A dataset of 100 rows of blood markers for 5 people. The aim is to create a simple plot
 > 2. A dataset of 100 rows of blood markers for 5 people. The aim is to fit advanced statistical models and interpolate new values from those models
@@ -37,12 +41,17 @@ ad hoc notes, and entire spreadsheets emailed, opening up all manner of privacy 
 > 4. A dataset of 10k rows of genetic sequencing data. Aim is to pattern-match and extract key sequences
 > 5. The dataset in example 1, but instead of a single file, you have 100 similar files, i.e. you wish to create 100 plots
 > 
-> > #### Solution
-> > 1. Yes
-> > 2. Probably not
-> > 3. Yes
-> > 4. Probably not
-> > 5. Probably not
-> > 
+>
+> > ## Solution
+> >
+> >
+> > ~~~
+> 1. Yes
+> 2. Probably not (but maybe with plug-ins)
+> 3. Yes
+> 4. Probably not
+> 5. Probably not
+> > ~~~
+> > {: .output}
 > {: .solution}
-{: .challenge}
+{: .exercise}

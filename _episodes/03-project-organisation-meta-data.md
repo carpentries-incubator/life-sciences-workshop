@@ -16,7 +16,8 @@ keypoints:
 Meta-data is **data about data**. It is structured information that describes, explains, locates, or otherwise represents something else. Its purpose is to maximise data interpretation and understanding, 
 both by humans and by computers. In other words, its aim is to avoid the details of *what the data is* from being lost, to prevent rendering the data useless as time passes.
 
-The simplest approach to meta-data is to create a simple text file (named, for example, 'README.txt') that resides in the same directory as the data. This text file should be named according to the file-name conventions mentioned above. 
+The simplest approach to meta-data is to create a simple text file (named, for example, 'README.txt') that resides in the same directory as the data. Don't worry about file-name of 
+this file in term of the formal file-naming rules. Crucially, this file will never be distributed on its own. Think of it more as an informal collection of notes.
 This file is particularly important for projects that involve multiple files, and it should cover various aspects, such as,
 
 - Project level: What is the study? Name, instruments, methodologies, etc
@@ -75,7 +76,8 @@ and not part of a group of project files. The simplest example are Word and Exce
 Such aspects to keep in mind include,
 
 - With Word files, include the author's name, date of creation, and project description in the header
-- With Excel files, ensure columns and tables are labelled. If the file contains plots, label the axes and give the plot a title. If the file contains multiple tabs, label them appropriately
+- With Excel files, ensure columns and tables are labelled. If the file contains plots, label the axes and give the plot a title. If the file contains multiple tabs, label them appropriately.
+Also, consider a separate, initial tab containing meta-data explaining the rest of the file (e.g. where the data is from, who collected it, units, what each tab is for, etc)
 
 There are no strict rules on any of the above, and attempting to create such rules for everyone to adhere to may do more harm than good (for example, if the process ends up overly complex and 
 bureaucratic). Instead, guiding principles should be used, with the key aspect being kept in mind, namely, that your aim is to ensure the long-term usefulness of the data.

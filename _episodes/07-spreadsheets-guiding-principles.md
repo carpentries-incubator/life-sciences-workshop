@@ -10,9 +10,10 @@ keypoints:
 - A number of simple concepts can increase the future usability of data
 ---
 
-In this section we'll look at how to use spreadsheets in an efficient, clear and reproducible way.
+In this section we'll look at how to use spreadsheets in an efficient, clear and reproducible way. The focus of this section is on those situations where data analysis is confined to a spreadsheet.
+It is *not* guidance on how to prepare data for code-based analysis.
 
-#### Raw means raw
+### Raw means raw
 
 Raw data is that which is untouched. It is the file that comes from the instrument, or the file that is created once the initial figures have been
 entered. It does not contain formatting, italics, bold titles, calculations or plots. This is the point at which you start, and to which you should always
@@ -23,7 +24,7 @@ If you ever ask someone for their raw data and receive a file that looks like th
 ![alt text](../fig/01-poor_raw_data.png "What raw data does *not* look like")
 
 
-#### Create a data dictionary
+### Create a data dictionary
 
 Meta-data, or 'data about data', is an essential piece of any project that wishes to be reproducible. Spreadsheet files should be handled within 
 projects using basic project organisation principles, such as having a README.txt file explaining details of the file. One way of improving the 
@@ -35,11 +36,13 @@ An example data dictionary,
 ![alt text](../fig/02-data-dictionary.png "A simple data dictionary example")
 
 
-#### Consistency and sensible names
+### Consistency and sensible names
 
 Consistency within and between files is essential for the long-term, efficient use of data, where the chances of introducing errors is minimised.
 For example, if you were to use 'sample 1' in one file, 's1' in second and '1' in a third, it's going to take you and others time to figure things
-out later on. Similarly, if you chose to use a blank cell to represent missing values one day, but 'missing', 'unmeasured', and 'na' on others,
+out later on. 
+
+Similarly, if you chose to use a blank cell to represent missing values one day, but 'missing', 'unmeasured', and 'na' on others,
 you're introducing unnecessary ambiguity.
 
 Having sensible names is also important. 'Sample 1' is a meaningful header, but 's1' isn't. Think also about the ideas of meta-data. Including 
@@ -55,8 +58,7 @@ Below is an example of some poor variable/column names,
 ![alt text](../fig/03-poor-names.png "Poor variable names")
 
 
-
-#### Dates
+### Dates
 
 Spreadsheet programs love to guess what you're doing, and at the top of their guess-list are dates.
 
@@ -67,11 +69,11 @@ To avoid this and similar issues, it's a good idea to set the format of the rele
 that this is done *before* data are entered, otherwise programs such as Excel will convert what it thinks are dates into a numeric representation.
 
 If you do mean to use dates, again, consistency and meta-data are the key. For example, does a cell in a column called 'Date' that reads '2020-10-01' 
-mean the 1st of October or the 10th of January? This ambiguity could be easily removed if the header was 'Year_yyyymmdd'. There are also ways to
+mean the 1st of October or the 10th of January? This ambiguity could be easily removed if the header was 'Date_yyyymmdd'. There are also ways to
 prevent Excel from converting dates into a date format. For example, entering a date as, say, 20201005, will keep the data as a number.
 
 
-#### Empty cells
+### Empty cells
 
 What does a blank cell indicate? Is it genuinely missing data? Or, has some piece of data not been entered yet? Worse still, could it be mistake?
 Perhaps someone hit the delete key by accident? In general, a blank cell is not only ambiguous, but it can also hinder ordering and searching functions.
@@ -80,7 +82,7 @@ For example, if you were to leave several blank cells to mean 'the same as above
 In general, pick a way of indicating missing data, such as 'na', and stick to it.
 
 
-#### One cell, one datum
+### One cell, one datum
 
 Making use of data when cells, columns or rows contain multiple information is a headache that no-one needs. For example, imagine you had a spreadsheet
 with a column detailing a patient name and postcode, e.g. 'J. Kirby, YO22', 'J. Batey, YO10', and 'S. Masca, LS14'. If you wanted to process this
@@ -95,7 +97,7 @@ Below is an example of a poor use of columns,
 ![alt text](../fig/04-poor-columns.png "Poor use of columns")
 
 
-#### Rectangular data
+### Rectangular data
 
 Spreadsheets work best from an analysis point-of-view when data is rectangular, where each row is some sort of observation and each column is a variable. This
 is not only easy to understand by eye, it's also easy for other programs to load.
@@ -109,7 +111,7 @@ Below is an example of non-rectangular data,
 ![alt text](../fig/05-non_rectangular.png "Non-rectangular data")
 
 
-#### Avoid colour
+### Avoid colour
 
 Adding colour to spreadsheets is extremely common, and the reason is obvious; it generally enhances the visual usability of the data. Where before you
 may have had a dull collection of numbers, you now have high numbers in red, low in green, healthy patients in purple, diseased patients in yellow, etc.
@@ -125,15 +127,18 @@ Below is an example of poor colour-use,
 ![alt text](../fig/06-poor-colour.png "Colour overload")
 
 
-#### Validation techniques
+### Validation techniques
 
 Excel possesses a simple but effective data validation function, that places rules on the data that gets entered. This can take a few minutes to setup,
 but if you're manually entering data, that time could save you from costly mistakes.
 
-#### Exercise - Validation
-
-Modern spreadsheet programs often have data validation tools. For example, in Excel, select a column, then click the 'data validation' option from the 'data' tab. Click 'Allow' and select 
+> ## Exercise: Validation
+>
+> Modern spreadsheet programs often have data validation tools. For example, in Excel, select a column, then click the 'data validation' option from the 'data' tab. Click 'Allow' and select 
 'Whole number'. For 'Minimum' and 'Maximum', enter 0 and 10, respectively. Click OK. Now, try to enter anything that isn't a whole number between those ranges.
+>
+>
+{: .exercise}
 
 ![alt text](../fig/07-data-validation.png "Data validation")
 
@@ -155,19 +160,17 @@ these changes as an Excel file (for example), *but save the consequent, improved
 whilst the details of the changes are retained.
 
 
-> #### Exercise - Spreadsheet example
+> ## Exercise - Spreadsheet example
 > 
 > 1. Load the file 'manual-data-example-01.xlsx'. Pick out as many aspects of this file that may hinder reproducibility
 > 2. Go to 'File', 'Save as' and create a copy of the file. Save this with an appropriate name (as an Excel file or similar). Make as many changes as you can to 
 > this file, adhering to the principles above. There is no single right answer to this. The aim is to improve the file, not necessarily make
 > it perfect.
-
-> Note, the aim of this is not to get the data ready for coding. This exercise assumes that you will only use a spreadsheet, so feel free to retain
-> some formatting, formulae, etc. The aim is to enhance the reproducibility of the file, in other words, to enable someone else (or yourself at some future
-> point) to use the file efficiently and without error.
+>
 > 
-> > #### Solution
+> > ## Solution
 > > 
+> >
 > > 1) Ask the question: What is the aim of this file? Is it to produce a plot? A neater, more useable version of the data? To explore the data?
 > > Let's assume the point of this file is to find the out-of-range samples
 > > 1) Delete the 'raw' tab as it's already in a file in the same directory
@@ -200,9 +203,10 @@ whilst the details of the changes are retained.
 > > Note: This cleaned 'Results' tab data could be saved as a CSV file for consequent work. If so, ensure the file is described accordingly in the 
 > > README.txt file
 > > 
-{: .solution}
-{: .challenge}
+> > {: .output}
+> {: .solution}
+{: .exercise}
 
 Remember, the aim isn't "it looks better". You might even conclude that it looks worse! The real question is "when I come back to this in 18 months 
-time, when someone has asked me why and how I did what I did, will I understand it?". Or perhaps the question is "If I do a similar experiment next
-month, how do I ensure I'm handling the data in the same way?", i.e. minimising subjective decisions or errors.
+time, when someone has asked me why and how I did what I did, will I understand it?". Or, "if someone else looks at this, will they understand it?". Or, perhaps, "If I do a 
+similar experiment next month, how do I ensure I'm handling the data in the same way?", i.e. minimising subjective decisions or errors.

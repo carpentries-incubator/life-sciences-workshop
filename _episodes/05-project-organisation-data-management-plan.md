@@ -23,6 +23,7 @@ for many funding organisations. This document should briefly answer the followin
 - What data will you collect or create? 
 - How will the data be collected or created? 
 - What documentation and metadata will accompany the data? 
+- What statistical methods and tests will you employ? Do you need to calculate samples sizes a-priori?
 - How will you manage any ethical issues? 
 - How will you manage copyright and intellectual property rights issues? 
 - How will the data be stored and backed up during research? 
@@ -43,10 +44,15 @@ data, through all analysis steps (and associate files used), to the final output
 
 ### Example of a good project setup
 
+Now that we've covered all the main topics for setting up the files and folders of a project, let's take a look at an example of a good project setup,
+
 ![alt text](../fig/04-data-management-plan.png "Example of a good project setup")
 
 
-#### Exercise
-
-Think of a past project where you encountered some sort of data issue. Which of these ideas (file-naming, folder organisation, meta-data, data dictionaries, data management plans) would 
+> ## Exercise: Data problems and solutions
+>
+> Think of a past project where you encountered some sort of data issue. Which of these ideas (file-naming, folder organisation, meta-data, data dictionaries, data management plans) would 
 be useful and why?
+>
+>
+{: .exercise}

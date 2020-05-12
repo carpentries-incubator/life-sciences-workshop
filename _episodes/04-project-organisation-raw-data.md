@@ -8,7 +8,7 @@ questions:
 objectives:
 - Understand what raw data is (and what it isn't)
 keypoints:
-- The term 'raw data' means something specific in the world of data analysis
+- The term 'raw data' means something specific in the world of data analysis. Without it, you can't go back to the start of an analysis
 ---
 
 ### The concept of raw data

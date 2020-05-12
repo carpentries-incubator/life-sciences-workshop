@@ -1,6 +1,6 @@
 ---
 title: "Project Organisation: File-naming and folder structures"
-teaching: 10
+teaching: 20
 exercises: 5
 questions:
 - How should files be named?
