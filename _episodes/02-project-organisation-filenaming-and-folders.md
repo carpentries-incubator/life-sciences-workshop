@@ -47,7 +47,22 @@ major revisions, deleting any that contained minor changes. Another would be to 
 - Review folder content periodically, and consider moving older files that are no longer needed into an 'archive' folder
 
 
-#### Exercise - How could you improve the following set-up?
 
-![alt text](../fig/01-filenaming-and-folders.png "Not a great folder")
+> ## Exercise: Folder example
+>
+> How could you improve the following set-up?
+> ![alt text](../fig/01-filenaming-and-folders.png "Not a great folder")
+>
+>
+> > ## Solution
+> >
+> >
+> > ~~~
+> > Rename the folders
+> > Rename the files (name, dates, remove words like 'final' and 'complete')
+> > Create new folders, including an archive
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .exercise}
 
