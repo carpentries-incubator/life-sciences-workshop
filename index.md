@@ -21,7 +21,7 @@ to the fitting of a 4-parameter logistic regression (4PL) curve to typical enzym
 
 > ## Prerequisites
 >
-> To get started, follow the directions in the [Setup](setup.html) [TO DO] tab to get access to the
+> To get started, follow the directions in the [Setup](setup.html) tab to get access to the
 > required software and data for this workshop.
 {: .prereq}
 
