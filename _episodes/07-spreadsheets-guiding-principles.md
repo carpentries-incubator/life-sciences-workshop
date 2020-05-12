@@ -136,14 +136,15 @@ but if you're manually entering data, that time could save you from costly mista
 >
 > Modern spreadsheet programs often have data validation tools. For example, in Excel, select a column, then click the 'data validation' option from the 'data' tab. Click 'Allow' and select 
 'Whole number'. For 'Minimum' and 'Maximum', enter 0 and 10, respectively. Click OK. Now, try to enter anything that isn't a whole number between those ranges.
+> ![alt text](../fig/07-data-validation.png "Data validation")
 >
 >
 {: .exercise}
 
-![alt text](../fig/07-data-validation.png "Data validation")
 
 
-#### How to save
+
+### How to save
 
 Files such as those in an Excel format *can* be opened in other pieces of software, but in reality, they really want to be opened in Excel. If, for example, you do 
 manage to load an Excel spreadsheet into a coding environment such as R or Python, any formatting, plots or equations are going to cause havoc. Even
@@ -164,46 +165,45 @@ whilst the details of the changes are retained.
 > 
 > 1. Load the file 'manual-data-example-01.xlsx'. Pick out as many aspects of this file that may hinder reproducibility
 > 2. Go to 'File', 'Save as' and create a copy of the file. Save this with an appropriate name (as an Excel file or similar). Make as many changes as you can to 
-> this file, adhering to the principles above. There is no single right answer to this. The aim is to improve the file, not necessarily make
-> it perfect.
+this file, adhering to the principles above. There is no single right answer to this. The aim is to improve the file, not necessarily make it perfect.
 >
 > 
 > > ## Solution
 > > 
 > >
-> > 1) Ask the question: What is the aim of this file? Is it to produce a plot? A neater, more useable version of the data? To explore the data?
-> > Let's assume the point of this file is to find the out-of-range samples
-> > 1) Delete the 'raw' tab as it's already in a file in the same directory
-> > 2) Create a README.txt file, explaining what the Excel file, raw data file and analysed data file are. Added the info from the 'misc' tab
-> > 3) Delete the 'data', 'stuff' and 'misc' tabs
-> > 4) Create tabs for plate 1 and plate 2
-> > 5) Delete the 'PLATE 1' and 'PLATE 2' rows at the top of each tab
-> > 6) Create a 'Standards' tab and tidy up the plot
-> > 7) Could arguably keep the heatmap. It's fine as it's not aiming to classify the data, it's purely a visual tool. That said, does it help the aim
-> > of finding out-of-range values? Not when that's defined as a CV above a certain value. If the heatmap is to spot, say, some other out-of-range value
-> > that may indicate an experimental issue, is a visual aid a good method for reproducibility? Does that lead down the road of the subjective "Hmmm, that
-> > looks a bit high". Better would be to create a new
-> > 8) Delete the '405' column next to the plate data
-> > 9) Tidy up the column headers for the bottom section
-> > 10) Move the bottom section to the side so you can adjust the column widths appropriately
-> > 11) Removed the text about absorbance, as it may hinder sorting. Less info, but covered in the README.txt file
-> > 11) Remove the conditional formatting for the 'CV' column and create a new one called 'High value', with 'yes' and 'no' accordingly. Used
+> > ~~~
+> > * Ask the question: What is the aim of this file? Is it to produce a plot? A neater, more useable version of the data? To explore the data?
+Let's assume the point of this file is to find the out-of-range samples
+> > * Delete the 'raw' tab as it's already in a file in the same directory
+> > * Create a README.txt file, explaining what the Excel file, raw data file and analysed data file are. Added the info from the 'misc' tab
+> > * Delete the 'data', 'stuff' and 'misc' tabs
+> > * Create tabs for plate 1 and plate 2
+> > * Delete the 'PLATE 1' and 'PLATE 2' rows at the top of each tab
+> > * Create a 'Standards' tab and tidy up the plot
+> > * Could arguably keep the heatmap. It's fine as it's not aiming to classify the data, it's purely a visual tool. That said, does it help the aim
+of finding out-of-range values? Not when that's defined as a CV above a certain value. If the heatmap is to spot, say, some other out-of-range value
+that may indicate an experimental issue, is a visual aid a good method for reproducibility? Does that lead down the road of the subjective "Hmmm, that
+looks a bit high". Better would be to create a new column
+> > * Delete the '405' column next to the plate data
+> > * Tidy up the column headers for the bottom section
+> > * Move the bottom section to the side so you can adjust the column widths appropriately
+> > * Removed the text about absorbance, as it may hinder sorting. Less info, but covered in the README.txt file
+> > * Remove the conditional formatting for the 'CV' column and create a new one called 'High value', with 'yes' and 'no' accordingly. Used
 > > =IF(CELL>0.072, "Yes", "No")
-> > 12) Use the same header info ('rep1' etc rather than 'a' etc)
-> > 13) Corrected 'rep 4' and 'd' to 'Average' (look at the formula)
-> > 13) Set both sets to 5 decimal places
-> > 14) Added 'note' column. Added a useful note and removed colour
-> > 15) Added 'na' to blank columns in plate 1 data
-> > 16) Added a 'plate definition' tab
-> > 17) Changed references to 'values' to allow sorting
-> > 18) Corrected 'Average' formula as references broke after the above action
-> > 18) Unified font and removed horizontal lines
-> > 19) Copied the data into a new 'Results' tab, values only (no references), create a new 'plate' column, unified formatting. Ordered by high value
+> > * Use the same header info ('rep1' etc rather than 'a' etc)
+> > * Corrected 'rep 4' and 'd' to 'Average' (look at the formula)
+> > * Set both sets to 5 decimal places
+> > * Added 'note' column. Added a useful note and removed colour
+> > * Added 'na' to blank columns in plate 1 data
+> > * Added a 'plate definition' tab
+> > * Changed references to 'values' to allow sorting
+> > * Corrected 'Average' formula as references broke after the above action
+> > * Unified font and removed horizontal lines
+> > * Copied the data into a new 'Results' tab, values only (no references), create a new 'plate' column, unified formatting. Ordered by high value
 > > 
 > > Note: This cleaned 'Results' tab data could be saved as a CSV file for consequent work. If so, ensure the file is described accordingly in the 
-> > README.txt file
-> > 
-> > {: .output}
+README.txt file
+> > ~~~
 > {: .solution}
 {: .exercise}
 

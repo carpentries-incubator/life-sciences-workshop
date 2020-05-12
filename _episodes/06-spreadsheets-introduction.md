@@ -52,6 +52,5 @@ ad hoc notes, and entire spreadsheets emailed, opening up all manner of privacy 
 > 4. Probably not
 > 5. Probably not
 > > ~~~
-> > {: .output}
 > {: .solution}
 {: .exercise}
