@@ -172,34 +172,34 @@ this file, adhering to the principles above. There is no single right answer to 
 > > 
 > >
 > > ~~~
-> > * Ask the question: What is the aim of this file? Is it to produce a plot? A neater, more useable version of the data? To explore the data?
-Let's assume the point of this file is to find the out-of-range samples
-> > * Delete the 'raw' tab as it's already in a file in the same directory
-> > * Create a README.txt file, explaining what the Excel file, raw data file and analysed data file are. Added the info from the 'misc' tab
-> > * Delete the 'data', 'stuff' and 'misc' tabs
-> > * Create tabs for plate 1 and plate 2
-> > * Delete the 'PLATE 1' and 'PLATE 2' rows at the top of each tab
-> > * Create a 'Standards' tab and tidy up the plot
-> > * Could arguably keep the heatmap. It's fine as it's not aiming to classify the data, it's purely a visual tool. That said, does it help the aim
-of finding out-of-range values? Not when that's defined as a CV above a certain value. If the heatmap is to spot, say, some other out-of-range value
-that may indicate an experimental issue, is a visual aid a good method for reproducibility? Does that lead down the road of the subjective "Hmmm, that
-looks a bit high". Better would be to create a new column
-> > * Delete the '405' column next to the plate data
-> > * Tidy up the column headers for the bottom section
-> > * Move the bottom section to the side so you can adjust the column widths appropriately
-> > * Removed the text about absorbance, as it may hinder sorting. Less info, but covered in the README.txt file
-> > * Remove the conditional formatting for the 'CV' column and create a new one called 'High value', with 'yes' and 'no' accordingly. Used
+> > 1. Ask the question: What is the aim of this file? Is it to produce a plot? A neater, more useable version of the data? To explore the data?
+> > Let's assume the point of this file is to find the out-of-range samples
+> > 2. Delete the 'raw' tab as it's already in a file in the same directory
+> > 3. Create a README.txt file, explaining what the Excel file, raw data file and analysed data file are. Added the info from the 'misc' tab
+> > 4. Delete the 'data', 'stuff' and 'misc' tabs
+> > 5. Create tabs for plate 1 and plate 2
+> > 6. Delete the 'PLATE 1' and 'PLATE 2' rows at the top of each tab
+> > 7. Create a 'Standards' tab and tidy up the plot
+> > 8. Could arguably keep the heatmap. It's fine as it's not aiming to classify the data, it's purely a visual tool. That said, does it help the aim
+> > of finding out-of-range values? Not when that's defined as a CV above a certain value. If the heatmap is to spot, say, some other out-of-range value
+> > that may indicate an experimental issue, is a visual aid a good method for reproducibility? Does that lead down the road of the subjective "Hmmm, that
+> > looks a bit high". Better would be to create a new column
+> > 9. Delete the '405' column next to the plate data
+> > 10. Tidy up the column headers for the bottom section
+> > 11. Move the bottom section to the side so you can adjust the column widths appropriately
+> > 12. Removed the text about absorbance, as it may hinder sorting. Less info, but covered in the README.txt file
+> > 13. Remove the conditional formatting for the 'CV' column and create a new one called 'High value', with 'yes' and 'no' accordingly. Used
 > > =IF(CELL>0.072, "Yes", "No")
-> > * Use the same header info ('rep1' etc rather than 'a' etc)
-> > * Corrected 'rep 4' and 'd' to 'Average' (look at the formula)
-> > * Set both sets to 5 decimal places
-> > * Added 'note' column. Added a useful note and removed colour
-> > * Added 'na' to blank columns in plate 1 data
-> > * Added a 'plate definition' tab
-> > * Changed references to 'values' to allow sorting
-> > * Corrected 'Average' formula as references broke after the above action
-> > * Unified font and removed horizontal lines
-> > * Copied the data into a new 'Results' tab, values only (no references), create a new 'plate' column, unified formatting. Ordered by high value
+> > 14. Use the same header info ('rep1' etc rather than 'a' etc)
+> > 15. Corrected 'rep 4' and 'd' to 'Average' (look at the formula)
+> > 16. Set both sets to 5 decimal places
+> > 17. Added 'note' column. Added a useful note and removed colour
+> > 18. Added 'na' to blank columns in plate 1 data
+> > 19. Added a 'plate definition' tab
+> > 20. Changed references to 'values' to allow sorting
+> > 21. Corrected 'Average' formula as references broke after the above action
+> > 22. Unified font and removed horizontal lines
+> > 23. Copied the data into a new 'Results' tab, values only (no references), create a new 'plate' column, unified formatting. Ordered by high value
 > > 
 > > Note: This cleaned 'Results' tab data could be saved as a CSV file for consequent work. If so, ensure the file is described accordingly in the 
 README.txt file
