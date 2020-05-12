@@ -58,11 +58,10 @@ major revisions, deleting any that contained minor changes. Another would be to 
 > >
 > >
 > > ~~~
-> > Rename the folders
-> > Rename the files (name, dates, remove words like 'final' and 'complete')
-> > Create new folders, including an archive
+> > * Rename the folders
+> > * Rename the files (name, dates, remove words like 'final' and 'complete')
+> > * Create new folders, including an archive
 > > ~~~
-> > {: .output}
 > {: .solution}
 {: .exercise}
 
