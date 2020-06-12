@@ -30,24 +30,9 @@ Next, type the following,
 
 
 ~~~
-df = read.csv('/data/data_carpentry_test_data.csv')
+df = read.csv('../data/data_carpentry_test_data.csv')
 ~~~
 {: .language-r}
-
-
-
-~~~
-Warning in file(file, "rt"): cannot open file '/data/
-data_carpentry_test_data.csv': No such file or directory
-~~~
-{: .error}
-
-
-
-~~~
-Error in file(file, "rt"): cannot open the connection
-~~~
-{: .error}
 
 You should see 'df' appear in your 'Environment' tab, showing 8 observations and 13 variables (rows and columns). This is a data-frame. Click it for a preview.
 
@@ -139,7 +124,7 @@ dim(df)[2]
 
 
 ~~~
-NULL
+[1] 13
 ~~~
 {: .output}
 
@@ -152,13 +137,6 @@ The colnames function can not only be used to see what the existing column names
 colnames(df) = c('Col_1', 'Col_2', 'Col_3', 'Col_4', 'Col_5', 'Col_6', 'Col_7', 'Col_8', 'Col_9', 'Col_10', 'Col_11', 'Col_12', 'Col_13')
 ~~~
 {: .language-r}
-
-
-
-~~~
-Error in `colnames<-`(`*tmp*`, value = c("Col_1", "Col_2", "Col_3", "Col_4", : attempt to set 'colnames' on an object with less than two dimensions
-~~~
-{: .error}
 
 However, that's time-consuming. There is a much better way by using an extremely useful function called **paste()**. Paste allows text and variables to be combined. For example,
 
@@ -206,13 +184,6 @@ colnames(df) = paste0('Col_', seq(1:13))
 ~~~
 {: .language-r}
 
-
-
-~~~
-Error in `colnames<-`(`*tmp*`, value = c("Col_1", "Col_2", "Col_3", "Col_4", : attempt to set 'colnames' on an object with less than two dimensions
-~~~
-{: .error}
-
 This is much better, but there is still an issue. The number of columns, 13, is hard-coded. In other words, I have had to look to see how many columns there are and then type it. If you were running this code on many files and the dimensions changed, this would break.
 
 > ## Exercise: Dataframe functions
@@ -240,29 +211,9 @@ First, let's create two example data-frames to test the functions,
 
 ~~~
 df_1 = df[c(1:4),]
-~~~
-{: .language-r}
-
-
-
-~~~
-Error in df[c(1:4), ]: object of type 'closure' is not subsettable
-~~~
-{: .error}
-
-
-
-~~~
 df_2 = df[c(5:8),]
 ~~~
 {: .language-r}
-
-
-
-~~~
-Error in df[c(5:8), ]: object of type 'closure' is not subsettable
-~~~
-{: .error}
 
 Take a look at them. Now, let's try **rbind()**,
 
@@ -271,13 +222,6 @@ Take a look at them. Now, let's try **rbind()**,
 df_rbind = rbind(df_1, df_2)
 ~~~
 {: .language-r}
-
-
-
-~~~
-Error in rbind(df_1, df_2): object 'df_1' not found
-~~~
-{: .error}
 
 This stacks the data-frames back by row. cbind() does the same by column. Not that these functions need the two data-frames to have the same number
 of rows or columns, respectively.
@@ -289,13 +233,6 @@ Next, here is how you use **merge()**,
 df_merged = merge(df_1, df_1, by = 'Col_1')
 ~~~
 {: .language-r}
-
-
-
-~~~
-Error in merge(df_1, df_1, by = "Col_1"): object 'df_1' not found
-~~~
-{: .error}
 
 What just happened? We've merged according to the values in 'Col_1', so the data-frames have been merged where these values match. In this case, it's 
 the same data-frame twice, but you can see how you could combine two different data-frames where-ever they have a **common column**. This is how data
@@ -310,13 +247,6 @@ write.csv(df_merged, 'my_new_file.csv')
 {: .language-r}
 
 
-
-~~~
-Error in is.data.frame(x): object 'df_merged' not found
-~~~
-{: .error}
-
-
 ### Base Plots
 
 Now that you can load data and subset data-frames, we can start to plot different parts of the data. For example, try the following,
@@ -327,12 +257,7 @@ plot(df$Col_2)
 ~~~
 {: .language-r}
 
-
-
-~~~
-Error in df$Col_2: object of type 'closure' is not subsettable
-~~~
-{: .error}
+<img src="../fig/rmd-12-unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" width="612" style="display: block; margin: auto;" />
 
 We've used a couple of new things here. First, we've used the **plot()** function, and second, we've picked out a column from the data-frame with the **$** symbol. This is a shortcut in R, and the auto-fill should help you whenever you type the name of a data-frame, followed by this symbol.
 
@@ -348,12 +273,7 @@ plot(df$Col_2,
 ~~~
 {: .language-r}
 
-
-
-~~~
-Error in df$Col_2: object of type 'closure' is not subsettable
-~~~
-{: .error}
+<img src="../fig/rmd-12-unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="612" style="display: block; margin: auto;" />
 
 This may look like a lot of effort for one plot, but remember that this is now completely transparent, reproducible, and the code could be reused over and over. For more details on the plot function, have a look at the help files.
 
@@ -362,43 +282,13 @@ Base R can create various other plots. For example, try out this box-and-whisker
 
 ~~~
 df$Sample = 'Sample 1'
-~~~
-{: .language-r}
-
-
-
-~~~
-Error in df$Sample = "Sample 1": object of type 'closure' is not subsettable
-~~~
-{: .error}
-
-
-
-~~~
 df$Sample[c(5:8)] = 'Sample 2'
-~~~
-{: .language-r}
 
-
-
-~~~
-Error in `*tmp*`$Sample: object of type 'closure' is not subsettable
-~~~
-{: .error}
-
-
-
-~~~
 boxplot(df$Col_2 ~ df$Sample)
 ~~~
 {: .language-r}
 
-
-
-~~~
-Error in df$Col_2: object of type 'closure' is not subsettable
-~~~
-{: .error}
+<img src="../fig/rmd-12-unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
 
 Don't worry too much about the first two lines. What they're doing is creating a new (made-up) column called 'Sample' and setting every value to be 'Sample 1'. It then sets the 5th through to the 8th values to be equal to 'Sample 2'. The boxplot is then plotting the numerical values in column 2 split by this new variable. This is of course easier when your data already has such categories.
 
@@ -410,12 +300,7 @@ hist(df$Col_2)
 ~~~
 {: .language-r}
 
-
-
-~~~
-Error in df$Col_2: object of type 'closure' is not subsettable
-~~~
-{: .error}
+<img src="../fig/rmd-12-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 
 This plot isn't particularly interesting with this particular dataset. Recall earlier when we saw the **rnorm()** function? Let's now plot that data to see what we get,
 
