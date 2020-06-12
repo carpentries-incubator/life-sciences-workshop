@@ -18,7 +18,7 @@ underlying datafiles containing his analysis.
 
 Unfortunately, he has used Excel to perform tasks such as merging different datasets and interpolating missing data, and errors were soon found. When corrected, the central thesis of the book was undermined.
 
-Many more examples exist,
+Many more examples exist,  
 
 #### **Example 1** - 'Emerson's Missed Cell Formula Mix-up' (caspio.com)
 
@@ -30,7 +30,7 @@ Many more examples exist,
 
 #### **Example 3** - 'University of Toledo Loses $2.4 Million in Projected Revenue' (The Toledo Blade)
 
-*"UT officials have discovered an internal budgeting error that means they will have $2.4 million less to work with than anticipated. The mistake—a typo in a formula that led officials to overestimate projected revenue—was found Tuesday"*
+*"UT officials have discovered an internal budgeting error that means they will have $2.4 million less to work with than anticipated. The mistake—a typo in a formula that led officials to overestimate projected revenue—was found Tuesday"*  
 
 There is even an online list of [spreadsheet horror stories](http://www.eusprig.org/horror-stories.htm) by the The European Spreadsheet Risks Interest Group (EuSpRIG), 
 along with a growing body of literature around the details of such errors (e.g. [Rajalingham, K., Chadwick, D. R., & Knight, B. (2008). Classification of spreadsheet errors. arXiv preprint arXiv:0805.4224.](https://arxiv.org/abs/0805.4224)).

@@ -168,7 +168,7 @@ but if you're manually entering data, that time could save you from costly mista
 
 Files such as those in an Excel format *can* be opened in other pieces of software, but in reality, they really want to be opened in Excel. If, for example, you do 
 manage to load an Excel spreadsheet into a coding environment such as R or Python, any formatting, plots or equations are going to cause havoc. Even
-loading an Excel spreadsheet into an Excel-like program, such as **LibreOffice**, can lead to problems with how certain elements are displayed.
+loading an Excel spreadsheet into an Excel-like program, such as LibreOffice, can lead to problems with how certain elements are displayed.
 
 If you are going to perform analysis within your spreadsheet files, save in program's default format, such as XLSX for Excel (remembering to adhere to file-naming best practice).
 
@@ -185,10 +185,11 @@ whilst the details of the changes are retained.
 
 > ## Exercise - Spreadsheet example
 > 
-> 1. Load the file 'manual-data-example-01.xlsx'. Pick out as many aspects of this file that may hinder reproducibility. How would you change them? There is no single right answer to this. The aim is to improve the file, not necessarily make it perfect.
+> Load the file 'manual-data-example-01.xlsx'. Pick out as many aspects of this file that may hinder reproducibility. How would you change them? There is no single right answer to this. The aim is to improve the file, not necessarily make it perfect.
 >
 > Note: It's always useful when looking at a new spreadsheet for the first time to ask the question; **What is the aim of this file?** Is it ultimately to produce a plot? A neater, more useable 
 > version of the data? To explore the data? In this case, assume the point of this file is to find the **out-of-range samples**
+>
 > 
 > > ## Solution
 > > 
@@ -224,7 +225,7 @@ whilst the details of the changes are retained.
 > > ~~~
 > {: .solution}
 {: .exercise}
-
+  
 Remember, the aim isn't to make a spreadsheet look better. You might even conclude that it looks worse! The real question is 
 *"when I come back to this in 18 months time, when someone has asked me why and how I did what I did, will I understand it?"*. Or, *"if someone else looks at this, will they understand it?"*. 
 Or, perhaps, *"If I do a similar experiment next month, how do I ensure I'm handling the data in the same way?"*, i.e. minimising subjective decisions or errors.

@@ -38,7 +38,7 @@ to? The 17th version? The 17th year? Some sort of ID number?
 
 This lesson will explain some key elements of **project organisation and data management**. These are **file-naming and folders**, the use of **meta-data** and the concept of **raw data**.
 
-Without these core ideas, the most sophisticated data analysis in the world will rest upon shaky foundations, and at an extreme, could lead to the failure of the entire project.
+Without these core ideas, the most sophisticated data analysis in the world will rest upon shaky foundations, and at an extreme, could lead to the failure of the entire project.  
 
 #### **Example 1** - 'Westpac jumps the gun on profit' (The Sydney Morning Herald)
 
@@ -50,7 +50,7 @@ Without these core ideas, the most sophisticated data analysis in the world will
 
 #### **Example 3** - 'Data questions prompt retraction of PLOS ONE cardiovascular paper' (retractionwatch.com)
 
-*"PLoS One has retracted a 2013 article on atherosclerosis in mice over concerns about the integrity of the data"*
+*"PLoS One has retracted a 2013 article on atherosclerosis in mice over concerns about the integrity of the data"*  
 
 These are big, headline-making examples, but similar problems are almost certainly widespread.
 

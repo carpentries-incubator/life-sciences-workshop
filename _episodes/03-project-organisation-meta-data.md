@@ -42,18 +42,18 @@ Email: joe.bloggs@research.institute.com
 Secondary researcher: Jim Smith
 Email: joe.bloggs@research.institute.com
 
-* Files in this folder related to project PROJ_00123
-* See report proj_00123_plan_20190315_JB_v01.docx for general project details
-* All data collected week commencing 2nd Dec 2019 by Jim Smith (lab B, building 631)
-* For protocols and instrument detail see corresponding ELISA details in experimental_protocols_20180319_TR_v03.docx
+Files in this folder related to project PROJ_00123
+See report proj_00123_plan_20190315_JB_v01.docx for general project details
+All data collected week commencing 2nd Dec 2019 by Jim Smith (lab B, building 631)
+For protocols and instrument detail see corresponding ELISA details in experimental_protocols_20180319_TR_v03.docx
 
-* Raw data is in Data/Raw/
-* Analysed data is in Data/Analysed/
-* Analysis scripts are in Code/R scripts/
+Raw data is in Data/Raw/
+Analysed data is in Data/Analysed/
+Analysis scripts are in Code/R scripts/
 
-* Both the raw and analysed data are commercially sensitive. See NDA-000113
-* Adjusted biomarker levels in all .xls files are adjusted by subtracking the mean and dividing by the standard deviation
-* Missing data are indicated using NA throughout all analysed files
+Both the raw and analysed data are commercially sensitive. See NDA-000113
+Adjusted biomarker levels in all .xls files are adjusted by subtracking the mean and dividing by the standard deviation
+Missing data are indicated using NA throughout all analysed files
 
 -------------------
 
@@ -88,7 +88,7 @@ Such aspects to keep in mind include,
 - With Word files, include the author's name, date of creation, and project description in the header
 - With Excel files, ensure columns and tables are labelled. If the file contains plots, label the axes and give the plot a title. If the file contains multiple tabs, label them appropriately.
 
-Also, consider a separate, initial tab containing a data dictionary and meta-data explaining the rest of the file (e.g. where the data is from, who collected it, units, what each tab is for, etc.).
+Also, consider a separate, **initial tab** containing a data dictionary and meta-data explaining the rest of the file (e.g. where the data is from, who collected it, units, what each tab is for, etc.).
 
 There are no strict rules on any of the above, and attempting to create such rules for everyone to adhere to may do more harm than good (for example, if the process ends up overly complex and 
 bureaucratic). Instead, **guiding principles** should be used, with the key aspect being kept in mind, namely, that your aim is to ensure the long-term usefulness of the data.

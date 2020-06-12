@@ -14,7 +14,7 @@ keypoints:
 ### Data Management Planning
 
 Often with projects that generate data, the datasets produced are relatively small and straight-forwards. For example, a single experiment with a single datafile which contains ELISA plate data is 
-very easy to handle. However, what if you've planned a project that is expected to generate 10,000 small files? Or 10 huge files? What if the data is known to be in an uncommon file-format (from,
+very easy to handle. However, what if you've planned a project that is expected to generate **10,000 small files**? Or **10 huge files**? What if the data is known to be in an uncommon file-format (from,
 say, an old piece of equipment), or what if you're expecting outside help to process the data? In cases such as these, planning the data aspects of an upcoming project can be beneficial.
 
 Data management plans are typically short documents that outline the plans for the use of the data throughout the project’s life-cycle. Also note that data management plans are becoming a requirement 

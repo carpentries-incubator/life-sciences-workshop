@@ -19,11 +19,16 @@ knitr_fig_path("12-")
 
 ### Loading Data
 
-R can handle a wide variety of data-types. For this lesson we'll keep things simple and load a CSV file. Type the following,
+R can handle a wide variety of data-types. For this lesson we'll keep things simple and load a CSV file. First, set your **working directory** (the path to the files for this workshop on your PC) with the following, adding the path in between the brackets and single quotation marks. Note, you must use forward brackets for the path /
+
+```{r, eval=F, echo=T}
+setwd('') #Set working directory
+```
+
+Next, type the following,
 
 ```{r}
-setwd('') #Set working directory
-df = read.csv('data_carpentry_test_data.csv')
+df = read.csv('data/data_carpentry_test_data.csv')
 ```
 
 You should see 'df' appear in your 'Environment' tab, showing 8 observations and 13 variables (rows and columns). This is a data-frame. Click it for a preview.
