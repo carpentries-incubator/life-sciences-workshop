@@ -22,7 +22,7 @@ R can handle a wide variety of data-types. For this lesson we'll keep things sim
 
 
 ~~~
-setwd('') #Set working directory
+#setwd('') #Set working directory
 ~~~
 {: .language-r}
 
