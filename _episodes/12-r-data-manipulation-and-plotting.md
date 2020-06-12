@@ -18,7 +18,7 @@ keypoints:
 
 ### Loading Data
 
-R can handle a wide variety of data-types. For this lesson we'll keep things simple and load a CSV file. Type the following,
+R can handle a wide variety of data-types. For this lesson we'll keep things simple and load a CSV file. First, set your **working directory** (the path to the files for this workshop on your PC) with the following, adding the path in between the brackets and single quotation marks. Note, you must use forward brackets for the path /
 
 
 ~~~
@@ -26,25 +26,19 @@ setwd('') #Set working directory
 ~~~
 {: .language-r}
 
+Next, type the following,
 
 
 ~~~
-Error in setwd(""): cannot change working directory
-~~~
-{: .error}
-
-
-
-~~~
-df = read.csv('data_carpentry_test_data.csv')
+df = read.csv('data/data_carpentry_test_data.csv')
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Warning in file(file, "rt"): cannot open file 'data_carpentry_test_data.csv': No
-such file or directory
+Warning in file(file, "rt"): cannot open file 'data/
+data_carpentry_test_data.csv': No such file or directory
 ~~~
 {: .error}
 
@@ -431,7 +425,7 @@ hist(rnorm(n = 1000))
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-12-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
 
 As expected, we see a normal distribution, centered on 0.
 
@@ -476,7 +470,7 @@ abline(lm(anscombe$y4 ~ anscombe$x4), col = 'red')
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-12-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
 
 We see that they're very different. This is a famous example called [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet), and highlights the perils of trying to use summary statistics to understand your data.
 
