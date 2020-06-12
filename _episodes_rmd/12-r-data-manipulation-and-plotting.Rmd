@@ -134,7 +134,7 @@ paste('The number is', num)
 With this in mind, we can now use 'paste()' and 'seq()' together to make the renaming of columns much easier,
 
 ```{r}
-df = read.csv('data_carpentry_test_data.csv') #Reload to reset the column names
+df = read.csv('../data/data_carpentry_test_data.csv') #Reload to reset the column names
 colnames(df) = paste0('Col_', seq(1:13))
 ```
 

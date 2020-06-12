@@ -158,28 +158,7 @@ With this in mind, we can now use 'paste()' and 'seq()' together to make the ren
 
 
 ~~~
-df = read.csv('data_carpentry_test_data.csv') #Reload to reset the column names
-~~~
-{: .language-r}
-
-
-
-~~~
-Warning in file(file, "rt"): cannot open file 'data_carpentry_test_data.csv': No
-such file or directory
-~~~
-{: .error}
-
-
-
-~~~
-Error in file(file, "rt"): cannot open the connection
-~~~
-{: .error}
-
-
-
-~~~
+df = read.csv('../data/data_carpentry_test_data.csv') #Reload to reset the column names
 colnames(df) = paste0('Col_', seq(1:13))
 ~~~
 {: .language-r}
