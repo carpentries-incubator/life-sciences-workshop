@@ -66,8 +66,9 @@ sample2 = 4
 sample1 + sample2
 ```
 
-Note that R is case sensitive. For example, 'sample' is not the sample as 'Sample'. Also keep in mind that variables should be named in a sensible and clear way in order to enhance reproducibility. For example, if you return to your code after a long break, and see a variable called 'b', you'll have some work to do to figure out what you meant. Life will be easier if you call it, for example, 'biomarker_CRP_mgml'. You can also add comments to your R code using the hash symbol #. Any text after this symbol will be ignored.
+Note that R is **case sensitive**. For example, 'sample' is not the sample as 'Sample'. Also keep in mind that variables should be named in a sensible and clear way in order to enhance reproducibility. For example, if you return to your code after a long break, and see a variable called 'b', you'll have some work to do to figure out what you meant. Life will be easier if you call it, for example, 'biomarker_CRP_mgml'. 
 
+You can also add **comments** to your R code using the hash symbol #. Any text after this symbol will be ignored.
 
 We can also assign words to variables,
 
@@ -438,7 +439,7 @@ Subsetting typically works by indicting the position or index of the data that y
 >
 > ~~~
 > matrix_example = matrix(rnorm(n=50), nrow = 10, ncol = 5)
-> matrix_example[c(1:2),]
+> matrix_example[,c(1:2)]
 > ~~~
 > {: .language-r}
 >
@@ -509,11 +510,11 @@ matrix_example[c(1:2),]
 {: .exercise}
 
 
-Subsetting not only works by specifying index values, but it can also be done based upon logical values. Effectively, picking out rows, columns or cells that are TRUE or FALSE. Earlier we created a vector called na_example. Let's see how you could *impute* the missing values using this subsetting idea,
+Subsetting not only works by specifying index values, but it can also be done based upon **logical** (or **Boolean**) values. Effectively, picking out rows, columns or cells that are **TRUE** or **FALSE**. Earlier we created a vector called na_example. Let's see how you could **impute** the missing values using this subsetting idea,
 
 ```{r}
 imputed = mean(na_example, na.rm = TRUE) #Determine the imputed value based upon the mean values
-na_example[is.na(na_example)] = imputed #Set the missing values to this mean value
+na_boolean = is.na(na_example) #Find the positions where 'na' occurs
+na_example[na_boolean] = imputed #Set the na values to the imputed mean value
 ```
 
-Finally, note that there are comments in the code, ignored by R thanks to the # character. Always consider using comments in your code to help interpret your code at a later date, or to help others to understand your code.

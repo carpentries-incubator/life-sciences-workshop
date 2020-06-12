@@ -22,7 +22,8 @@ knitr_fig_path("12-")
 R can handle a wide variety of data-types. For this lesson we'll keep things simple and load a CSV file. Type the following,
 
 ```{r}
-df = read.csv('../data/data_carpentry_test_data.csv')
+setwd('') #Set working directory
+df = read.csv('data_carpentry_test_data.csv')
 ```
 
 You should see 'df' appear in your 'Environment' tab, showing 8 observations and 13 variables (rows and columns). This is a data-frame. Click it for a preview.
@@ -36,7 +37,7 @@ We can also investigate the dataframe using code,
 >
 >
 > ~~~
-> head(df), 
+> head(df)
 > tail(df)
 > df[1,]
 > df[,1]
@@ -56,9 +57,9 @@ We can also investigate the dataframe using code,
 > {: .solution}
 {: .exercise}
 
-With this last command you may notice that underneath the output, it says 'Levels'. If you expand the 'df' object in your environment panel (by clicking the down-arrow next to it), you'll see that the column X1 is a 'factor'. Factors are another important data type in R, and they're used to represent categorical data. These categories can be unordered, such as 'Male and 'Female', or ordered, such as 'High', 'Medium' and 'Low'. As you can see, the categories (or level) here are A, B, C, D, E, F, G and H.
+With this last command you may notice that underneath the output, it says 'Levels'. If you expand the 'df' object in your environment panel (by clicking the down-arrow next to it), you'll see that the column X1 is a **'factor'**. Factors are another important data type in R, and they're used to represent categorical data. These categories can be unordered, such as 'Male and 'Female', or ordered, such as 'High', 'Medium' and 'Low'. As you can see, the categories (or level) here are A, B, C, D, E, F, G and H.
 
-A code based way of checking the data types within a data-frame is to use the 'str()' command. Try it out.
+A code based way of checking the data types within a data-frame is to use the **'str()'** command. Try it out.
 
 
 ### Data-frames
@@ -89,7 +90,7 @@ There are lots of useful tools in R for working with data-frames,
 
 > ## Exercise: Dataframe functions
 >
-> Investigate the following functions, dim(), colnames(), summary()
+> Investigate the following functions, **dim()**, **colnames()**, **summary()**
 >
 >
 > {: .language-r}
@@ -128,6 +129,7 @@ paste('The number is', num)
 With this in mind, we can now use 'paste()' and 'seq()' together to make the renaming of columns much easier,
 
 ```{r}
+df = read.csv('data_carpentry_test_data.csv') #Reload to reset the column names
 colnames(df) = paste0('Col_', seq(1:13))
 ```
 
@@ -149,6 +151,41 @@ This is much better, but there is still an issue. The number of columns, 13, is 
 > > {: .output}
 > {: .solution}
 {: .exercise}
+
+
+Data-frames can be combined and merged in a number of ways, arguably the most useful functions being **merge()**, **rbind()** and **cbind()**.
+
+First, let's create two example data-frames to test the functions,
+
+```{r}
+df_1 = df[c(1:4),]
+df_2 = df[c(5:8),]
+```
+
+Take a look at them. Now, let's try **rbind()**,
+
+```{r}
+df_rbind = rbind(df_1, df_2)
+```
+
+This stacks the data-frames back by row. cbind() does the same by column. Not that these functions need the two data-frames to have the same number
+of rows or columns, respectively.
+
+Next, here is how you use **merge()**,
+
+```{r}
+df_merged = merge(df_1, df_1, by = 'Col_1')
+```
+
+What just happened? We've merged according to the values in 'Col_1', so the data-frames have been merged where these values match. In this case, it's 
+the same data-frame twice, but you can see how you could combine two different data-frames where-ever they have a **common column**. This is how data
+is structured in many **databases**, where different tables relate to one-another with a common column or **key**.
+
+Finally on data-frames, save your data with **write.csv()**,
+
+```{r}
+write.csv(df_merged, 'my_new_file.csv')
+```
 
 
 ### Base Plots
@@ -202,28 +239,29 @@ Notice on the plot panel you have an Export option. This allows you to save your
 
 Something to keep in mind with plots in R is that they tend to be made for 2 different reasons. One is to create slick, professional plots for reports, presentations and publications. These take time to craft and are typically done using libraries beyond base R (the main one of which we'll see later).
 
-The second reason for plotting in R is to *explore* the data. These plots are usually done in base R and produced quickly, in order to get a feel for the data. This idea of exploring data visually is an important concept, because it's very difficult to understand your data from glancing at the raw numbers or even summary statistics.
+The second reason for plotting in R is to **explore** the data. These plots are usually done in base R and produced quickly, in order to get a feel for the data. This idea of exploring data visually is an important concept, because it's very difficult to understand your data from glancing at the raw numbers or even summary statistics.
 
 As a concrete example, consider the following 4 separate datasets,
 
 ```{r}
 anscombe = anscombe
-mean(anscombe$x1)
-mean(anscombe$x2)
-mean(anscombe$x3)
-mean(anscombe$x4)
 
-sd(anscombe$x1)
-sd(anscombe$x2)
-sd(anscombe$x3)
-sd(anscombe$x4)
+#mean(anscombe$x1)
+#mean(anscombe$x2)
+#mean(anscombe$x3)
+#mean(anscombe$x4)
+
+#sd(anscombe$x1)
+#sd(anscombe$x2)
+#sd(anscombe$x3)
+#sd(anscombe$x4)
 ```
 
 All 4 have the exact same mean and standard deviation. It may seem like they're similar, if not identical. However, when we plot them,
 
 ```{r}
-par(mfrow=c(2,2))
-par(mar=c(2,2,2,2))
+par(mfrow=c(2,2)) #Setting up the 2x2 grid of images
+par(mar=c(2,2,2,2)) #Setting up the plot margins
 plot(anscombe$x1, anscombe$y1, pch = 16)
 abline(lm(anscombe$y1 ~ anscombe$x1), col = 'red')
 plot(anscombe$x2, anscombe$y2, pch = 16)
@@ -244,7 +282,7 @@ data()
 
 > ## Exercise: Built-in datasets
 >
-> Pick a pre-installed dataset and explore it via any of the functions we've covered so far.
+> Load the pre-installed dataset 'ChickWeight' or 'ToothGrowth' and explore it via any of the functions we've covered so far.
 >
 >
 {: .exercise}

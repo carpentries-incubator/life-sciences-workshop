@@ -22,9 +22,38 @@ R can handle a wide variety of data-types. For this lesson we'll keep things sim
 
 
 ~~~
-df = read.csv('../data/data_carpentry_test_data.csv')
+setwd('') #Set working directory
 ~~~
 {: .language-r}
+
+
+
+~~~
+Error in setwd(""): cannot change working directory
+~~~
+{: .error}
+
+
+
+~~~
+df = read.csv('data_carpentry_test_data.csv')
+~~~
+{: .language-r}
+
+
+
+~~~
+Warning in file(file, "rt"): cannot open file 'data_carpentry_test_data.csv': No
+such file or directory
+~~~
+{: .error}
+
+
+
+~~~
+Error in file(file, "rt"): cannot open the connection
+~~~
+{: .error}
 
 You should see 'df' appear in your 'Environment' tab, showing 8 observations and 13 variables (rows and columns). This is a data-frame. Click it for a preview.
 
@@ -37,7 +66,7 @@ We can also investigate the dataframe using code,
 >
 >
 > ~~~
-> head(df), 
+> head(df)
 > tail(df)
 > df[1,]
 > df[,1]
@@ -57,9 +86,9 @@ We can also investigate the dataframe using code,
 > {: .solution}
 {: .exercise}
 
-With this last command you may notice that underneath the output, it says 'Levels'. If you expand the 'df' object in your environment panel (by clicking the down-arrow next to it), you'll see that the column X1 is a 'factor'. Factors are another important data type in R, and they're used to represent categorical data. These categories can be unordered, such as 'Male and 'Female', or ordered, such as 'High', 'Medium' and 'Low'. As you can see, the categories (or level) here are A, B, C, D, E, F, G and H.
+With this last command you may notice that underneath the output, it says 'Levels'. If you expand the 'df' object in your environment panel (by clicking the down-arrow next to it), you'll see that the column X1 is a **'factor'**. Factors are another important data type in R, and they're used to represent categorical data. These categories can be unordered, such as 'Male and 'Female', or ordered, such as 'High', 'Medium' and 'Low'. As you can see, the categories (or level) here are A, B, C, D, E, F, G and H.
 
-A code based way of checking the data types within a data-frame is to use the 'str()' command. Try it out.
+A code based way of checking the data types within a data-frame is to use the **'str()'** command. Try it out.
 
 
 ### Data-frames
@@ -90,7 +119,7 @@ There are lots of useful tools in R for working with data-frames,
 
 > ## Exercise: Dataframe functions
 >
-> Investigate the following functions, dim(), colnames(), summary()
+> Investigate the following functions, **dim()**, **colnames()**, **summary()**
 >
 >
 > {: .language-r}
@@ -116,7 +145,7 @@ dim(df)[2]
 
 
 ~~~
-[1] 13
+NULL
 ~~~
 {: .output}
 
@@ -129,6 +158,13 @@ The colnames function can not only be used to see what the existing column names
 colnames(df) = c('Col_1', 'Col_2', 'Col_3', 'Col_4', 'Col_5', 'Col_6', 'Col_7', 'Col_8', 'Col_9', 'Col_10', 'Col_11', 'Col_12', 'Col_13')
 ~~~
 {: .language-r}
+
+
+
+~~~
+Error in `colnames<-`(`*tmp*`, value = c("Col_1", "Col_2", "Col_3", "Col_4", : attempt to set 'colnames' on an object with less than two dimensions
+~~~
+{: .error}
 
 However, that's time-consuming. There is a much better way by using an extremely useful function called **paste()**. Paste allows text and variables to be combined. For example,
 
@@ -150,9 +186,38 @@ With this in mind, we can now use 'paste()' and 'seq()' together to make the ren
 
 
 ~~~
+df = read.csv('data_carpentry_test_data.csv') #Reload to reset the column names
+~~~
+{: .language-r}
+
+
+
+~~~
+Warning in file(file, "rt"): cannot open file 'data_carpentry_test_data.csv': No
+such file or directory
+~~~
+{: .error}
+
+
+
+~~~
+Error in file(file, "rt"): cannot open the connection
+~~~
+{: .error}
+
+
+
+~~~
 colnames(df) = paste0('Col_', seq(1:13))
 ~~~
 {: .language-r}
+
+
+
+~~~
+Error in `colnames<-`(`*tmp*`, value = c("Col_1", "Col_2", "Col_3", "Col_4", : attempt to set 'colnames' on an object with less than two dimensions
+~~~
+{: .error}
 
 This is much better, but there is still an issue. The number of columns, 13, is hard-coded. In other words, I have had to look to see how many columns there are and then type it. If you were running this code on many files and the dimensions changed, this would break.
 
@@ -174,6 +239,90 @@ This is much better, but there is still an issue. The number of columns, 13, is 
 {: .exercise}
 
 
+Data-frames can be combined and merged in a number of ways, arguably the most useful functions being **merge()**, **rbind()** and **cbind()**.
+
+First, let's create two example data-frames to test the functions,
+
+
+~~~
+df_1 = df[c(1:4),]
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in df[c(1:4), ]: object of type 'closure' is not subsettable
+~~~
+{: .error}
+
+
+
+~~~
+df_2 = df[c(5:8),]
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in df[c(5:8), ]: object of type 'closure' is not subsettable
+~~~
+{: .error}
+
+Take a look at them. Now, let's try **rbind()**,
+
+
+~~~
+df_rbind = rbind(df_1, df_2)
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in rbind(df_1, df_2): object 'df_1' not found
+~~~
+{: .error}
+
+This stacks the data-frames back by row. cbind() does the same by column. Not that these functions need the two data-frames to have the same number
+of rows or columns, respectively.
+
+Next, here is how you use **merge()**,
+
+
+~~~
+df_merged = merge(df_1, df_1, by = 'Col_1')
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in merge(df_1, df_1, by = "Col_1"): object 'df_1' not found
+~~~
+{: .error}
+
+What just happened? We've merged according to the values in 'Col_1', so the data-frames have been merged where these values match. In this case, it's 
+the same data-frame twice, but you can see how you could combine two different data-frames where-ever they have a **common column**. This is how data
+is structured in many **databases**, where different tables relate to one-another with a common column or **key**.
+
+Finally on data-frames, save your data with **write.csv()**,
+
+
+~~~
+write.csv(df_merged, 'my_new_file.csv')
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in is.data.frame(x): object 'df_merged' not found
+~~~
+{: .error}
+
+
 ### Base Plots
 
 Now that you can load data and subset data-frames, we can start to plot different parts of the data. For example, try the following,
@@ -184,7 +333,12 @@ plot(df$Col_2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in df$Col_2: object of type 'closure' is not subsettable
+~~~
+{: .error}
 
 We've used a couple of new things here. First, we've used the **plot()** function, and second, we've picked out a column from the data-frame with the **$** symbol. This is a shortcut in R, and the auto-fill should help you whenever you type the name of a data-frame, followed by this symbol.
 
@@ -200,7 +354,12 @@ plot(df$Col_2,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in df$Col_2: object of type 'closure' is not subsettable
+~~~
+{: .error}
 
 This may look like a lot of effort for one plot, but remember that this is now completely transparent, reproducible, and the code could be reused over and over. For more details on the plot function, have a look at the help files.
 
@@ -209,13 +368,43 @@ Base R can create various other plots. For example, try out this box-and-whisker
 
 ~~~
 df$Sample = 'Sample 1'
-df$Sample[c(5:8)] = 'Sample 2'
+~~~
+{: .language-r}
 
+
+
+~~~
+Error in df$Sample = "Sample 1": object of type 'closure' is not subsettable
+~~~
+{: .error}
+
+
+
+~~~
+df$Sample[c(5:8)] = 'Sample 2'
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in `*tmp*`$Sample: object of type 'closure' is not subsettable
+~~~
+{: .error}
+
+
+
+~~~
 boxplot(df$Col_2 ~ df$Sample)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in df$Col_2: object of type 'closure' is not subsettable
+~~~
+{: .error}
 
 Don't worry too much about the first two lines. What they're doing is creating a new (made-up) column called 'Sample' and setting every value to be 'Sample 1'. It then sets the 5th through to the 8th values to be equal to 'Sample 2'. The boxplot is then plotting the numerical values in column 2 split by this new variable. This is of course easier when your data already has such categories.
 
@@ -227,7 +416,12 @@ hist(df$Col_2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in df$Col_2: object of type 'closure' is not subsettable
+~~~
+{: .error}
 
 This plot isn't particularly interesting with this particular dataset. Recall earlier when we saw the **rnorm()** function? Let's now plot that data to see what we get,
 
@@ -237,7 +431,7 @@ hist(rnorm(n = 1000))
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-12-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 
 As expected, we see a normal distribution, centered on 0.
 
@@ -245,128 +439,32 @@ Notice on the plot panel you have an Export option. This allows you to save your
 
 Something to keep in mind with plots in R is that they tend to be made for 2 different reasons. One is to create slick, professional plots for reports, presentations and publications. These take time to craft and are typically done using libraries beyond base R (the main one of which we'll see later).
 
-The second reason for plotting in R is to *explore* the data. These plots are usually done in base R and produced quickly, in order to get a feel for the data. This idea of exploring data visually is an important concept, because it's very difficult to understand your data from glancing at the raw numbers or even summary statistics.
+The second reason for plotting in R is to **explore** the data. These plots are usually done in base R and produced quickly, in order to get a feel for the data. This idea of exploring data visually is an important concept, because it's very difficult to understand your data from glancing at the raw numbers or even summary statistics.
 
 As a concrete example, consider the following 4 separate datasets,
 
 
 ~~~
 anscombe = anscombe
-mean(anscombe$x1)
+
+#mean(anscombe$x1)
+#mean(anscombe$x2)
+#mean(anscombe$x3)
+#mean(anscombe$x4)
+
+#sd(anscombe$x1)
+#sd(anscombe$x2)
+#sd(anscombe$x3)
+#sd(anscombe$x4)
 ~~~
 {: .language-r}
-
-
-
-~~~
-[1] 9
-~~~
-{: .output}
-
-
-
-~~~
-mean(anscombe$x2)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 9
-~~~
-{: .output}
-
-
-
-~~~
-mean(anscombe$x3)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 9
-~~~
-{: .output}
-
-
-
-~~~
-mean(anscombe$x4)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 9
-~~~
-{: .output}
-
-
-
-~~~
-sd(anscombe$x1)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 3.316625
-~~~
-{: .output}
-
-
-
-~~~
-sd(anscombe$x2)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 3.316625
-~~~
-{: .output}
-
-
-
-~~~
-sd(anscombe$x3)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 3.316625
-~~~
-{: .output}
-
-
-
-~~~
-sd(anscombe$x4)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 3.316625
-~~~
-{: .output}
 
 All 4 have the exact same mean and standard deviation. It may seem like they're similar, if not identical. However, when we plot them,
 
 
 ~~~
-par(mfrow=c(2,2))
-par(mar=c(2,2,2,2))
+par(mfrow=c(2,2)) #Setting up the 2x2 grid of images
+par(mar=c(2,2,2,2)) #Setting up the plot margins
 plot(anscombe$x1, anscombe$y1, pch = 16)
 abline(lm(anscombe$y1 ~ anscombe$x1), col = 'red')
 plot(anscombe$x2, anscombe$y2, pch = 16)
@@ -378,7 +476,7 @@ abline(lm(anscombe$y4 ~ anscombe$x4), col = 'red')
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-12-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
 
 We see that they're very different. This is a famous example called [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet), and highlights the perils of trying to use summary statistics to understand your data.
 
@@ -392,7 +490,7 @@ data()
 
 > ## Exercise: Built-in datasets
 >
-> Pick a pre-installed dataset and explore it via any of the functions we've covered so far.
+> Load the pre-installed dataset 'ChickWeight' or 'ToothGrowth' and explore it via any of the functions we've covered so far.
 >
 >
 {: .exercise}

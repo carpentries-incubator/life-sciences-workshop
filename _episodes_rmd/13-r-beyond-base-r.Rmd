@@ -19,9 +19,9 @@ knitr_fig_path("13-")
 
 ### Loading packages
 
-We've seen how R comes with a variety of built-in functions, and we've used many of them to perform various tasks. R can also be extended using any of thousands of additional libraries, each of which comes with several new functions. For a list of all of these libraries (also known as packages), see the Comprehensive R Archive Network (CRAN) website [here](https://cran.r-project.org/web/packages/available_packages_by_name.html).
+We've seen how R comes with a variety of built-in functions, and we've used many of them to perform various tasks. R can also be extended using any of thousands of additional **libraries**, each of which comes with several new functions. For a list of all of these libraries (also known as packages), see the **Comprehensive R Archive Network (CRAN)** website [here](https://cran.r-project.org/web/packages/available_packages_by_name.html).
 
-This list can be overwhelming. Go to 'find' on your browser and type in 'drc'. Go through the matched items until you see the package called 'drc'. Click on it and you'll see that it's described as *"Analysis of dose-response data is made available through a suite of flexible and versatile model fitting and after-fitting functions."*
+This list can be overwhelming. Go to 'find' on your browser and type in 'drc'. Go through the matched items until you see the package called **'drc'**. Click on it and you'll see that it's described as *"Analysis of dose-response data is made available through a suite of flexible and versatile model fitting and after-fitting functions."*
 
 ![alt text](../fig/05-drc.png "drc package")
 
@@ -123,7 +123,7 @@ elisa_stds$recovery = (elisa_stds$backfit/elisa_stds$standards)*100
 
 Work out the sample backfits,
 
-```{r}
+```{r, warning=F}
 Sample_backfits = ED(curve_4pl, c(elisa$Col_4, elisa$Col_5, elisa$Col_6, elisa$Col_7, elisa$Col_8[1:4]), type="absolute", display=T)
 Sample_results = data.frame(Sample_backfits)
 Sample_results$Std..Error = NULL
@@ -230,6 +230,8 @@ Take a look in the folder where the files reside.
 ### Where to go next?
 
 We've just seen how to load x10 files, perform x10 curve-fits and produce x10 plots in less than a second. This script could be set to run at a set time each day, if, for example, you had a piece of equipment that was generating raw data files on a regular basis.
+
+Of course, mistakes can still be made when using code instead of mouse-clicks, but crucially, these mistakes are much easier to spot. For very important work, consider getting a colleague to **review your code**.
 
 R can generate not only images, but processed data-files, mathematical models, full reports in Word or PDF formats, slides, websites and even interactive apps. The level of sophistication is unlimited and can make any routine data processes much quicker, transparent and less prone to human copy-and-paste errors. Any process that you have in your department or company that's done on a regular basis could and should be performed by code.
 

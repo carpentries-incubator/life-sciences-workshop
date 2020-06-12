@@ -39,7 +39,7 @@ The [Data Management Planning Tool](https://dmptool.org/) is a free, online plat
 
 Data management plans should be reviewed as a project progressed, and modified accordingly.
 
-As part of a data management plan, it may be useful to create a flow-diagram of the planned data-flow through the expected 'analysis pipeline', i.e. a visual overview starting with the raw
+As part of a data management plan, it may be useful to create a flow-diagram of the planned data-flow through the expected **analysis pipeline**, i.e. a visual overview starting with the raw
 data, through all analysis steps (and associate files used), to the final output.
 
 ### Example of a good project setup

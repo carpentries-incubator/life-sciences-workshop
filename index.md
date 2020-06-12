@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: "Life Sciences Workshop"
+title: "Overview"
 ---
 
 Data Carpentry provides workshops on fundamental data concepts, with the aim of proving the required skills to get started with modern data analysis.
