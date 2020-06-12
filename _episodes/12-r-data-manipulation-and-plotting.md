@@ -22,7 +22,7 @@ R can handle a wide variety of data-types. For this lesson we'll keep things sim
 
 
 ~~~
-#setwd('') #Set working directory
+setwd('') #Set working directory
 ~~~
 {: .language-r}
 
@@ -30,14 +30,14 @@ Next, type the following,
 
 
 ~~~
-df = read.csv('data/data_carpentry_test_data.csv')
+df = read.csv('/data/data_carpentry_test_data.csv')
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Warning in file(file, "rt"): cannot open file 'data/
+Warning in file(file, "rt"): cannot open file '/data/
 data_carpentry_test_data.csv': No such file or directory
 ~~~
 {: .error}
