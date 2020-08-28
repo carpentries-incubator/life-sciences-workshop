@@ -1,0 +1,88 @@
+---
+title: "Stats R Notebook Exercise"
+output:
+  html_notebook
+---
+
+Load the data,
+
+```{r}
+setwd('C:/Users/rob.harrand/OneDrive - Avacta Group plc/ANIMAL HEALTH/R Projects/life-sciences-workshop-dev-zone')
+batch1 = read.csv('stats_example_batch1.csv')
+batch2 = read.csv('stats_example_batch2.csv')
+```
+
+Check the mean difference,
+
+```{r}
+(mean(batch1$x) - mean(batch2$x)) / mean(batch2$x)
+```
+
+This is within limits (<10%). The new reagent is OK.
+
+Visualise with a histogram,
+
+```{r}
+hist(batch1$x)
+hist(batch2$x, col = rgb(1,0,0,alpha=0.25), add = T)
+```
+
+Perform a t-test,
+
+```{r}
+t.test(batch1$x, batch2$x, paired = TRUE)
+```
+
+Statistically, there is no difference (albeit just). Again, this is a pass for the new reagent.
+
+Try batches 3 and 4,
+
+```{r}
+setwd('C:/Users/rob.harrand/OneDrive - Avacta Group plc/ANIMAL HEALTH/R Projects/life-sciences-workshop-dev-zone')
+batch3 = read.csv('stats_example_batch3.csv')
+batch4 = read.csv('stats_example_batch4.csv')
+```
+
+```{r}
+(mean(batch3$x) - mean(batch4$x)) / mean(batch3$x)
+```
+
+This is again within limits. Another pass.
+
+Visualise,
+
+```{r}
+hist(batch3$x, xlim = c(50,60))
+hist(batch4$x, col = 'red', add = T)
+```
+
+This looks very different. t-test,
+
+```{r}
+t.test(batch3$x, batch4$x, paired = TRUE)
+```
+
+Statistically, the two batches are different.
+
+What's going on here?
+
+```{r}
+mean(batch1$x)
+sd(batch1$x)
+
+mean(batch2$x)
+sd(batch2$x)
+```
+```{r}
+mean(batch3$x)
+sd(batch3$x)
+
+mean(batch4$x)
+sd(batch4$x)
+```
+
+
+
+
+
+
