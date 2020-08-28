@@ -42,92 +42,132 @@ Frequentist statistics can in turn be divided into two main branches; **inferent
 Let's start by grabbing some in-built R data (specifically, the 'chick weights' dataset, which is the weight of chicks on different diets) and creating a summary,
 
 
-```r
+~~~
 dt = chickwts
 
 summary(dt)
-```
+~~~
+{: .language-r}
 
-```
-##      weight             feed   
-##  Min.   :108.0   casein   :12  
-##  1st Qu.:204.5   horsebean:10  
-##  Median :258.0   linseed  :12  
-##  Mean   :261.3   meatmeal :11  
-##  3rd Qu.:323.5   soybean  :14  
-##  Max.   :423.0   sunflower:12
-```
+
+
+~~~
+     weight             feed   
+ Min.   :108.0   casein   :12  
+ 1st Qu.:204.5   horsebean:10  
+ Median :258.0   linseed  :12  
+ Mean   :261.3   meatmeal :11  
+ 3rd Qu.:323.5   soybean  :14  
+ Max.   :423.0   sunflower:12  
+~~~
+{: .output}
 
 We can see that we have a 'weight' variable, which is numeric, plus a 'feed' variable, which is a category/factor.
 
 Let's take a look at some basic R functions,
 
 
-```r
+~~~
 mean(dt$weight)
-```
+~~~
+{: .language-r}
 
-```
-## [1] 261.3099
-```
 
-```r
+
+~~~
+[1] 261.3099
+~~~
+{: .output}
+
+
+
+~~~
 median(dt$weight)
-```
+~~~
+{: .language-r}
 
-```
-## [1] 258
-```
 
-```r
+
+~~~
+[1] 258
+~~~
+{: .output}
+
+
+
+~~~
 sd(dt$weight)
-```
+~~~
+{: .language-r}
 
-```
-## [1] 78.0737
-```
 
-```r
+
+~~~
+[1] 78.0737
+~~~
+{: .output}
+
+
+
+~~~
 min(dt$weight)
-```
+~~~
+{: .language-r}
 
-```
-## [1] 108
-```
 
-```r
+
+~~~
+[1] 108
+~~~
+{: .output}
+
+
+
+~~~
 max(dt$weight)
-```
+~~~
+{: .language-r}
 
-```
-## [1] 423
-```
 
-```r
+
+~~~
+[1] 423
+~~~
+{: .output}
+
+
+
+~~~
 range(dt$weight)
-```
+~~~
+{: .language-r}
 
-```
-## [1] 108 423
-```
+
+
+~~~
+[1] 108 423
+~~~
+{: .output}
 
 There are several R packages that extend the sorts of descriptive statistics that you can do, but the above functions will typically be some of the most useful. We can also use plots to describe the data. Below is a histogram of the weight, where the feed type is linseed,
 
 
-```r
+~~~
 hist(dt$weight[dt$feed == 'linseed'])
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
 
 More useful with multiple factors is a box-and-whisker plot,
 
 
-```r
+~~~
 boxplot(dt$weight ~ dt$feed)
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
 
 This plot shows us the median (thicker black horizontal lines) plus the interquartile range, min and max, plus outliers.
 
@@ -141,16 +181,17 @@ Probability distributions, i.e. some measure or quantity plotted again the proba
 Let's create a single normal distribution and plot it,
 
 
-```r
+~~~
 #Create an example, random, normal distribution
 set.seed(123) #endure reproducible output
 eg_dist = rnorm(n = 10000, mean = 10, sd = 2)
 
 #Plot the distribution,
 hist(eg_dist)
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
 
 Take a look at the code. We're using the **rnorm()** function to create 10,000 random data-points, with a mean of 10 and standard deviation of 2. Note the **set.seed()** function is also used, to ensure code reproducibility.
 
@@ -185,7 +226,7 @@ Intuition helps here. Imagine the groups are both made up of 6 samples and the m
 Let's take two samples from our population,
 
 
-```r
+~~~
 #Take 2 random samples from the distibution,
 set.seed(100)
 sample1 = sample(eg_dist, size = 1000, replace = F)
@@ -199,9 +240,10 @@ abline(v=mean(sample1), lty = 'dashed')
 abline(v=mean(sample2), lty = 'dashed', col = 'red')
 text(15, 0.14, paste0('Mean of sample 1 = ', round(mean(sample1),2)))
 text(15, 0.12, paste0('Mean of sample 2 = ', round(mean(sample2),2)), col = 'red')
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
 
 We know in advance that these are from the same population, and it *looks* like they are, too. To try and quantify this similarity, let's move on to p-values.
 
@@ -213,23 +255,27 @@ The 'p' is p-values stands for 'probability', and what a p-value is telling you 
 Let's run a t-test,
 
 
-```r
+~~~
 t.test(sample1, sample2)
-```
+~~~
+{: .language-r}
 
-```
-## 
-## 	Welch Two Sample t-test
-## 
-## data:  sample1 and sample2
-## t = -1.6452, df = 1987.2, p-value = 0.1001
-## alternative hypothesis: true difference in means is not equal to 0
-## 95 percent confidence interval:
-##  -0.31472211  0.02756999
-## sample estimates:
-## mean of x mean of y 
-##  9.961241 10.104817
-```
+
+
+~~~
+
+	Welch Two Sample t-test
+
+data:  sample1 and sample2
+t = -1.6452, df = 1987.2, p-value = 0.1001
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.31472211  0.02756999
+sample estimates:
+mean of x mean of y 
+ 9.961241 10.104817 
+~~~
+{: .output}
 
 We can see a p-value of 0.1, which is non-significant. (The reason for this value being quite low, despite being from the same population, is that we used quite a large number of samples).
 
@@ -238,7 +284,7 @@ It's at this point that p-values can be misinterpreted. What such a result means
 We've just worked out two means of two samples. As a slight aside, there is something called **the central limit theorem** that states that the distribution of an infinite number of sample means from a population is normal, with a mean centered on the population mean. Let's take a look,
 
 
-```r
+~~~
 means = vector()
 i=1
 
@@ -253,9 +299,10 @@ while(i<=1000) {
 }
 
 hist(means)
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
 A normal distribution! To reiterate, we're now looking at 1000 *sample means*. This might seem a bit esoteric, but it's a concept that underpins a lot of hypothesis testing, and even works when the sample itself isn't normally distributed.
 
 > ## Exercise: Binomial Distribution
@@ -310,7 +357,7 @@ A normal distribution! To reiterate, we're now looking at 1000 *sample means*. T
 Going back to our two samples, how would this look if we actually had 2 different populations?
 
 
-```r
+~~~
 #Take 2 random samples from the distribution,
 set.seed(123)
 eg_dist1 = rnorm(n = 10000, mean = 10, sd = 2)
@@ -329,29 +376,34 @@ abline(v=mean(sample1), lty = 'dashed')
 abline(v=mean(sample2), lty = 'dashed', col = 'red')
 text(6, 0.18, paste0('Mean of sample 1 = ', round(mean(sample1),2)))
 text(6, 0.16, paste0('Mean of sample 2 = ', round(mean(sample2),2)), col = 'red')
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
 Things now look very different. Re-run the t-test,
 
 
-```r
+~~~
 t.test(sample1, sample2)
-```
+~~~
+{: .language-r}
 
-```
-## 
-## 	Welch Two Sample t-test
-## 
-## data:  sample1 and sample2
-## t = -58.94, df = 1987.2, p-value < 2.2e-16
-## alternative hypothesis: true difference in means is not equal to 0
-## 95 percent confidence interval:
-##  -5.314722 -4.972430
-## sample estimates:
-## mean of x mean of y 
-##  9.961241 15.104817
-```
+
+
+~~~
+
+	Welch Two Sample t-test
+
+data:  sample1 and sample2
+t = -58.94, df = 1987.2, p-value < 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -5.314722 -4.972430
+sample estimates:
+mean of x mean of y 
+ 9.961241 15.104817 
+~~~
+{: .output}
 We now, as expected, see an extremely small p-value. This is saying it's virtually impossible that we've get these two samples means if these sample were from the same underlying population.
 
 
@@ -364,7 +416,7 @@ If you have two samples and compare them in a t-test, you're conducting a single
 To demonstrate this, let's takes 10,000 lots of two samples (n=100), run 10,000 t-tests, and plot the corresponding p-values,
 
 
-```r
+~~~
 p_values = vector()
 i=1
 
@@ -383,34 +435,45 @@ while(i<=10000) {
 plot(p_values, pch = 16, cex = 0.5)
 lines(p_values, col = 'grey')
 abline(h=0.05, col = 'red', lty = 'dashed', lwd = 2)
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" width="612" style="display: block; margin: auto;" />
 
 You can see the p-value from the t-tests bouncing around between 0 and 1. Note the dashed red line at p=0.05.
 
 What proportion is below that line?
 
 
-```r
+~~~
 p_value_table = table(p_values < 0.05)
 p_value_table
-```
+~~~
+{: .language-r}
 
-```
-## 
-## FALSE  TRUE 
-##  9518   482
-```
 
-```r
+
+~~~
+
+FALSE  TRUE 
+ 9518   482 
+~~~
+{: .output}
+
+
+
+~~~
 p_value_table[2] / p_value_table[1]
-```
+~~~
+{: .language-r}
 
-```
-##       TRUE 
-## 0.05064089
-```
+
+
+~~~
+      TRUE 
+0.05064089 
+~~~
+{: .output}
 Should be around 5%, as expected. 
 
 The above plot is terrifying. It shows that when you take two samples from the same population and perform a t-test, *when the null hypothesis is true*, you could get any p-value from (almost) zero to 1. With a cut-off of 0.05, you'll be wrong in terms of concluding whether it's from the same population 5% of the time! Again, we're dealing with the probability of things occurring over time in terms of frequency.
@@ -418,7 +481,7 @@ The above plot is terrifying. It shows that when you take two samples from the s
 There is something else going on here, too. When there *is* a real difference, i.e. the *alternative* hypothesis is true, the probability you'll detect this different is related to the sample size. Let's take a look,
 
 
-```r
+~~~
 #Take 2 random samples from the distribution,
 set.seed(123)
 eg_dist1 = rnorm(n = 10000, mean = 10, sd = 2)
@@ -443,9 +506,10 @@ while(i<=1000) {
 plot(p_values, pch = 16, cex = 0.5, xlab = 'Sample size')
 lines(p_values, col = 'grey')
 abline(h=0.05, col = 'red', lty = 'dashed')
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
 
 This plot shows that when you are genuinely sampling from two different populations (which have different means), your ability to detect this difference with a t-test (in this case) is directly related to the sample size. You can see that with a sample size of below around 250, the p-value is often jumping *above* 0.05, were as beyond around 500 samples you're basically guaranteed to detect it.
 
@@ -484,7 +548,7 @@ Imagine the authors of a paper have measured the CRP levels of 10 healthy people
 Let's create a plot that shows the underlying population in gray, the population mean in red (5mg/l), and the position of 10 random samples in blue,
 
 
-```r
+~~~
 set.seed(15)
 x = rnorm(10e6, mean = 5, sd = 2) #Create a population with a mean of 5 and standard deviation of 2
 
@@ -500,14 +564,15 @@ set.seed(10)
 samples = sample(x, 10)
 
 abline(v=samples, col = 'blue', lwd = 1, lty = 'dashed')
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 
 Let's collapse the samples into a single mean value (in blue),
 
 
-```r
+~~~
 hist(x, 
      main = 'C-Reactive Protein levels in healthy UK adults',
      col = 'grey',
@@ -516,14 +581,15 @@ hist(x,
 
 abline(v=mean(x), lwd = 3, col = 'red')
 abline(v=mean(samples), col = 'blue', lwd = 2)
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
 
 This looks good, but as we've already stated, we unfortunately (and crucially), can't see the gray plot. We have no knowledge of the population distribution or the red line. What we have, in fact, is this,
 
 
-```r
+~~~
 hist(x, 
      main = 'C-Reactive Protein levels in healthy UK adults',
      col = 'white',
@@ -531,9 +597,10 @@ hist(x,
      border = 'white')
 
 abline(v=mean(samples), col = 'blue', lwd = 2)
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
 
 That's not a lot of use. We don't know that we're actually pretty close to the population mean of 5mg/l. For all we know it could be 3mg/l, 6mg/l or 10mg/l; we have no idea. Imagine, for example, that we had a sample mean of 2mg/l. That's statistically unlikely, but it could happen. Or what can often happen is that you may inadvertently make it more likely by choosing a poor sample. Recall that we're wanting to know the mean CRP levels of all healthy UK adults. What if your sample included only young adults? Or only men? It's crucial that a sample is representative of the population.
 
@@ -544,7 +611,7 @@ To reiterate, the central limit theorem states that *the distribution of an infi
 As below, I'm going to grab some samples (n=50) from the above population distribution, work out the mean, repeat the process 10,000 times, and then plot the resulting distribution. Here it is,
 
 
-```r
+~~~
 i=1
 means = vector()
 sds = vector()
@@ -567,9 +634,10 @@ hist(means, main = '1e3 Sample Means (n=50)',
 abline(v = mean(means),
        lwd = 3,
        col = 'red')
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
 
 Re-read the definition of the central limit theorem, and then look at this plot. We're no longer concerned about what individual *samples* are doing. Now we care when sample *means* are doing. Specifically, where our sample mean *might* sit in relation to the population mean. We can now see that our sample mean will sit in the above sample mean distribution.
 
@@ -586,7 +654,7 @@ Note that that's *not* the same as saying there is a 95% chance our range contai
 Below is a plot showing our single sample mean along with the 95% confidence intervals (shown as blue, dashed lines). The population distribution is also included,
 
 
-```r
+~~~
 hist(x, 
      main = 'C-Reactive Protein levels in healthy UK adults',
      col = 'grey',
@@ -600,9 +668,10 @@ ci = 1.96 * (sd(samples)/sqrt(length(samples)))
 
 abline(v=mean(samples)+ci, lwd = 3, col = 'blue', lty = 'dashed')
 abline(v=mean(samples)-ci, lwd = 3, col = 'blue', lty = 'dashed')
-```
+~~~
+{: .language-r}
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19-1.png)
+<img src="../fig/rmd-12-unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
 
 As you can see, this time we've captured the population mean. To reiterate, the solid blue line *could* have been at, say, 10mg/ml, which then would *not* have captured the population mean. In the real-world, you'll never know!
 
@@ -624,14 +693,18 @@ Effect size can be calculated by dividing the difference by the standard deviati
 Let's say we have an expected (from previous experiments, or the literature) standard deviation of 6,
 
 
-```r
+~~~
 cohens_d = 5/6
 cohens_d
-```
+~~~
+{: .language-r}
 
-```
-## [1] 0.8333333
-```
+
+
+~~~
+[1] 0.8333333
+~~~
+{: .output}
 
 That's a large effect (just).
 
@@ -647,34 +720,44 @@ Recall that power is *the probability of rejecting the null hypothesis when the 
 A common value for power is 0.8. Think about what this means; in the long run, you'll fail to reject the null 20% of the time when the alternative hypothesis is true.
 
 
-```r
+~~~
 library(pwr)
-```
+~~~
+{: .language-r}
 
-```
-## Warning: package 'pwr' was built under R version 4.0.2
-```
 
-```r
+
+~~~
+Warning: package 'pwr' was built under R version 4.0.2
+~~~
+{: .error}
+
+
+
+~~~
 pwr.t.test(d=cohens_d,
            power=0.8,
            sig.level=0.05,
            type="paired",
            alternative="two.sided")
-```
+~~~
+{: .language-r}
 
-```
-## 
-##      Paired t test power calculation 
-## 
-##               n = 13.34954
-##               d = 0.8333333
-##       sig.level = 0.05
-##           power = 0.8
-##     alternative = two.sided
-## 
-## NOTE: n is number of *pairs*
-```
+
+
+~~~
+
+     Paired t test power calculation 
+
+              n = 13.34954
+              d = 0.8333333
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number of *pairs*
+~~~
+{: .output}
 So, with this expected effect size, with this power and alpha level, you should be aiming for around 13 samples (at least).
 
 > ## Exercise: Power
@@ -729,7 +812,7 @@ Imagine that you're in charge of some routine production element of a lab. The l
 
 
 
-```r
+~~~
 # set.seed(5)
 # batch1 = rnorm(n = 100, mean = 56.85, sd = 23.2)
 # set.seed(3)
@@ -743,7 +826,8 @@ Imagine that you're in charge of some routine production element of a lab. The l
 # write.csv(batch2, 'stats_example_batch2.csv', row.names = F)
 # write.csv(batch3, 'stats_example_batch3.csv', row.names = F)
 # write.csv(batch4, 'stats_example_batch4.csv', row.names = F)
-```
+~~~
+{: .language-r}
 
 
 
