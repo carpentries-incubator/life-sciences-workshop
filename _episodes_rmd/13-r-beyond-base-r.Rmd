@@ -71,12 +71,6 @@ ggplot(data = elisa, aes(x=Col_1, y=Col_2, size = Col_4)) + #Create the basic pl
 >
 > Take a look at the CRAN page and manual for ggplot2. Can you apply the function 'coord_flip()' to the above code? Have a look in the manual for guidance
 >
->
-> ~~~
-> df_2 = df[,c(1:3)]
-> ~~~
-> {: .language-r}
->
 > > ## Solution
 > >
 > >
