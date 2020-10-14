@@ -157,7 +157,7 @@ hist(dt$weight[dt$feed == 'linseed'])
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
 
 More useful with multiple factors is a box-and-whisker plot,
 
@@ -167,7 +167,7 @@ boxplot(dt$weight ~ dt$feed)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
 
 This plot shows us the median (thicker black horizontal lines) plus the interquartile range, min and max, plus outliers.
 
@@ -191,7 +191,7 @@ hist(eg_dist)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
 
 Take a look at the code. We're using the **rnorm()** function to create 10,000 random data-points, with a mean of 10 and standard deviation of 2. Note the **set.seed()** function is also used, to ensure code reproducibility.
 
@@ -243,7 +243,7 @@ text(15, 0.12, paste0('Mean of sample 2 = ', round(mean(sample2),2)), col = 'red
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
 
 We know in advance that these are from the same population, and it *looks* like they are, too. To try and quantify this similarity, let's move on to p-values.
 
@@ -302,7 +302,7 @@ hist(means)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
 A normal distribution! To reiterate, we're now looking at 1000 *sample means*. This might seem a bit esoteric, but it's a concept that underpins a lot of hypothesis testing, and even works when the sample itself isn't normally distributed.
 
 > ## Exercise: Binomial Distribution
@@ -379,7 +379,7 @@ text(6, 0.16, paste0('Mean of sample 2 = ', round(mean(sample2),2)), col = 'red'
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
 Things now look very different. Re-run the t-test,
 
 
@@ -438,7 +438,7 @@ abline(h=0.05, col = 'red', lty = 'dashed', lwd = 2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" width="612" style="display: block; margin: auto;" />
 
 You can see the p-value from the t-tests bouncing around between 0 and 1. Note the dashed red line at p=0.05.
 
@@ -509,7 +509,7 @@ abline(h=0.05, col = 'red', lty = 'dashed')
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
 
 This plot shows that when you are genuinely sampling from two different populations (which have different means), your ability to detect this difference with a t-test (in this case) is directly related to the sample size. You can see that with a sample size of below around 250, the p-value is often jumping *above* 0.05, were as beyond around 500 samples you're basically guaranteed to detect it.
 
@@ -567,7 +567,7 @@ abline(v=samples, col = 'blue', lwd = 1, lty = 'dashed')
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 
 Let's collapse the samples into a single mean value (in blue),
 
@@ -584,7 +584,7 @@ abline(v=mean(samples), col = 'blue', lwd = 2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
 
 This looks good, but as we've already stated, we unfortunately (and crucially), can't see the gray plot. We have no knowledge of the population distribution or the red line. What we have, in fact, is this,
 
@@ -600,7 +600,7 @@ abline(v=mean(samples), col = 'blue', lwd = 2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
 
 That's not a lot of use. We don't know that we're actually pretty close to the population mean of 5mg/l. For all we know it could be 3mg/l, 6mg/l or 10mg/l; we have no idea. Imagine, for example, that we had a sample mean of 2mg/l. That's statistically unlikely, but it could happen. Or what can often happen is that you may inadvertently make it more likely by choosing a poor sample. Recall that we're wanting to know the mean CRP levels of all healthy UK adults. What if your sample included only young adults? Or only men? It's crucial that a sample is representative of the population.
 
@@ -637,7 +637,7 @@ abline(v = mean(means),
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
 
 Re-read the definition of the central limit theorem, and then look at this plot. We're no longer concerned about what individual *samples* are doing. Now we care when sample *means* are doing. Specifically, where our sample mean *might* sit in relation to the population mean. We can now see that our sample mean will sit in the above sample mean distribution.
 
@@ -671,7 +671,7 @@ abline(v=mean(samples)-ci, lwd = 3, col = 'blue', lty = 'dashed')
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
 
 As you can see, this time we've captured the population mean. To reiterate, the solid blue line *could* have been at, say, 10mg/ml, which then would *not* have captured the population mean. In the real-world, you'll never know!
 

@@ -14,7 +14,7 @@ keypoints:
 
 ```{r, include = FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("12-")
+knitr_fig_path("14-")
 ```
 
 The aim of this lesson is to take a look at some key statistical ideas in the context of R, with a focus on the sorts of areas typically employed in life sciences research. Given time constraints, this is not a fully-fledged statistics course, but will demonstrate how to explore and use the basic principles within R. The topics touched upon include,
