@@ -1,6 +1,6 @@
 ---
 title: "Statistics in R"
-teaching: "2 hours"
+teaching: "2.5 hours"
 exercises: "1 hour"
 questions:
 - "What are some basic, core concepts in statistics?"

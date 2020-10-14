@@ -1,6 +1,6 @@
 ---
 title: "R introduction: Data Manipulation and Plotting"
-teaching: 45
+teaching: 50
 exercises: 45
 questions:
 - "How do we get going with real data?"
