@@ -181,6 +181,7 @@ whilst the details of the changes are retained.
 >
 > Note: It's always useful when looking at a new spreadsheet for the first time to ask the question; **What is the aim of this file?** Is it ultimately to produce a plot? A neater, more useable 
 > version of the data? To explore the data? In this case, assume the point of this file is to find the **out-of-range samples**
+> Note that the solution below are the changes that I made when looking at this problem. This list of changes does not necessary represent the 'right' answer.
 >
 > 
 > > ## Solution

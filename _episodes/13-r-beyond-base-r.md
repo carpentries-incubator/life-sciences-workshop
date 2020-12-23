@@ -241,7 +241,9 @@ times_ten(2)
 
 > ## Exercise: Custom functions
 >
-> Alter the code to instead return the factorial of the entered number (e.g. if the entered number was 4, the result would be 24, as the factorial of 4 is 4*3*2*1). Hint, there is a function for this. Run your code with the number 6. What do you get?
+> Alter the code to instead return the factorial of the entered number (e.g. if the entered number was 4, the result would be 24, as the factorial of 4 is 4 x 3 x 2 x 1). Hint, there is a function for this. Run your code with the number 6. What do you get?
+> Note, call your function 'factorial_out'. Never give a custom function the same name as a built-in one!
+>
 >
 >
 > {: .language-r}
@@ -250,13 +252,23 @@ times_ten(2)
 > >
 > >
 > > ~~~
-> > number_out = factorial(number_in), output: [1] 720
+> > factorial_out = function(number_in) {
+> >   
+> >   number_out = factorial(number_in)
+> >   return(number_out)
+> >   
+> > }
+> > 
+> > factorial_out(6)
+> > 
+> > output: [1] 720
 > > ~~~
 > > {: .output}
 > {: .solution}
 {: .challenge}
 
-One more concept to understand for this lesson are **loops**. These are for when you want R to repeat a certain section of code, perhaps changing one aspect each time. The main loops in R are **while** loops and **for** loops. Let's take a look at a very simple for-loop,
+
+One more concept to understand for this lesson are **loops**. These are for when you want R to repeat a certain section of code, perhaps changing one or more aspects each time. The main loops in R are **while** loops and **for** loops. Let's take a look at a very simple for-loop,
 
 
 ~~~
@@ -283,7 +295,7 @@ for(i in seq(1:10)) {
 [1] "The number is: 10"
 ~~~
 {: .output}
-We're asking R to loop through the sequence of numbers, 1 to 10, and for each one, print out the pasted sentence ('The number is') along with 'i'. In this loop, 'i' is the number in the sequence, which increased by 1 each time the loop finishes.
+Here, we're asking R to loop through the sequence of numbers, 1 to 10, and for each one, print out the pasted sentence 'The number is:' along with 'i'. In this loop, 'i' is the number in the sequence, which increases by 1 each time the loop finishes.
 
 Let's put this all together. Below is a much larger function that is going to do something very interesting. First, it grabs a list of all the files with a certain keyword in the filename (using the 'list.files' function). Then, it goes through each file (using a for-loop), one at a time, performs the 4PL fit, creates a plot, and saves the plot as a png file.
 
@@ -337,7 +349,7 @@ bulk_plots('elisa')
 ~~~
 {: .language-r}
 
-Take a look in the folder where the files reside.
+Take a look in the folder where the files reside. You should see 10 png files!
 
 
 ### Where to go next?

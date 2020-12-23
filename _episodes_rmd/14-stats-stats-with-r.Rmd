@@ -19,7 +19,7 @@ source("../bin/chunk-options.R")
 knitr_fig_path("14-")
 ```
 
-The aim of this lesson is to take a look at some key statistical ideas in the context of R, with a focus on the sorts of areas typically employed in life sciences research. Given time constraints, this is not a fully-fledged statistics course, but will demonstrate how to explore and use the basic principles within R. The topics touched upon include,
+The aim of this lesson is to take a look at some key statistical ideas in the context of R, with a focus on the sorts of areas typically employed in life sciences research. Given time constraints, this is not a fully-fledged statistics course, but it will demonstrate how to explore and use the basic principles within R, and hopefully provide ideas for where to go next when learning about statistics. The topics touched upon include,
 
 - Frequentist vs Bayesian statistics
 - Probability distributions
@@ -81,13 +81,13 @@ Let's now start to move towards inferential statistics.
 
 ## Inferrential Statistics in R
 
-Imagine you have an orchard containing 100,000 apple, and you want to know the mean diameter of the apples. How do you it? It's obviously inpractical to measure each and every apple, so instead, you take a sample. The questions that then arise are; How many apples should you measure? Once you have your data, what do you do with it? And once you've calculated the mean diamter of your sample, what does that tell you about the mean diamter of all the apples?
+Imagine you have an orchard containing 100,000 apples and you want to know their mean diameter. How do you it? It's obviously impractical to measure each and every apple, so instead, you take a sample. The questions that then arise are; How many apples should you measure? Once you have your data, what do you do with it? And once you've calculated the mean diameter of your sample, what does that tell you about the mean diameter of all the apples?
 
 Underpinning this area of statistics are probabilities distributions, so let's take a look at those next.
 
 ## Probability distributions
 
-Probability distributions, i.e. some measure or quantity plotted again the probability of occurrence underpins huge parts of statistics. Many such types of distribution exist in nature, but for our purposes we'll stick to the most common - the normal (or Gaussian) distribution.
+Probability distributions, i.e. some measure or quantity plotted again the probability of occurrence underpins huge parts of statistics. Many such types of distribution exist in nature, but for our purposes we'll stick to the most common - the **normal** (or Gaussian) distribution.
 
 Let's create a single normal distribution and plot it,
 
@@ -102,7 +102,9 @@ hist(eg_dist)
 
 Take a look at the code. We're using the **rnorm()** function to create 10,000 random data-points, with a mean of 10 and standard deviation of 2. Note the **set.seed()** function is also used, to ensure code reproducibility.
 
-We'll be using this and other normal distributions for many of the topics below. One additional concept to look at here is that of the **area under the curve** and what it represents. The area under the curve above equals 1, i.e. the probability of anything occurring in this particular scenario. When you take a slice of the curve between two values, the area of that slice is the probability of occurrences in that range. By definition, the highest areas are around the mean. A common way of communicating how likely something is, is to state how many standard deviations away from the mean it is. For example, a standard deviation of 1 covers approximately the central 68% of the above curve. In other words, there is a 68% change of an occurrence or observation within 1 standard deviation. 2 standard deviations covers approximately the central 95% of the curve. Keep this 95% figure in mind, as we'll revisit it later. For now, here is the same plot as above with the standard deviations plotted,
+We'll be using this and other normal distributions for many of the topics below. One additional concept to look at here is that of the **area under the curve** and what it represents. The area under the curve above equals 1, i.e. the probability of *everything* occurring in this particular scenario. When you take a slice of the curve between two values, the area of that slice is the probability of occurrences in that range. By definition, the highest areas are around the mean. 
+
+A common way of communicating how likely something is, is to state how many standard deviations away from the mean it is. For example, a standard deviation of 1 covers (approximately) the central 68% of the above curve. In other words, there is a 68% chance of an occurrence or observation within 1 standard deviation (plus/minus). 2 standard deviations covers (approximately) the central 95% of the curve. Keep this 95% figure in mind, as we'll revisit it later. For now, here is the same plot as above with the standard deviations plotted,
 
 
 ```{r}
@@ -254,9 +256,9 @@ p_value_table[2] / p_value_table[1]
 
 Should be around 5%, as expected. 
 
-The above plot is terrifying. It shows that when you take two samples from the same population and perform a t-test, *when the null hypothesis is true*, you could get any p-value from (almost) zero to 1. With a cut-off of 0.05, you'll be wrong in terms of concluding whether it's from the same population 5% of the time! Again, we're dealing with the probability of things occurring over time in terms of frequency. Imagine you replace a key reagent on a production line once a week and perform 52 t-tests a years. If the reagent change never makes a difference, you can still expect a significant p-value in around 2 or 3 tests.
+The above plot is terrifying. It shows that when you take two samples from the same population and perform a t-test, *when the null hypothesis is true*, you could get any p-value from (almost) zero to 1. With a cut-off of 0.05, you'll be wrong in terms of concluding whether it's from the same population 5% of the time! Again, we're dealing with the probability of things occurring over time in terms of frequency. Imagine you replace a key reagent on a production line once a week and perform 52 t-tests a year. If the reagent change never makes a difference, you can still expect a 'significant' p-value in around 2 or 3 tests.
 
-There is something else going on here, too. When there *is* a real difference, i.e. the *alternative* hypothesis is true, the probability you'll detect this different is related to the sample size. Let's take a look,
+What about when there *is* a real difference? i.e. the *alternative* hypothesis is true? Now the probability you'll detect this different is related to the sample size. Let's take a look,
 
 ```{r}
 #Take 2 random samples from the distribution,
@@ -289,7 +291,7 @@ This plot shows that when you are genuinely sampling from two different populati
 
 The other factor is the *size* of the effect. This all intuitively makes sense. A real but small difference with a small sample size is likely to be lost in the noise. A large effect size with a large sample size will be stark and obvious.
 
-We started by discussing multiple comparions. The solution to getting caught out by chance p-values of < 0.05, the simplest solution is to divide 0.05 by the number of p-values, to get your new threshold of significance. For example, in we were talking about 20 comparisons, so the p-value used should actually be 0.05/20 = 0.0025 (know as the *Bonferroni correction**).
+We started by discussing multiple comparisons. The solution to getting caught out by chance p-values of < 0.05, the simplest solution is to divide 0.05 by the number of p-values, to get your new threshold of significance. For example, in we were talking about 20 comparisons, so the p-value used should actually be 0.05/20 = 0.0025 (know as the **Bonferroni correction**).
 
 
 
@@ -338,7 +340,7 @@ As expected, we see a normal distribution. But to reiterate, we're now looking a
 
 > ## Exercise: Binomial Distribution
 >
-> Create and plot a binomial distribution using the 'rnbinom()' function, with n = 1e5, a size of 10 and a probability of 0.8
+> Create and plot a binomial distribution using the 'rnbinom()' function, with n = 1e5, a size of 10 and a probability of 0.9
 > What do you notice?
 >
 > {: .language-r}
@@ -380,6 +382,9 @@ As expected, we see a normal distribution. But to reiterate, we're now looking a
 > >
 > >hist(means)
 > > ~~~
+> >
+> > You should see that, despite the population distribution being non-normal ('skewed'), the resulting sampling distribution is normal, as per the central limit theorem.
+> >
 > > {: .output}
 > {: .solution}
 {: .challenge}
@@ -442,7 +447,7 @@ To get a feel for where our sample mean *might* sit in relation to the populatio
 
 To reiterate, the central limit theorem states that *the distribution of an infinite number of sample means from a population is normal, with a mean centered on the population mean*.
 
-As below, I'm going to grab some samples (n=50) from the above population distribution, work out the mean, repeat the process 10,000 times, and then plot the resulting distribution. Here it is,
+Below, I'm going to grab some samples (n=50) from the above population distribution, work out the mean, repeat the process 1000 times, and then plot the resulting distribution. Here it is,
 
 ```{r}
 i=1
@@ -573,7 +578,7 @@ So, with this expected effect size, with this power and alpha level, you should 
 
 ## Preregistration and R notebooks
 
-It has been known for a while now that the scientific literature is riddled with papers that use poor statistical approaches. From p-hacking (continually analysing the data in different ways until a p-value < 0.05 is found) to HARKing (or Hypothesising After the Results are Known, which is where a study is re-written to match the observed rather than expected results), mistakes and deliberate misuse of statistics is everywhere.
+It has been known for a while now that the scientific literature is riddled with papers that use poor statistical approaches. From **p-hacking** (continually analysing the data in different ways until a p-value < 0.05 is found) to **HARKing** (or Hypothesising After the Results are Known, which is where a study is re-written to match the observed rather than expected results), mistakes and deliberate misuse of statistics is everywhere.
 
 One solution that's emerged in the past decade is pre-registration, which is where the study details, the starting hypothesis, the statistical power, etc. are all published *before* any data is collected. The second solution is the open sharing of statistical code, via something like an R notebook, to be completely transparent and reproducible with the data analysis.
 
@@ -589,7 +594,7 @@ Imagine that you're in charge of some routine production element of a lab. The l
 > 3. Give it a title and delete the text and code in the body of the file
 > 4. Using a code-chunk, load the files 'stats_example_batch1.csv' and 'stats_example_batch2.csv'. You may have to change your working directory
 > 5. Plot a histogram of the data
-> 6. Calculate the % change in means. Is it within the arbitrary 10% limit? Describe the outcome in a sentence
+> 6. Calculate the % change in the means (m1-m2/m1). Is it within the arbitrary 10% limit? Describe the outcome in a sentence
 > 7. Check with a paired t-test. Describe the outcome in a sentence
 > 8. Repeat with files 'stats_example_batch3.csv' and 'stats_example_batch4.csv'
 > 9. Knit the file as an HTML file
@@ -617,6 +622,11 @@ The possible uses of R notebooks is broad, including,
 -	Communicating results and analysis to a 3rd party
 -	Journal submissions
 -	Regular internal reporting (as done by the [UK government](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/))
+
+
+This concludes this introduction to statistics in R.
+
+
 
 
 ### Further reading

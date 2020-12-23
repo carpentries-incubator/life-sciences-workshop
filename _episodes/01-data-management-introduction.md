@@ -40,15 +40,15 @@ Without these core ideas, the most sophisticated data analysis in the world will
 
 #### **Example 1** - 'Westpac jumps the gun on profit' (The Sydney Morning Herald)
 
-*"Westpac was forced to halt trading on its shares and deliver its annual profit briefing a day early after it accidentally sent its results by email to research analysts"* [link](https://www.smh.com.au/business/westpac-jumps-the-gun-on-profit-20051103-gdmdcg.html)
+*"Westpac was forced to halt trading on its shares and deliver its annual profit briefing a day early after it accidentally sent its results by email to research analysts"* ([link](https://www.smh.com.au/business/westpac-jumps-the-gun-on-profit-20051103-gdmdcg.html))
 
 #### **Example 2** - 'Hypertension retracts paper over data glitch' (retractionwatch.com)
 
-*"Hypertension, a journal published by the American Heart Association, has retracted a 2011 paper looking at the implications of blood pressure management guidelines after the authors discovered they had bungled the merging of their data files"* [link](https://retractionwatch.com/2012/08/16/hypertension-retracts-paper-over-data-glitch/)
+*"Hypertension, a journal published by the American Heart Association, has retracted a 2011 paper looking at the implications of blood pressure management guidelines after the authors discovered they had bungled the merging of their data files"* ([link](https://retractionwatch.com/2012/08/16/hypertension-retracts-paper-over-data-glitch/))
 
 #### **Example 3** - 'Data questions prompt retraction of PLOS ONE cardiovascular paper' (retractionwatch.com)
 
-*"PLoS One has retracted a 2013 article on atherosclerosis in mice over concerns about the integrity of the data"* [link](https://retractionwatch.com/2014/09/25/data-questions-prompt-retraction-of-plos-one-cardiovascular-paper/)
+*"PLoS One has retracted a 2013 article on atherosclerosis in mice over concerns about the integrity of the data"* ([link](https://retractionwatch.com/2014/09/25/data-questions-prompt-retraction-of-plos-one-cardiovascular-paper/))
 
 These are big, headline-making examples, but similar problems are almost certainly widespread.
 

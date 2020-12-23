@@ -9,11 +9,11 @@ The workshop primarily involves spreadsheet software (such as Microsoft Excel) a
 
 Note that although the dataset used throughout these lessons is scientific, the ideas and principles explored could easily be applied to other data analysis scenarios outside of a life sciences context.
 
-#### Motivation
+### Motivation
 
 The ability to load data into Excel, perform calculations and create plots is widespread. However, this 'mouse-click' driven approach to analysis, combined, perhaps, with a lack of good data management principles, can lead to analytical results that are ambiguous, non-reproducible, and unusable in the long term.
 
-By using basic data management ideas with files, as-well-as within files such as spreadsheets, combined with the ability to load, explore and analyse data in a code-based environment like R, your research efforts will be significantly improved.
+By applying basic data management ideas, combined with the ability to load, explore and analyse data in a code-based environment like R, your research efforts will be significantly improved.
 
 
 ### Structure

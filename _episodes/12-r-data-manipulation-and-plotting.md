@@ -331,7 +331,7 @@ Something to keep in mind with plots in R is that they tend to be made for 2 dif
 
 The second reason for plotting in R is to **explore** the data. These plots are usually done in base R and produced quickly, in order to get a feel for the data. This idea of exploring data visually is an important concept, because it's very difficult to understand your data from glancing at the raw numbers or even summary statistics.
 
-As a concrete example, consider the following 4 separate datasets,
+As a concrete example, consider the following 4 separate datasets (note that most of the code is commented-out here for display purposes on this webpage, but you can run them),
 
 
 ~~~
