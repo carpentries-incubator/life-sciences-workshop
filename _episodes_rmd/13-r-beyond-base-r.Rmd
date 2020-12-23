@@ -5,7 +5,10 @@ exercises: 20
 questions:
 - "How do we go beyond R's base functionality?"
 objectives:
-- "Load extra libraries to extend R's possibilities"
+- "Be able to load extra libraries to extend R's possibilities"
+- "Be able to create plots using ggplot2"
+- "Understand how to perform a 4PL curve fit on example data"
+- "See how to code a basic loop function in R"
 keypoints:
 - "R can be extended in thousands of different ways"
 ---
@@ -23,7 +26,7 @@ We've seen how R comes with a variety of built-in functions, and we've used many
 
 This list can be overwhelming. Go to 'find' on your browser and type in 'drc'. Go through the matched items until you see the package called **'drc'**. Click on it and you'll see that it's described as *"Analysis of dose-response data is made available through a suite of flexible and versatile model fitting and after-fitting functions."*
 
-![alt text](../fig/05-drc.png "drc package")
+![alt text](../fig/05-drc.png "The drc package webpage on CRAN")
 
 There is a lot of information here. The part that's possibly of the most use is the reference manual in the form of a PDF. Every package in R comes with a reference manual like this, and outlines all of the additional functions and how to use them. We'll return to this package later.
 
@@ -79,7 +82,7 @@ ggplot(data = elisa, aes(x=Col_1, y=Col_2, size = Col_4)) + #Create the basic pl
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 
@@ -139,7 +142,7 @@ First we need to make our own function, to then use like we've been using other 
 ```{r}
 times_ten = function(number_in) {
 
-  number_out = number_in * 2
+  number_out = number_in * 10
   return(number_out)
 
 }
@@ -167,10 +170,20 @@ times_ten(2)
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
+One more concept to understand for this lesson are **loops**. These are for when you want R to repeat a certain section of code, perhaps changing one aspect each time. The main loops in R are **while** loops and **for** loops. Let's take a look at a very simple for-loop,
 
-Below is a much larger function that is going to do something very cool. First, it grabs a list of all the files with a certain keyword in the filename. Then, it goes through each file, one at a time, performs the 4PL fit, creates a plot, and saves the plot as a png file.
+```{r}
+for(i in seq(1:10)) {
+  
+  print(paste0('The number is: ', i))
+  
+}
+```
+We're asking R to loop through the sequence of numbers, 1 to 10, and for each one, print out the pasted sentence ('The number is') along with 'i'. In this loop, 'i' is the number in the sequence, which increased by 1 each time the loop finishes.
+
+Let's put this all together. Below is a much larger function that is going to do something very interesting. First, it grabs a list of all the files with a certain keyword in the filename (using the 'list.files' function). Then, it goes through each file (using a for-loop), one at a time, performs the 4PL fit, creates a plot, and saves the plot as a png file.
 
 Let's take a look over the code and the associated comments,
 

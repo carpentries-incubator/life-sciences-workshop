@@ -10,6 +10,8 @@ questions:
 - "How should you analyse 'before and after' results?"
 objectives:
 - "To become familiar with some relevant statistical techniques, and their application in R"
+- "Techniques and concepts include; Frequentist vs Bayesian statistics, descriptive statistics, inferrential statistics, hypothesis testing, probability distributions, p-values, multiple comparisons, confidence intervals, the central limit theorem, effect size, sample sizes, power"
+- "To be able to create an R notebook"
 keypoints:
 - "You can do anything, statistics-wise, in R"
 ---
@@ -171,8 +173,13 @@ boxplot(dt$weight ~ dt$feed)
 
 This plot shows us the median (thicker black horizontal lines) plus the interquartile range, min and max, plus outliers.
 
-Let's now start to move towards inferential statistics, starting with a look at probability distributions.
+Let's now start to move towards inferential statistics.
 
+## Inferrential Statistics in R
+
+Imagine you have an orchard containing 100,000 apple, and you want to know the mean diameter of the apples. How do you it? It's obviously inpractical to measure each and every apple, so instead, you take a sample. The questions that then arise are; How many apples should you measure? Once you have your data, what do you do with it? And once you've calculated the mean diamter of your sample, what does that tell you about the mean diamter of all the apples?
+
+Underpinning this area of statistics are probabilities distributions, so let's take a look at those next.
 
 ## Probability distributions
 
@@ -183,7 +190,7 @@ Let's create a single normal distribution and plot it,
 
 ~~~
 #Create an example, random, normal distribution
-set.seed(123) #endure reproducible output
+set.seed(123) #ensure reproducible output
 eg_dist = rnorm(n = 10000, mean = 10, sd = 2)
 
 #Plot the distribution,
@@ -195,7 +202,26 @@ hist(eg_dist)
 
 Take a look at the code. We're using the **rnorm()** function to create 10,000 random data-points, with a mean of 10 and standard deviation of 2. Note the **set.seed()** function is also used, to ensure code reproducibility.
 
-We'll be using this and other normal distributions for many of the topics below.
+We'll be using this and other normal distributions for many of the topics below. One additional concept to look at here is that of the **area under the curve** and what it represents. The area under the curve above equals 1, i.e. the probability of anything occurring in this particular scenario. When you take a slice of the curve between two values, the area of that slice is the probability of occurrences in that range. By definition, the highest areas are around the mean. A common way of communicating how likely something is, is to state how many standard deviations away from the mean it is. For example, a standard deviation of 1 covers approximately the central 68% of the above curve. In other words, there is a 68% change of an occurrence or observation within 1 standard deviation. 2 standard deviations covers approximately the central 95% of the curve. Keep this 95% figure in mind, as we'll revisit it later. For now, here is the same plot as above with the standard deviations plotted,
+
+
+
+~~~
+#Plot the distribution,
+hist(eg_dist)
+
+mean_eg = mean(eg_dist) #calcualte the mean
+sd_eg = sd(eg_dist) #calculate the standard deviation
+
+#Plot vertical lines at plus/minus 1 and 2 standard deviations,
+abline(v=mean_eg+sd_eg, col = 'red', lwd = 2, lty = 'dashed')
+abline(v=mean_eg+2*sd_eg, col = 'red', lwd = 2, lty = 'dashed')
+abline(v=mean_eg-sd_eg, col = 'red', lwd = 2, lty = 'dashed')
+abline(v=mean_eg-2*sd_eg, col = 'red', lwd = 2, lty = 'dashed')
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-14-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
 
 
 ## Hypothesis testing
@@ -209,11 +235,11 @@ Scenarios could include the following,
 - A single batch of samples, tested before and after a reagent change
 - A single batch of samples, tested before and after adding a new component to the testing procedure
 - A single batch of samples, tested at the start and end of a stability trial
-- A single batch of samples, tested before and after a freeze-thaw processes
+- A single batch of samples, tested before and after a freeze-thaw process
 
 Many more examples exist. The key question is; *how do you make the judgment that things are the same or things have changed?*
 
-In inferential statistics, typical applications include trying to estimate aspects of a population from a sample, or trying to tell if a sample is *likely*, based upon a theoretical population. Note the terms here - 'Population' doesn't (necessarily) refer to people, but instead to the complete collection of everything that you're interested in. In most situations, this is impossible to measure, and so a sample is taken instead. From this sample, the population parameters (such as the mean and standard deviation) are *inferred* (hence the name of this branch of statistics).
+To reiterate, in inferential statistics, typical applications include trying to estimate aspects of a population from a sample, or trying to tell if a sample is *likely*, based upon a theoretical population. Note the terms here - 'Population' doesn't (necessarily) refer to people, but instead to the complete collection of everything that you're interested in. In most situations, this is impossible to measure, and so a sample is taken instead. From this sample, the population parameters (such as the mean and standard deviation) are *inferred* (hence the name of this branch of statistics).
 
 One more note on terminology; by 'sample', here I'm talking about a number of observations or measurements from a population, e.g. measuring the diameters of 100 apples in an orchard of 100,000 apples. In other places 'sample' will mean an actual, individual biologic sample in the lab. Hopefully the context will make is clear which is which.
 
@@ -227,7 +253,7 @@ Let's take two samples from our population,
 
 
 ~~~
-#Take 2 random samples from the distibution,
+#Take 2 random samples from the distribution,
 set.seed(100)
 sample1 = sample(eg_dist, size = 1000, replace = F)
 set.seed(200)
@@ -243,7 +269,7 @@ text(15, 0.12, paste0('Mean of sample 2 = ', round(mean(sample2),2)), col = 'red
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-14-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
 
 We know in advance that these are from the same population, and it *looks* like they are, too. To try and quantify this similarity, let's move on to p-values.
 
@@ -277,84 +303,11 @@ mean of x mean of y
 ~~~
 {: .output}
 
-We can see a p-value of 0.1, which is non-significant. (The reason for this value being quite low, despite being from the same population, is that we used quite a large number of samples).
+We can see a p-value of 0.1, which is non-significant. (The reason for this value being quite low, despite being from the same population, is that we used quite a large number of samples). Note that our null hypothesis here is that the mean difference is zero.
 
-It's at this point that p-values can be misinterpreted. What such a result means is 'there is a 10% chance the data we have is due to chance if the mean levels between the two groups is actually zero', but what some translate this into is 'we have therefore disproved biological differences between the two groups'. This latter claim is a huge overreach. p-values are simply an estimate of what to expect *over time*, with multiple experiments (remember, this is frequentist statistics).
+It's at this point that p-values can be misinterpreted. What such a result means is 'the probability of observing the data we have, if the mean levels between the two groups is zero, due to chance, is 0.1', but what some translate this into is 'we have therefore disproved biological differences between the two groups'. This latter claim is a huge overreach. p-values are simply an estimate of what to expect *over time*, with multiple experiments (remember, this is frequentist statistics). In other words, if you performed 10 sampling experiments where the null hypothesis was true, you'd expect a mean difference of this magnitude in 1 of those experiments. In 100 experiments, you'd expect to see it 10 times, etc.
 
-We've just worked out two means of two samples. As a slight aside, there is something called **the central limit theorem** that states that the distribution of an infinite number of sample means from a population is normal, with a mean centered on the population mean. Let's take a look,
-
-
-~~~
-means = vector()
-i=1
-
-#Create a while loop,
-while(i<=1000) {
-  
-  sample_temp = sample(eg_dist, size = 1000, replace = F)
-  mean_temp = mean(sample_temp)
-  means = c(means, mean_temp)
-  i=i+1
-  
-}
-
-hist(means)
-~~~
-{: .language-r}
-
-<img src="../fig/rmd-14-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
-A normal distribution! To reiterate, we're now looking at 1000 *sample means*. This might seem a bit esoteric, but it's a concept that underpins a lot of hypothesis testing, and even works when the sample itself isn't normally distributed.
-
-> ## Exercise: Binomial Distribution
->
-> Create and plot a binomial distribution using the 'rnbinom()' function, with n = 1e5, a size of 10 and a probability of 0.8
-> What do you notice?
->
-> {: .language-r}
->
-> > ## Solution
-> >
-> >
-> > ~~~
-> > x <- rnbinom(n = 10000, size = 10, prob = 0.8)
-> > hist(x)
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .exercise}
-
-> ## Exercise: Central Limit Theorem
->
-> Run your code in the above loop, to create 1000 sample means from non-normally distributed data.
-> What do you notice?
->
-> {: .language-r}
->
-> > ## Solution
-> >
-> >
-> > ~~~
-> >means = vector()
-> >i=1
-> >
-> >#Create a while loop,
-> >while(i<=1000) {
-> >  
-> >  sample_temp = rnbinom(n = 10000, size = 10, prob = 0.8)
-> >  mean_temp = mean(sample_temp)
-> >  means = c(means, mean_temp)
-> >  i=i+1
-> >  
-> >}
-> >
-> >hist(means)
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .exercise}
-
-
-Going back to our two samples, how would this look if we actually had 2 different populations?
+How would this look if we actually had 2 different populations?
 
 
 ~~~
@@ -380,6 +333,7 @@ text(6, 0.16, paste0('Mean of sample 2 = ', round(mean(sample2),2)), col = 'red'
 {: .language-r}
 
 <img src="../fig/rmd-14-unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
+
 Things now look very different. Re-run the t-test,
 
 
@@ -404,6 +358,7 @@ mean of x mean of y
  9.961241 15.104817 
 ~~~
 {: .output}
+
 We now, as expected, see an extremely small p-value. This is saying it's virtually impossible that we've get these two samples means if these sample were from the same underlying population.
 
 
@@ -474,9 +429,10 @@ p_value_table[2] / p_value_table[1]
 0.05064089 
 ~~~
 {: .output}
+
 Should be around 5%, as expected. 
 
-The above plot is terrifying. It shows that when you take two samples from the same population and perform a t-test, *when the null hypothesis is true*, you could get any p-value from (almost) zero to 1. With a cut-off of 0.05, you'll be wrong in terms of concluding whether it's from the same population 5% of the time! Again, we're dealing with the probability of things occurring over time in terms of frequency.
+The above plot is terrifying. It shows that when you take two samples from the same population and perform a t-test, *when the null hypothesis is true*, you could get any p-value from (almost) zero to 1. With a cut-off of 0.05, you'll be wrong in terms of concluding whether it's from the same population 5% of the time! Again, we're dealing with the probability of things occurring over time in terms of frequency. Imagine you replace a key reagent on a production line once a week and perform 52 t-tests a years. If the reagent change never makes a difference, you can still expect a significant p-value in around 2 or 3 tests.
 
 There is something else going on here, too. When there *is* a real difference, i.e. the *alternative* hypothesis is true, the probability you'll detect this different is related to the sample size. Let's take a look,
 
@@ -537,7 +493,83 @@ This last one is important and we'll revisit it later.
 
 ## Confidence intervals
 
-There's one more major idea to have a handle on when performing statistics; the confidence interval. This is a concept that can take a while to get your head around, can easily be ignored or misinterpreted, but which offers a very useful tool in the evaluation of evidence.
+There's one more major idea to have a handle on when performing statistics; the **confidence interval**. This is a concept that can take a while to get your head around, can easily be ignored or misinterpreted, but which offers a very useful tool in the evaluation of evidence.
+
+Underpinning the concept of confidence intervals is something called the **central limit theorem**. This states that the distribution of an infinite number of sample means from a population is normal, with a mean centered on the population mean.
+
+That may not mean a lot out of context, so let's take a look at it in action via R,
+
+
+~~~
+means = vector()
+i=1
+
+#Create a while loop,
+while(i<=1000) {
+  
+  sample_temp = sample(eg_dist, size = 1000, replace = F)
+  mean_temp = mean(sample_temp)
+  means = c(means, mean_temp)
+  i=i+1
+  
+}
+
+hist(means)
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-14-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
+
+As expected, we see a normal distribution. But to reiterate, we're now looking at 1000 *sample means*. That's quite difference to the population distribution from before. This result and concept might seem a bit esoteric, but it's an idea that underpins a lot of hypothesis testing, and even works when the sample itself isn't normally distributed.
+
+> ## Exercise: Binomial Distribution
+>
+> Create and plot a binomial distribution using the 'rnbinom()' function, with n = 1e5, a size of 10 and a probability of 0.8
+> What do you notice?
+>
+> {: .language-r}
+>
+> > ## Solution
+> >
+> >
+> > ~~~
+> > x <- rbinom(n = 10000, size = 10, prob = 0.9)
+> > hist(x)
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
+
+> ## Exercise: Central Limit Theorem
+>
+> Run your code in the above loop, to create 1000 sample means from non-normally distributed data.
+> What do you notice?
+>
+> {: .language-r}
+>
+> > ## Solution
+> >
+> >
+> > ~~~
+> >means = vector()
+> >i=1
+> >
+> >#Create a while loop,
+> >while(i<=1000) {
+> >  
+> >  sample_temp = rnbinom(n = 10000, size = 10, prob = 0.8)
+> >  mean_temp = mean(sample_temp)
+> >  means = c(means, mean_temp)
+> >  i=i+1
+> >  
+> >}
+> >
+> >hist(means)
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
+
 
 So far, we've looked at samples from populations and whether or not such samples are likely to be selected, given a particular null hypothesis.
 
@@ -567,7 +599,7 @@ abline(v=samples, col = 'blue', lwd = 1, lty = 'dashed')
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-14-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
 
 Let's collapse the samples into a single mean value (in blue),
 
@@ -584,7 +616,7 @@ abline(v=mean(samples), col = 'blue', lwd = 2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-14-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
 
 This looks good, but as we've already stated, we unfortunately (and crucially), can't see the gray plot. We have no knowledge of the population distribution or the red line. What we have, in fact, is this,
 
@@ -600,7 +632,7 @@ abline(v=mean(samples), col = 'blue', lwd = 2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-14-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
 
 That's not a lot of use. We don't know that we're actually pretty close to the population mean of 5mg/l. For all we know it could be 3mg/l, 6mg/l or 10mg/l; we have no idea. Imagine, for example, that we had a sample mean of 2mg/l. That's statistically unlikely, but it could happen. Or what can often happen is that you may inadvertently make it more likely by choosing a poor sample. Recall that we're wanting to know the mean CRP levels of all healthy UK adults. What if your sample included only young adults? Or only men? It's crucial that a sample is representative of the population.
 
@@ -637,7 +669,7 @@ abline(v = mean(means),
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-14-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
 
 Re-read the definition of the central limit theorem, and then look at this plot. We're no longer concerned about what individual *samples* are doing. Now we care when sample *means* are doing. Specifically, where our sample mean *might* sit in relation to the population mean. We can now see that our sample mean will sit in the above sample mean distribution.
 
@@ -671,7 +703,7 @@ abline(v=mean(samples)-ci, lwd = 3, col = 'blue', lty = 'dashed')
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-14-unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-14-unnamed-chunk-20-1.png" title="plot of chunk unnamed-chunk-20" alt="plot of chunk unnamed-chunk-20" width="612" style="display: block; margin: auto;" />
 
 As you can see, this time we've captured the population mean. To reiterate, the solid blue line *could* have been at, say, 10mg/ml, which then would *not* have captured the population mean. In the real-world, you'll never know!
 
@@ -688,7 +720,7 @@ Effect size can be calculated by dividing the difference by the standard deviati
 
 - 0.2, a small effect
 - 0.5, a medium effect
-- >0.8,	a large effect
+- 0.8+,	a large effect
 
 Let's say we have an expected (from previous experiments, or the literature) standard deviation of 6,
 
@@ -758,6 +790,7 @@ pwr.t.test(d=cohens_d,
 NOTE: n is number of *pairs*
 ~~~
 {: .output}
+
 So, with this expected effect size, with this power and alpha level, you should be aiming for around 13 samples (at least).
 
 > ## Exercise: Power
@@ -779,7 +812,7 @@ So, with this expected effect size, with this power and alpha level, you should 
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 
@@ -800,37 +833,42 @@ Imagine that you're in charge of some routine production element of a lab. The l
 > 2. Take a look at the example file, to see how it works
 > 3. Give it a title and delete the text and code in the body of the file
 > 4. Using a code-chunk, load the files 'stats_example_batch1.csv' and 'stats_example_batch2.csv'. You may have to change your working directory
-> 5. Calculate the % difference in means. Is it within the arbitrary 10% limit? Describe the outcome in a sentence
-> 6. Check with a paired t-test. Describe the outcome in a sentence
-> 7. Repeat with files 'stats_example_batch3.csv' and 'stats_example_batch4.csv'
-> 8. Knit the file as an HTML file
-> 9. Look at the numbers. What's going on here?
+> 5. Plot a histogram of the data
+> 6. Calculate the % change in means. Is it within the arbitrary 10% limit? Describe the outcome in a sentence
+> 7. Check with a paired t-test. Describe the outcome in a sentence
+> 8. Repeat with files 'stats_example_batch3.csv' and 'stats_example_batch4.csv'
+> 9. Knit the file as an HTML file
+> 10. Look at the numbers. What's going on here?
 > 
 >
+> {: .language-r}
+>
+> > ## Solution
+> >
+> >
+> > ~~~
+> > See files/stats-notebook-exercise.Rmd
+> > ~~~
 > > {: .output}
-{: .exercise}
-
-
-
-~~~
-# set.seed(5)
-# batch1 = rnorm(n = 100, mean = 56.85, sd = 23.2)
-# set.seed(3)
-# batch2 = rnorm(n = 100, mean = 52.50, sd = 22.4)
-# set.seed(5)
-# batch3 = rnorm(n = 100, mean = 56.85, sd = 1.3)
-# set.seed(3)
-# batch4= rnorm(n = 100, mean = 52.50, sd = 0.9)
-# 
-# write.csv(batch1, 'stats_example_batch1.csv', row.names = F)
-# write.csv(batch2, 'stats_example_batch2.csv', row.names = F)
-# write.csv(batch3, 'stats_example_batch3.csv', row.names = F)
-# write.csv(batch4, 'stats_example_batch4.csv', row.names = F)
-~~~
-{: .language-r}
+> {: .solution}
+{: .challenge}
 
 
 
 
+The possible uses of R notebooks is broad, including,
+
+- Capturing the history of analysis for later use/other people using/auditors
+-	Communicating results and analysis to a 3rd party
+-	Journal submissions
+-	Regular internal reporting (as done by the [UK government](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/))
 
 
+### Further reading
+
+- [Central limit theorem: the cornerstone of modern statistics](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5370305/)
+- [Multiple comparisons](https://xkcd.com/882/)
+- [Prevalence of comorbidities and its effects in patients infected with SARS-CoV-2: a systematic review and meta-analysis](https://www.sciencedirect.com/science/article/pii/S1201971220301363) (an example of confidence intervals in a study)
+- [Cohen's D visualiser](https://rpsychologist.com/cohend/)
+- [Replication power and regression to the mean](https://rss.onlinelibrary.wiley.com/doi/10.1111/1740-9713.01462)
+- [Centre for Open Science](https://www.cos.io/initiatives/prereg) (pre-registration)

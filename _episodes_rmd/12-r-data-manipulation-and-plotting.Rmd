@@ -5,7 +5,10 @@ exercises: 45
 questions:
 - "How do we get going with real data?"
 objectives:
-- "Start to deal with real data and replicate some of the tasks done in spreadsheets"
+- "Be able to load data into R from a CSV file"
+- "Understand the concept of dataframes in R, and their most common corresponding functions"
+- "Be able to create basic plots, and appreciate the importance of exploring data through visualisations"
+- "Be able to load R's build-in datasets"
 keypoints:
 - "Analysis code is built line-by-line"
 ---
@@ -60,7 +63,7 @@ We can also investigate the dataframe using code,
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 With this last command you may notice that underneath the output, it says 'Levels'. If you expand the 'df' object in your environment panel (by clicking the down-arrow next to it), you'll see that the column X1 is a **'factor'**. Factors are another important data type in R, and they're used to represent categorical data. These categories can be unordered, such as 'Male and 'Female', or ordered, such as 'High', 'Medium' and 'Low'. As you can see, the categories (or level) here are A, B, C, D, E, F, G and H.
 
@@ -89,7 +92,7 @@ Data-frames are the work-horses of a lot of data analysis in R. As you saw above
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 There are lots of useful tools in R for working with data-frames,
 
@@ -108,7 +111,7 @@ There are lots of useful tools in R for working with data-frames,
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 Note, when an R function gives you multiple values, you can just get individual values by indexing with square brackets. For example,
 
@@ -155,10 +158,10 @@ This is much better, but there is still an issue. The number of columns, 13, is 
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
-Data-frames can be combined and merged in a number of ways, arguably the most useful functions being **merge()**, **rbind()** and **cbind()**.
+Data-frames can be combined and merged in a number of ways, arguably the most useful functions being **rbind()**, **cbind()** and **merge()**.
 
 First, let's create two example data-frames to test the functions,
 
@@ -176,15 +179,38 @@ df_rbind = rbind(df_1, df_2)
 This stacks the data-frames back by row. cbind() does the same by column. Not that these functions need the two data-frames to have the same number
 of rows or columns, respectively.
 
-Next, here is how you use **merge()**,
+Next, let's look at how to use **merge()**. First, create the following data-frames,
 
 ```{r}
-df_merged = merge(df_1, df_1, by = 'Col_1')
+samples = data.frame('SampleID' = c(1:10), 
+                     'Measurement' = rnorm(10,10,5))
+
+patients = data.frame('Name' = c(rep('Bob',3), rep('Bill',2), rep('Bernard',5)), 
+                      'Treatment' = c(rep('Drug A', 5), rep('Drug B', 5)),
+                      'SampleID' = c(1:10))
 ```
 
-What just happened? We've merged according to the values in 'Col_1', so the data-frames have been merged where these values match. In this case, it's 
-the same data-frame twice, but you can see how you could combine two different data-frames where-ever they have a **common column**. This is how data
-is structured in many **databases**, where different tables relate to one-another with a common column or **key**.
+Have a look at the these data-frames. They're what you might typically see in the tables of a relational database, where different aspects are stored in different tables, with a **key** being available to connect them. In this case, the key is the 'SampleID' column. Let's merge them using this key,
+
+```{r}
+df_merged = merge(patients, samples, by = 'SampleID')
+```
+
+Note that the two merging columns can have different names.
+
+What just happened? We've merged according to the values in 'SampleID', so the data-frames have been merged where these values match. In many situations, you might have missing values in one or both of the data-frames. For example,
+
+```{r}
+patients$SampleID[4] = NA
+```
+
+Take a look at the patients data. Bill is now missing a value for 'drug A'. Re-run the merging code above and see what happens. You'll see that the line corresponding to the missing data is completely ignored. In situations like this, it's possible to force R to include whatever data it does have available. For example, run the following,
+
+```{r}
+df_merged = merge(samples, patients, by = 'SampleID', all.y = TRUE)
+```
+
+Now it has included the data that it could not originally merge. This may be useful if, say, you wanted to maintain the original number of rows.
 
 Finally on data-frames, save your data with **write.csv()**,
 
@@ -287,8 +313,8 @@ data()
 
 > ## Exercise: Built-in datasets
 >
-> Load the pre-installed dataset 'ChickWeight' or 'ToothGrowth' and explore it via any of the functions we've covered so far.
+> Load the pre-installed dataset 'ChickWeight' or 'ToothGrowth' and explore it via any of the functions we've covered so far, including plots
 >
 >
-{: .exercise}
+{: .challenge}
 

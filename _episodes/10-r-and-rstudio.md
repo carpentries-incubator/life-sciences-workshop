@@ -61,4 +61,4 @@ To run code, you can either click on a line and press CTRL-ENTER, or click the '
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}

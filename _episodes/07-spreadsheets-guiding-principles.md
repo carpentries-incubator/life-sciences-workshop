@@ -5,7 +5,11 @@ exercises: 20
 questions:
 - How should spreadsheets be used to maximise efficiency and reproducibility?
 objectives:
-- Understand the dos and don't of spreadsheets
+- Understand the concepts of raw data and data dictionaries
+- Choose sensible and consistent variable names
+- Appreciate the problems associated with dates, blank cells, merged cells, non-rectangular data and the use of colour in spreadsheets
+- Know how to apply data validation
+- Know what format to save data in
 keypoints:
 - A number of simple concepts can increase the future usability of data
 ---
@@ -14,8 +18,7 @@ In this section we'll look at how to use spreadsheets in an efficient, clear and
 
 Note that the focus of this section is on those situations where data analysis is confined to a spreadsheet. It is *not* guidance on how to prepare data for code-based analysis.
 
-Using spreadsheets in accordance with established best-practice may at times seem burdensome and quite different. But it doesn’t have to be an overnight switch. The key aim is to ensure that 
-either a human or a computer can understand the data at a later date. Spreadsheets are rarely a one-time creation, and avoiding clutter, noise and ambiguity is key to future use.
+Using spreadsheets in accordance with established best-practice may at times seem burdensome and quite different. But it doesn't have to be an overnight switch. The key aim is to ensure that either a human or a computer can understand the data at a later date. Spreadsheets are rarely a one-time creation, and avoiding clutter, noise and ambiguity is key to future use.
 
 ### Raw means raw
 
@@ -33,8 +36,7 @@ If you ever ask someone for their raw data and receive a file that looks like th
 **Meta-data**, or 'data about data', is an essential piece of any project that wishes to be reproducible. Spreadsheet files should be handled within 
 projects using basic project organisation principles, such as having a **README.txt** file explaining details of the file. 
 
-One way of improving the **reproducibility of a spreadsheet file is to have a tab or separate spreadsheet file that contains variable names and associated details. For example,
-it may list all variable names, their units, maximum and minimum values, internet references to find out more, etc.
+One way of improving the reproducibility of a spreadsheet file is to have a tab or separate spreadsheet file that contains variable names and associated details. For example, it may list all variable names, their units, maximum and minimum values, internet references to find out more, etc.
 
 An example data dictionary,
 
@@ -44,8 +46,7 @@ An example data dictionary,
 ### Consistency and sensible names
 
 **Consistency** within and between files is essential for the long-term, efficient use of data, where the chances of introducing errors is minimised.
-For example, if you were to use **'sample 1'** in one file, **'s1'** in second and **'1'** in a third, it's going to take you and others time to figure things
-out later on. 
+For example, if you were to use **'sample 1'** in one file, **'s1'** in second and **'1'** in a third, it's going to take you and others time to figure things out later on. 
 
 Similarly, if you chose to use a **blank cell** to represent missing values one day, but **'missing'**, **'unmeasured'**, and **'na'** on others,
 you're introducing unnecessary ambiguity.
@@ -60,15 +61,14 @@ aspect of a particular project, leading to the [destruction of the $125 million 
 
 Below is an example of some poor variable/column names,
 
-![alt text](../fig/03-poor-names.png "Poor variable names")
+![alt text](../fig/03-poor-names.png "Poor variable names. These names are ambiguous to anyone not familiar with the work, or even yourself in the future when you revisit the file")
 
 
 ### Dates
 
 Spreadsheet programs love to guess what you're doing, and at the top of their guess-list are **dates**.
 
-In the paper *Gene name errors are widespread in the scientific literature* by Ziemann M, et al, they state that *"The spreadsheet software Microsoft Excel, when used with default settings, is known to convert gene names to dates and floating-point numbers. A programmatic scan of leading genomics journals reveals that approximately one-fifth of papers with supplementary Excel gene lists contain erroneous gene name conversions."*. 
-They go on to state that *"gene symbols such as SEPT2 (Septin 2) and MARCH1 [Membrane-Associated Ring Finger (C3HC4) 1, E3 Ubiquitin Protein Ligase] are converted by default to ‘2-Sep’ and ‘1-Mar’, respectively"*.
+In the paper *(Gene name errors are widespread in the scientific literature)[https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7]* by Ziemann M, et al, they state that *"The spreadsheet software Microsoft Excel, when used with default settings, is known to convert gene names to dates and floating-point numbers. A programmatic scan of leading genomics journals reveals that approximately one-fifth of papers with supplementary Excel gene lists contain erroneous gene name conversions."*. They go on to state that *"gene symbols such as SEPT2 (Septin 2) and MARCH1 [Membrane-Associated Ring Finger (C3HC4) 1, E3 Ubiquitin Protein Ligase] are converted by default to '2-Sep' and '1-Mar', respectively"*.
 
 To avoid this and similar issues, it's a good idea to set the format of the relevant column to **'text'** instead of **'general'** first. It's essential
 that this is done *before* data are entered, otherwise programs such as Excel will convert what it thinks are dates into a numeric representation.
@@ -94,36 +94,29 @@ as a real value.
 
 Analysing data when cells contain **multiple pieces of information** is a headache that no-one needs. 
 
-For example, imagine you had a spreadsheet with a column detailing a patient name and postcode, e.g. 'J. Kirby, YO22', 'J. Batey, YO10', and 'S. Masca, LS14'. If you wanted to process this
-information in anyway, from counting the number of different postcodes, picking out the most common surname or simply ordering by postcode, you'd first
-have to split the column. It's far easier to use two different columns from the start.
+For example, imagine you had a spreadsheet with a column detailing a patient name and postcode, e.g. 'J. Kirby, YO22', 'J. Batey, YO10', and 'S. Masca, LS14'. If you wanted to process this information in anyway, from counting the number of different postcodes, picking out the most common surname or simply ordering by postcode, you'd first have to split the column. It's far easier to use two different columns from the start.
 
 **Merging cells** is a similar issue. Merging multiple cells into a single cell may look good, but it does nothing for subsequent processing. For example,
 as soon as you save your file as a CSV, the merging is lost and you end up with an empty cell.
 
 Below is an example of a poor use of columns,
 
-![alt text](../fig/04-poor-columns.png "Poor use of columns")
+![alt text](../fig/04-poor-columns.png "Poor use of columns. Using the data in this file would require some non-trivial processing first")
 
 
 ### Rectangular data
 
-Spreadsheets work best from an analysis point-of-view when data is **rectangular**, where each row is some sort of observation and each column is a variable. This
-is not only easy to understand by eye, it's also easy for other programs to load (and extremely useful for any subsequent code-based analysis).
+Spreadsheets work best from an analysis point-of-view when data is **rectangular**, where each row is some sort of observation and each column is a variable. This is not only easy to understand by eye, it's also easy for other programs to load (and extremely useful for any subsequent code-based analysis).
 
-If your data contains multiple parts, each of which is or can be structured in the form of a rectangle, consider putting each into its own tab, or even into a separate file. 
-The latter may seem overly complicated, and may not always be necessary, but recall that CSV files cannot save multiple tabs. Also, consider keeping plots in their own tab.
+If your data contains multiple parts, each of which is or can be structured in the form of a rectangle, consider putting each into its own tab, or even into a separate file. The latter may seem overly complicated, and may not always be necessary, but recall that CSV files cannot save multiple tabs. Also, consider keeping plots in their own tab.
 
 Below is an example of non-rectangular data,
 
-![alt text](../fig/05-non_rectangular.png "Non-rectangular data")
+![alt text](../fig/05-non_rectangular.png "Non-rectangular data. We can see 3 different, seperate areas of data, plus some mean values and notes")
 
-An exception to the above may be if you are using a tab in a spreadsheet for **interactive analysis**, changing values and wanting to see the realtime chnages to summarys statisitics and plots. In
-that case, the other ideas in this section are extremely important, to prevant the tab from becoming busy and confusing. Notes can be useful, but keep them at a minimum. Any substantial
-documentation is best kept in a README.txt file or similar.
+An exception to the above may be if you are using a tab in a spreadsheet for **interactive analysis**, changing values and wanting to see the real-time changes to summary statistics and plots. In that case, the other ideas in this section are extremely important, to prevent the tab from becoming busy and confusing. Notes can be useful, but keep them at a minimum. Any substantial documentation is best kept in a README.txt file or similar.
 
-That said, if you're analysing your data in an interactive fashion, perhaps changing the contents of cells repeatedly and tinkering with values, you may be on a slipperly slope of 
-**non-reproducible research**. Be careful! **Macros** can very be useful here, with calculations done automatically, reducing the amount of manual intervention.
+That said, if you're analysing your data in an interactive fashion, perhaps changing the contents of cells repeatedly and tinkering with values, you may be on a slippery slope of **non-reproducible research**. Be careful! **Macros** can very be useful here, with calculations done automatically, reducing the amount of manual intervention.
 
 
 ### Avoid colour
@@ -136,8 +129,7 @@ as much information as a clear label. Nor can you export the colour details via 
 
 It's far more useful to **create new columns** that contain the details of whatever information you are conveying with colour. For example, rather than
 using colours to highlight 'high' and 'low' values of some numeric column, instead create a column called, say, 'Category' or 'Range', with the values
-of 'high', 'low' and 'normal' in the cells. Do this using something such as **'=IF(CELL>0.2, "Yes", "No")'**, where the cell reference is the value of interest that you are
-currently highlighting with colour.
+of 'high', 'low' and 'normal' in the cells. Do this using something such as **'=IF(CELL>0.2, "Yes", "No")'**, where the cell reference is the value of interest that you are currently highlighting with colour.
 
 You may be very attached to using colour in your files. If you are, at least add a new column as well!
 
@@ -159,7 +151,7 @@ but if you're manually entering data, that time could save you from costly mista
 > ![alt text](../fig/07-data-validation.png "Data validation")
 >
 >
-{: .exercise}
+{: .challenge}
 
 
 
@@ -224,10 +216,14 @@ whilst the details of the changes are retained.
 > > Note: This cleaned 'Results' tab data could be saved as a CSV file for consequent work. If so, ensure the file is described accordingly in the README.txt file
 > > ~~~
 > {: .solution}
-{: .exercise}
+{: .challenge}
   
 Remember, the aim isn't to make a spreadsheet look better. You might even conclude that it looks worse! The real question is 
 *"when I come back to this in 18 months time, when someone has asked me why and how I did what I did, will I understand it?"*. Or, *"if someone else looks at this, will they understand it?"*. 
 Or, perhaps, *"If I do a similar experiment next month, how do I ensure I'm handling the data in the same way?"*, i.e. minimising subjective decisions or errors.
 
-For further reading, take a look at the article [Broman, Karl W., and Kara H. Woo. "Data organization in spreadsheets." The American Statistician 72.1 (2018): 2-10.](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989)
+### Further reading
+
+- [Broman, Karl W., and Kara H. Woo. "Data organization in spreadsheets." The American Statistician 72.1 (2018): 2-10.](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989) - A similar overview as presented in this lesson
+- [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510) - A paper by the folks at Data Carpentry, setting out the reasons behind it all
+- (Video) [The Importance of Reproducible Research in High-Throughput Biology](https://www.youtube.com/watch?v=7gYIs7uYbMo) - A superb motivator for learning R!

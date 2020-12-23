@@ -12,7 +12,7 @@ batch1 = read.csv('stats_example_batch1.csv')
 batch2 = read.csv('stats_example_batch2.csv')
 ```
 
-Check the mean difference,
+Check the percentage change,
 
 ```{r}
 (mean(batch1$x) - mean(batch2$x)) / mean(batch2$x)
@@ -26,6 +26,7 @@ Visualise with a histogram,
 hist(batch1$x)
 hist(batch2$x, col = rgb(1,0,0,alpha=0.25), add = T)
 ```
+These look very similar.
 
 Perform a t-test,
 
@@ -42,6 +43,7 @@ setwd('C:/Users/rob.harrand/OneDrive - Avacta Group plc/ANIMAL HEALTH/R Projects
 batch3 = read.csv('stats_example_batch3.csv')
 batch4 = read.csv('stats_example_batch4.csv')
 ```
+Percetnage change,
 
 ```{r}
 (mean(batch3$x) - mean(batch4$x)) / mean(batch3$x)
@@ -64,7 +66,7 @@ t.test(batch3$x, batch4$x, paired = TRUE)
 
 Statistically, the two batches are different.
 
-What's going on here?
+What's going on here? Let's take a look at the means and standard deviations. First batches,
 
 ```{r}
 mean(batch1$x)
@@ -73,6 +75,8 @@ sd(batch1$x)
 mean(batch2$x)
 sd(batch2$x)
 ```
+Second batches,
+
 ```{r}
 mean(batch3$x)
 sd(batch3$x)
@@ -80,7 +84,7 @@ sd(batch3$x)
 mean(batch4$x)
 sd(batch4$x)
 ```
-
+Conclusion: Only focusing on means is dangerous. The distributions are crucial.
 
 
 

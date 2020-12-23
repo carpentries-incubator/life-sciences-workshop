@@ -10,11 +10,10 @@ keypoints:
 - Spreadsheets can be extremely useful, but they can also cause chaos
 ---
 
-Professor Daniel Lemire from the University of Quebec, in a popular blog post titled **'You shouldn’t use a spreadsheet for important work (I mean it)'**, 
+Professor Daniel Lemire from the University of Quebec, in a popular blog post titled **'You shouldn't use a spreadsheet for important work (I mean it)'**, 
 states that *"spreadsheets are good for quick and dirty work, but they are not designed for serious and reliable work"*. 
 
-In his post he cites the example of Professor Thomas Piketty and his book 'Capital in the 21st Century'. Piketty, aiming for transparency in his work, opening shared the 
-underlying datafiles containing his analysis. 
+In his post he cites the example of Professor Thomas Piketty and his book 'Capital in the 21st Century'. Piketty, aiming for transparency in his work, opening shared the underlying datafiles containing his analysis. 
 
 Unfortunately, he has used Excel to perform tasks such as merging different datasets and interpolating missing data, and errors were soon found. When corrected, the central thesis of the book was undermined.
 
@@ -30,14 +29,15 @@ Many more examples exist,
 
 #### **Example 3** - 'University of Toledo Loses $2.4 Million in Projected Revenue' (The Toledo Blade)
 
-*"UT officials have discovered an internal budgeting error that means they will have $2.4 million less to work with than anticipated. The mistake—a typo in a formula that led officials to overestimate projected revenue—was found Tuesday"*  
+*"UT officials have discovered an internal budgeting error that means they will have $2.4 million less to work with than anticipated. The mistake - typo in a formula that led officials to overestimate projected revenue - was found Tuesday"*  
 
-There is even an online list of [spreadsheet horror stories](http://www.eusprig.org/horror-stories.htm) by the The European Spreadsheet Risks Interest Group (EuSpRIG), 
-along with a growing body of literature around the details of such errors (e.g. [Rajalingham, K., Chadwick, D. R., & Knight, B. (2008). Classification of spreadsheet errors. arXiv preprint arXiv:0805.4224.](https://arxiv.org/abs/0805.4224)).
+There is even an online list of [spreadsheet horror stories](http://www.eusprig.org/horror-stories.htm) by the The European Spreadsheet Risks Interest Group (EuSpRIG), along with a growing body of literature around the details of such errors (e.g. [Rajalingham, K., Chadwick, D. R., & Knight, B. (2008). Classification of spreadsheet errors. arXiv preprint arXiv:0805.4224.](https://arxiv.org/abs/0805.4224)).
 
 So, when are spreadsheets the answer? And in those situations, how best should they be used?
 
-Spreadsheets are excellent at giving you a quick visual picture of your data. Further, they give the ability to change figures and then see the 
+Spreadsheets are excellent tools for data entry and this is perhaps the most common reason for using them.
+
+Beyond that, spreadsheets are excellent at giving you a quick visual picture of your data. Further, they give the ability to change figures and then see the 
 immediate effects (so called **'What-if' analysis**). They're also simple to use and ubiquitous, used for scientific experiments in schools from an early
 age.
 
@@ -72,4 +72,4 @@ The first step is to consider when using a spreadsheet is and is not appropriate
 > 5. Probably not
 > > ~~~
 > {: .solution}
-{: .exercise}
+{: .challenge}

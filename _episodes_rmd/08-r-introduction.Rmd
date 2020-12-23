@@ -33,3 +33,13 @@ lot better at handling huge amounts of data, and have advanced statistical and d
 5) **Cost**. R and Python are open-source and free to use
 
 6) **Community**. The R community is huge. Someone, somewhere, has probably already solved whatever coding problem you encounter
+
+
+### What about macros?
+
+Programs such as Excel are not completely limited to being used manually via the mouse and keyboard. Often, the ability to create macros is available, in order to allow automation and improve the reproducibility of data analysis processes.
+
+There are two ways to create macros in Excel. The first is to record a sequence of mouse clicks, the second is to code the macro in Visual Basic (via Excel's Visual Basic editor). In general, these are both good ways to make your analysis more reproducible and to reduce risk. However, analysis via R offers a wider range of analytical methods and greater collaborative potential due to being open-source.
+
+
+

@@ -7,7 +7,12 @@ exercises:
 questions:
 - "What are the basic features of R?"
 objectives:
-- "Start to get to grips with R coding"
+- "Understand basic R commands relating to simple arithmatic"
+- "Be able to create and manipulate data structures in R, such as vectors"
+- "Use built-in functions and access their corresponding help file"
+- "Use R functions to generate data"
+- "Understand the basic R data types"
+- "Be able to sub-set data"
 keypoints:
 - "Base R features and techniques"
 ---
@@ -118,6 +123,8 @@ sample1 + sample2
 [1] 10
 ~~~
 {: .output}
+
+Here we've added 6 and 4 via the assigned variables.
 
 Note that R is **case sensitive**. For example, 'sample' is not the sample as 'Sample'. Also keep in mind that variables should be named in a sensible and clear way in order to enhance reproducibility. For example, if you return to your code after a long break, and see a variable called 'b', you'll have some work to do to figure out what you meant. Life will be easier if you call it, for example, 'biomarker_CRP_mgml'. 
 
@@ -240,6 +247,7 @@ patients_ages >= 10
 
 We've just said 'are the elements of our vector, patients_ages, greater than or equal to 10?'
 
+
 ### Built-in Functions
 
 R comes with a huge number of functions, covering every possible data analysis and statistical requirement.
@@ -262,7 +270,7 @@ R comes with a huge number of functions, covering every possible data analysis a
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 ### Getting help
@@ -300,10 +308,11 @@ There are also a number of websites that may be of use, including,
 > >
 > > ~~~
 > > [1] 4.61
+> > We see the mean values from the 'numbers' vector
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 > ## Exercise: Built-in functions
@@ -322,15 +331,16 @@ There are also a number of websites that may be of use, including,
 > >
 > > ~~~
 > > [1] NA
+> > We get an 'NA' instead of a mean value. R will default to NA when NA values are present in the corresponding vector
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 > ## Exercise: Built-in functions
 >
-> Type for following and see if you can figure out how to amend the code in the above exercise to give you a sensible answer. Note, you may notice RStudio's auto-complete feature when typing the answer.
+> Type the following and see if you can figure out how to amend the code in the above exercise to give you a sensible answer. Note, you may notice RStudio's auto-complete feature when typing the answer.
 >
 >
 > ~~~
@@ -343,10 +353,11 @@ There are also a number of websites that may be of use, including,
 > >
 > > ~~~
 > > mean(numbers, na.rm = TRUE)
+> > We're telling the mean function to remove the NA values in the calculation using the 'na.rm' paramater
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 The above functions are useful for applying to existing numerical data. There are also functions that are useful for being applied to non-numerical data.
@@ -369,7 +380,7 @@ The above functions are useful for applying to existing numerical data. There ar
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 There are also plenty of functions for *creating* data. For example, **rnorm()** will give you random numbers from the normal distribution.
 
@@ -388,11 +399,11 @@ There are also plenty of functions for *creating* data. For example, **rnorm()**
 > >
 > > ~~~
 > > rnorm(n = 100, mean = 10, sd = 2)
-> > The numbers change each time you run the code
+> > The numbers change each time you run the code. This is because R is generating a new set of random data-points each time
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 > ## Exercise: Setting the seed
@@ -409,11 +420,11 @@ There are also plenty of functions for *creating* data. For example, **rnorm()**
 > >
 > >
 > > ~~~
-> > The output from rnorm() is the same each time
+> > The output from rnorm() is the same each time. This 'set seed' function forces R to choose the same 'random' data-points each time. This is essential if you want to ensure your outputs are the same each time
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 Other useful functions are **seq()** and **rep()**, which general a sequence of numbers and repeated numbers (or words), respectively.
@@ -434,7 +445,7 @@ Other useful functions are **seq()** and **rep()**, which general a sequence of 
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 > ## Exercise: sqrt()
@@ -452,7 +463,7 @@ Other useful functions are **seq()** and **rep()**, which general a sequence of 
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 > ## Exercise: sample()
@@ -470,7 +481,7 @@ Other useful functions are **seq()** and **rep()**, which general a sequence of 
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 ### Data types and structures
@@ -517,7 +528,7 @@ This tells you where the missing values are, which you can then use with your co
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 Data structures are collections of the above, and we've already seen one of these, too (vectors). The other main ones that you're likely to encounter are,
 
@@ -548,10 +559,11 @@ Subsetting typically works by indicting the position or index of the data that y
 > >
 > > ~~~
 > > [1] 1.558708, [1] 1.55870831 0.07050839 0.12928774
+> > You have picked out the 3rd value, and then the 3rd - 5th values, respectively
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 > ## Exercise: Subsetting matrices by column
@@ -583,7 +595,7 @@ Subsetting typically works by indicting the position or index of the data that y
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 
@@ -607,7 +619,7 @@ matrix_example[c(1:2),]
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 > ## Exercise: Subsetting strings
@@ -629,7 +641,7 @@ matrix_example[c(1:2),]
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
 Subsetting not only works by specifying index values, but it can also be done based upon **logical** (or **Boolean**) values. Effectively, picking out rows, columns or cells that are **TRUE** or **FALSE**. Earlier we created a vector called na_example. Let's see how you could **impute** the missing values using this subsetting idea,

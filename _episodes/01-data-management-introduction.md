@@ -1,5 +1,5 @@
 ---
-title: "Project Organisation: Introduction"
+title: "Data Management: Introduction"
 teaching: 10
 exercises: 5
 questions:
@@ -7,16 +7,14 @@ questions:
 - What are some common issues with not having a clear plan for the naming and storage of files?
 - Why is this important? (reproducible research)
 objectives:
-- Understand that it all starts here
+- Appreciate the potential hazards of poor data management
 keypoints:
 - Good data organization is the foundation of any research project
 ---
 
 ### Data Chaos
 
-Today, many people organise the files associated with some sort of data project in the same manner as they've always done it. Namely, to save files in a sporadic fashion with generic filenames, often
-differing from project to project. The result is **waste**. Wasted time, wasted money and wasted effort, plus the obvious risks of mistakes, with files being lost, shared with the wrong people, or incorrect 
-files being used for subsequent analysis.
+Today, many people organise the files associated with some sort of data project in the same manner as they've always done it. Namely, to save files in a sporadic fashion with generic filenames, often differing from project to project. The result is **waste**. Wasted time, wasted money and wasted effort, plus the obvious risks of mistakes, with files being lost, shared with the wrong people, or incorrect files being used for subsequent analysis.
 
 Have you ever experienced a conversation such as the following?
 
@@ -42,15 +40,15 @@ Without these core ideas, the most sophisticated data analysis in the world will
 
 #### **Example 1** - 'Westpac jumps the gun on profit' (The Sydney Morning Herald)
 
-*"Westpac was forced to halt trading on its shares and deliver its annual profit briefing a day early after it accidentally sent its results by email to research analysts"*
+*"Westpac was forced to halt trading on its shares and deliver its annual profit briefing a day early after it accidentally sent its results by email to research analysts"* [link](https://www.smh.com.au/business/westpac-jumps-the-gun-on-profit-20051103-gdmdcg.html)
 
 #### **Example 2** - 'Hypertension retracts paper over data glitch' (retractionwatch.com)
 
-*"Hypertension, a journal published by the American Heart Association, has retracted a 2011 paper looking at the implications of blood pressure management guidelines after the authors discovered they had bungled the merging of their data files"*
+*"Hypertension, a journal published by the American Heart Association, has retracted a 2011 paper looking at the implications of blood pressure management guidelines after the authors discovered they had bungled the merging of their data files"* [link](https://retractionwatch.com/2012/08/16/hypertension-retracts-paper-over-data-glitch/)
 
 #### **Example 3** - 'Data questions prompt retraction of PLOS ONE cardiovascular paper' (retractionwatch.com)
 
-*"PLoS One has retracted a 2013 article on atherosclerosis in mice over concerns about the integrity of the data"*  
+*"PLoS One has retracted a 2013 article on atherosclerosis in mice over concerns about the integrity of the data"* [link](https://retractionwatch.com/2014/09/25/data-questions-prompt-retraction-of-plos-one-cardiovascular-paper/)
 
 These are big, headline-making examples, but similar problems are almost certainly widespread.
 
@@ -59,19 +57,16 @@ However, the good news is that huge strides can be taken away from such potentia
 
 ### Reproducible Research
 
-This isn't just about preventing mistakes or taking a while to find a file. There is a larger issue here, all to do with the concept of **reproducible research**. This is the idea that when you're 
-working on a project that involves data analysis, that analysis can be redone *precisely* at some future point, allowing all results to be checked and verified.
+This isn't just about preventing mistakes or taking a while to find a file. There is a larger issue here, all to do with the concept of **reproducible research**. This is the idea that when you're working on a project that involves data analysis, that analysis can be redone *precisely* at some future point, allowing all results to be checked and verified.
 
 There is also an efficiency aspect, and simply not being constantly frustrated when working on a project. Below is an attempt to illustrate the point,
 showing that data management, when done well, can save time and confusion.
 
-![alt text](../fig/00-data-management-effort.png "Data management")
+![alt text](../fig/00-data-management-effort.png "An overview of how different projects might proceed with and without basic data management efforts. In this hypothetical example, the effort over time varies over an extended time-frame, as general data usage becomes difficult and frustrating")
 
 
 > ## Exercise: Data problems
 >
-> Think about issues you've encountered over the years relating to data. What were they? Issues around finding data? Knowing what the data is when you do find it? Knowing what's been done to data 
-and by whom? Etc.
+> Think about issues you've encountered over the years relating to data. What were they? Issues around finding data? Knowing what the data is when you do find it? Knowing what's been done to data and by whom? Etc.
 >
->
-{: .exercise}
+{: .challenge}

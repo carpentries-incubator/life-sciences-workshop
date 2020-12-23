@@ -7,7 +7,10 @@ exercises: 45
 questions:
 - "How do we get going with real data?"
 objectives:
-- "Start to deal with real data and replicate some of the tasks done in spreadsheets"
+- "Be able to load data into R from a CSV file"
+- "Understand the concept of dataframes in R, and their most common corresponding functions"
+- "Be able to create basic plots, and appreciate the importance of exploring data through visualisations"
+- "Be able to load R's build-in datasets"
 keypoints:
 - "Analysis code is built line-by-line"
 ---
@@ -63,7 +66,7 @@ We can also investigate the dataframe using code,
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 With this last command you may notice that underneath the output, it says 'Levels'. If you expand the 'df' object in your environment panel (by clicking the down-arrow next to it), you'll see that the column X1 is a **'factor'**. Factors are another important data type in R, and they're used to represent categorical data. These categories can be unordered, such as 'Male and 'Female', or ordered, such as 'High', 'Medium' and 'Low'. As you can see, the categories (or level) here are A, B, C, D, E, F, G and H.
 
@@ -92,7 +95,7 @@ Data-frames are the work-horses of a lot of data analysis in R. As you saw above
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 There are lots of useful tools in R for working with data-frames,
 
@@ -111,7 +114,7 @@ There are lots of useful tools in R for working with data-frames,
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 Note, when an R function gives you multiple values, you can just get individual values by indexing with square brackets. For example,
 
@@ -180,10 +183,10 @@ This is much better, but there is still an issue. The number of columns, 13, is 
 > > ~~~
 > > {: .output}
 > {: .solution}
-{: .exercise}
+{: .challenge}
 
 
-Data-frames can be combined and merged in a number of ways, arguably the most useful functions being **merge()**, **rbind()** and **cbind()**.
+Data-frames can be combined and merged in a number of ways, arguably the most useful functions being **rbind()**, **cbind()** and **merge()**.
 
 First, let's create two example data-frames to test the functions,
 
@@ -205,17 +208,46 @@ df_rbind = rbind(df_1, df_2)
 This stacks the data-frames back by row. cbind() does the same by column. Not that these functions need the two data-frames to have the same number
 of rows or columns, respectively.
 
-Next, here is how you use **merge()**,
+Next, let's look at how to use **merge()**. First, create the following data-frames,
 
 
 ~~~
-df_merged = merge(df_1, df_1, by = 'Col_1')
+samples = data.frame('SampleID' = c(1:10), 
+                     'Measurement' = rnorm(10,10,5))
+
+patients = data.frame('Name' = c(rep('Bob',3), rep('Bill',2), rep('Bernard',5)), 
+                      'Treatment' = c(rep('Drug A', 5), rep('Drug B', 5)),
+                      'SampleID' = c(1:10))
 ~~~
 {: .language-r}
 
-What just happened? We've merged according to the values in 'Col_1', so the data-frames have been merged where these values match. In this case, it's 
-the same data-frame twice, but you can see how you could combine two different data-frames where-ever they have a **common column**. This is how data
-is structured in many **databases**, where different tables relate to one-another with a common column or **key**.
+Have a look at the these data-frames. They're what you might typically see in the tables of a relational database, where different aspects are stored in different tables, with a **key** being available to connect them. In this case, the key is the 'SampleID' column. Let's merge them using this key,
+
+
+~~~
+df_merged = merge(patients, samples, by = 'SampleID')
+~~~
+{: .language-r}
+
+Note that the two merging columns can have different names.
+
+What just happened? We've merged according to the values in 'SampleID', so the data-frames have been merged where these values match. In many situations, you might have missing values in one or both of the data-frames. For example,
+
+
+~~~
+patients$SampleID[4] = NA
+~~~
+{: .language-r}
+
+Take a look at the patients data. Bill is now missing a value for 'drug A'. Re-run the merging code above and see what happens. You'll see that the line corresponding to the missing data is completely ignored. In situations like this, it's possible to force R to include whatever data it does have available. For example, run the following,
+
+
+~~~
+df_merged = merge(samples, patients, by = 'SampleID', all.y = TRUE)
+~~~
+{: .language-r}
+
+Now it has included the data that it could not originally merge. This may be useful if, say, you wanted to maintain the original number of rows.
 
 Finally on data-frames, save your data with **write.csv()**,
 
@@ -236,7 +268,7 @@ plot(df$Col_2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-12-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 
 We've used a couple of new things here. First, we've used the **plot()** function, and second, we've picked out a column from the data-frame with the **$** symbol. This is a shortcut in R, and the auto-fill should help you whenever you type the name of a data-frame, followed by this symbol.
 
@@ -252,7 +284,7 @@ plot(df$Col_2,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-12-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
 
 This may look like a lot of effort for one plot, but remember that this is now completely transparent, reproducible, and the code could be reused over and over. For more details on the plot function, have a look at the help files.
 
@@ -267,7 +299,7 @@ boxplot(df$Col_2 ~ df$Sample)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-12-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
 
 Don't worry too much about the first two lines. What they're doing is creating a new (made-up) column called 'Sample' and setting every value to be 'Sample 1'. It then sets the 5th through to the 8th values to be equal to 'Sample 2'. The boxplot is then plotting the numerical values in column 2 split by this new variable. This is of course easier when your data already has such categories.
 
@@ -279,7 +311,7 @@ hist(df$Col_2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-12-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
 
 This plot isn't particularly interesting with this particular dataset. Recall earlier when we saw the **rnorm()** function? Let's now plot that data to see what we get,
 
@@ -289,7 +321,7 @@ hist(rnorm(n = 1000))
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-12-unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
 
 As expected, we see a normal distribution, centered on 0.
 
@@ -334,7 +366,7 @@ abline(lm(anscombe$y4 ~ anscombe$x4), col = 'red')
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-12-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-12-unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" width="612" style="display: block; margin: auto;" />
 
 We see that they're very different. This is a famous example called [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet), and highlights the perils of trying to use summary statistics to understand your data.
 
@@ -348,8 +380,8 @@ data()
 
 > ## Exercise: Built-in datasets
 >
-> Load the pre-installed dataset 'ChickWeight' or 'ToothGrowth' and explore it via any of the functions we've covered so far.
+> Load the pre-installed dataset 'ChickWeight' or 'ToothGrowth' and explore it via any of the functions we've covered so far, including plots
 >
 >
-{: .exercise}
+{: .challenge}
 
