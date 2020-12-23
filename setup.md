@@ -29,4 +29,4 @@ and clicking 'Clone or download' followed by 'Download zip'. Extract the files i
 
 1. In R, run the following code,
 
-* install.packages(c('ggplot2', 'drc'))
+* install.packages(c('ggplot2', 'drc', 'pwr'))
